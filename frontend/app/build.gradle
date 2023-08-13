@@ -7,6 +7,10 @@ android {
     namespace 'com.example.ohgamja_frontend'
     compileSdk 33
 
+    buildFeatures{
+        viewBinding true
+    }
+
     defaultConfig {
         applicationId "com.example.ohgamja_frontend"
         minSdk 30
