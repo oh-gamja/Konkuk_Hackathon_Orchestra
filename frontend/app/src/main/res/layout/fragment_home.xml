@@ -4,19 +4,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment"
+    android:background="@color/black">
 
     <TextView
-        android:id="@+id/text_home"
+        android:layout_width="74dp"
+        android:layout_height="28dp"
+        android:text="술이슬쩍"
+        android:textColor="#7C91E5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="18dp"
+        android:textSize="18dp"
+        android:textStyle="bold"></TextView>
+    <TextView
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="검색"
+        android:gravity="center_vertical"
+        android:background="@drawable/radius3"
+        android:textColor="#6F6F6F"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="57dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        tools:layout_editor_absoluteX="20dp"></TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="110dp"
+        android:layout_marginLeft="24dp"
+        tools:ignore="Orientation">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="선택한 필터가 없습니다."
+            android:textColor="@color/white"></TextView>
+
+        <TextView
+            android:id="@+id/check1Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text=""></TextView>
+
+        <TextView
+            android:id="@+id/check2Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text=""></TextView>
+
+        <TextView
+            android:id="@+id/check3Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text=""></TextView>
+
+        <TextView
+            android:id="@+id/check4Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text=""></TextView>
+
+        <TextView
+            android:id="@+id/threeToFiveFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text=""></TextView>
+
+        <TextView
+            android:id="@+id/sixToEightFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text=""></TextView>
+
+        <TextView
+            android:id="@+id/nineToFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text=""></TextView>
+
+        <TextView
+            android:id="@+id/easyFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text=""></TextView>
+
+        <TextView
+            android:id="@+id/mediumFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text=""></TextView>
+
+        <TextView
+            android:id="@+id/difficultFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text=""></TextView>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="145dp"
+        android:layout_marginBottom="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_marginBottom="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:background="#7C91E5"
+        app:layout_constraintBottom_toBottomOf="parent"></View>
 </androidx.constraintlayout.widget.ConstraintLayout>
