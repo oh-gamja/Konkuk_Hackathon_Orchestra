@@ -1,16 +1,16 @@
-package com.example.ohgamja_frontend.ui.playlists
+package com.example.ohgamja_frontend.ui.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ohgamja_frontend.databinding.FragmentPlaylistsBinding
+import com.example.ohgamja_frontend.databinding.FragmentAddListDialogBinding
 
-class PlaylistFragment : Fragment() {
+class AddListDialogFragment : DialogFragment() {
 
-    private lateinit var binding : FragmentPlaylistsBinding
+    private lateinit var binding : FragmentAddListDialogBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,7 @@ class PlaylistFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentPlaylistsBinding.inflate(inflater)
+        binding = FragmentAddListDialogBinding.inflate(inflater)
 
         val items = arrayListOf<PlaylistViewModel>()
 
@@ -36,17 +36,15 @@ class PlaylistFragment : Fragment() {
         items.add(PlaylistViewModel("플레이리스트8",10))
         items.add(PlaylistViewModel("플레이리스트9",11))
 
-        val rv = binding.playRv
-        val playlistsAdapter = PlaylistsAdapter(items)
+        val Drv = binding.dialogRv
+        val DialogAdapter = DialogAdapter(items)
 
-        rv.adapter = playlistsAdapter
-        rv.layoutManager = LinearLayoutManager(context)
+        Drv.adapter = DialogAdapter
+        Drv.layoutManager = LinearLayoutManager(context)
 
-        binding.playlistAddButton.setOnClickListener {
-            val dialog = NewListDialogFragment()
-            dialog.show(requireActivity().supportFragmentManager,"DialogFragment")
+        binding.cancelButton.setOnClickListener {
+            //취소
         }
-
 
         return binding.root
     }
