@@ -7,6 +7,13 @@ spring:
 
 ---
 
+oauth:
+  kakao:
+    iss: "https://kauth.kakao.com"
+    client-id: ${OAUTH_KAKAO_CLIENT_ID} # Kakao Developers CoNet REST API Key
+
+---
+
 spring:
   config:
     activate:
