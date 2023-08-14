@@ -1,14 +1,13 @@
-.DS_Store
+.DS_Store/
 
-frontend/.DS_Store
+frontend/.DS_Store/
 
-backend/.DS_Store
-.DS_Store
+backend/.DS_Store/
 
-frontend/.gradle
+frontend/.gradle/
 
-frontend/.idea
+frontend/.idea/
 
-backend/.gradle
+backend/.gradle/
 
-backend/.idea
+backend/.idea/
