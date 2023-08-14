@@ -4,3 +4,11 @@ frontend/.DS_Store
 
 backend/.DS_Store
 .DS_Store
+
+frontend/.gradle
+
+frontend/.idea
+
+backend/.gradle
+
+backend/.idea
