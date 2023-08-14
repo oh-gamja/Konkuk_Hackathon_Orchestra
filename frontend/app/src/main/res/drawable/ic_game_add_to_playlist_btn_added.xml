@@ -1,10 +1,13 @@
-<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_234_1599)">
-<path d="M11.6666 8.33333H1.66663V10H11.6666V8.33333ZM11.6666 5H1.66663V6.66667H11.6666V5ZM1.66663 13.3333H8.33329V11.6667H1.66663V13.3333ZM17.9166 9.58333L19.1666 10.8333L13.3416 16.6667L9.58329 12.9167L10.8333 11.6667L13.3416 14.1667L17.9166 9.58333Z" fill="#D5799C"/>
-</g>
-<defs>
-<clipPath id="clip0_234_1599">
-<rect width="20" height="20" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="20dp"
+    android:viewportWidth="20"
+    android:viewportHeight="20">
+  <group>
+    <clip-path
+        android:pathData="M0,0h20v20h-20z"/>
+    <path
+        android:pathData="M11.667,8.333H1.667V10H11.667V8.333ZM11.667,5H1.667V6.667H11.667V5ZM1.667,13.333H8.333V11.667H1.667V13.333ZM17.917,9.583L19.167,10.833L13.342,16.667L9.583,12.917L10.833,11.667L13.342,14.167L17.917,9.583Z"
+        android:fillColor="#D5799C"/>
+  </group>
+</vector>

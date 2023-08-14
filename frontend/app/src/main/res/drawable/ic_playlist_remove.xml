@@ -1,4 +1,13 @@
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM8 14.4C11.5346 14.4 14.4 11.5346 14.4 8C14.4 4.46538 11.5346 1.6 8 1.6C4.46538 1.6 1.6 4.46538 1.6 8C1.6 11.5346 4.46538 14.4 8 14.4Z" fill="#7C91E5"/>
-<rect x="4" y="7.20001" width="8" height="1.6" fill="#7C91E5"/>
-</svg>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="16dp"
+    android:height="16dp"
+    android:viewportWidth="16"
+    android:viewportHeight="16">
+  <path
+      android:pathData="M8,16C12.418,16 16,12.418 16,8C16,3.582 12.418,0 8,0C3.582,0 0,3.582 0,8C0,12.418 3.582,16 8,16ZM8,14.4C11.535,14.4 14.4,11.535 14.4,8C14.4,4.465 11.535,1.6 8,1.6C4.465,1.6 1.6,4.465 1.6,8C1.6,11.535 4.465,14.4 8,14.4Z"
+      android:fillColor="#7C91E5"
+      android:fillType="evenOdd"/>
+  <path
+      android:pathData="M4,7.2h8v1.6h-8z"
+      android:fillColor="#7C91E5"/>
+</vector>

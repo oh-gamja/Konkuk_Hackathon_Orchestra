@@ -1,6 +1,18 @@
-<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="13" cy="13" r="13" fill="#C7CFFF"/>
-<rect x="4" y="7" width="18" height="1.5" rx="0.75" fill="black"/>
-<rect x="4" y="12.25" width="18" height="1.5" rx="0.75" fill="black"/>
-<rect x="4" y="18.25" width="18" height="1.5" rx="0.75" fill="black"/>
-</svg>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="26dp"
+    android:height="26dp"
+    android:viewportWidth="26"
+    android:viewportHeight="26">
+  <path
+      android:pathData="M13,13m-13,0a13,13 0,1 1,26 0a13,13 0,1 1,-26 0"
+      android:fillColor="#C7CFFF"/>
+  <path
+      android:pathData="M4.75,7L21.25,7A0.75,0.75 0,0 1,22 7.75L22,7.75A0.75,0.75 0,0 1,21.25 8.5L4.75,8.5A0.75,0.75 0,0 1,4 7.75L4,7.75A0.75,0.75 0,0 1,4.75 7z"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M4.75,12.25L21.25,12.25A0.75,0.75 0,0 1,22 13L22,13A0.75,0.75 0,0 1,21.25 13.75L4.75,13.75A0.75,0.75 0,0 1,4 13L4,13A0.75,0.75 0,0 1,4.75 12.25z"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M4.75,18.25L21.25,18.25A0.75,0.75 0,0 1,22 19L22,19A0.75,0.75 0,0 1,21.25 19.75L4.75,19.75A0.75,0.75 0,0 1,4 19L4,19A0.75,0.75 0,0 1,4.75 18.25z"
+      android:fillColor="#000000"/>
+</vector>
