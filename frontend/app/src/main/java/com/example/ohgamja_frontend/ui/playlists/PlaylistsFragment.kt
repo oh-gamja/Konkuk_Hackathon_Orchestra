@@ -34,7 +34,7 @@ class PlaylistFragment : Fragment() {
         items.add(PlaylistViewModel("플레이리스트6",8))
         items.add(PlaylistViewModel("플레이리스트7",9))
         items.add(PlaylistViewModel("플레이리스트8",10))
-        items.add(PlaylistViewModel("플레이리스트9",11))
+        items.add(PlaylistViewModel("플레이리스트10",11))
 
         val rv = binding.playRv
         val playlistsAdapter = PlaylistsAdapter(items)
