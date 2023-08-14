@@ -1,13 +1,16 @@
 package com.example.ohgamja_frontend.ui.home
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.ohgamja_frontend.MainActivity
+import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.FragmentMypageBinding
 import com.example.ohgamja_frontend.databinding.FragmentPlaylistsBinding
 import com.kakao.sdk.auth.model.OAuthToken
@@ -23,6 +26,25 @@ class MypageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMypageBinding.inflate(inflater, container, false)
+
+        val dialog_logout = LayoutInflater.from(context).inflate(R.layout.dialog_logout,null)
+        val mBuilder_logout = AlertDialog.Builder(context)
+            .setView(dialog_logout)
+
+        val dialog_delete = LayoutInflater.from(context).inflate(R.layout.dialog_delete,null)
+        val mBuilder_delete = AlertDialog.Builder(context)
+            .setView(dialog_delete)
+
+        val delete_btn = binding.deleteBtn
+        val logout_btn = binding.logoutBtn
+
+        logout_btn.setOnClickListener {
+            mBuilder_logout.show()
+        }
+
+        delete_btn.setOnClickListener {
+            mBuilder_delete.show()
+        }
 
         return binding.root
     }
