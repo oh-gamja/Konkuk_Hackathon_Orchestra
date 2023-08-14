@@ -14,14 +14,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ohgamja_frontend.R
 import org.w3c.dom.Text
 
-class RVAdapter(val fragment: Fragment, val context: Context, val items : MutableList<RecyclerviewModel>) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
+class RVAdapter(val fragment: Fragment, val context: Context, val items : MutableList<RecyclerviewModel>, var mBulider : AlertDialog.Builder, var listvw : View) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_item,parent,false)
 
         return ViewHolder(view)
     }
+    interface ItemClick {
+        fun onClick(view : View, position: Int)
+    }
+    var itemClick : ItemClick? = null
 
     override fun onBindViewHolder(holder: RVAdapter.ViewHolder, position: Int) {
+        if(itemClick != null){
+            holder.itemView.setOnClickListener { v->
+                itemClick?.onClick(v,position)
+            }
+
+        }
         holder.bindItems(items[position])
     }
 
@@ -35,47 +45,21 @@ class RVAdapter(val fragment: Fragment, val context: Context, val items : Mutabl
             val rv_like = itemView.findViewById<ImageView>(R.id.likeBtn)
             val rv_list = itemView.findViewById<ImageView>(R.id.listBtn)
 
-
-
             var likeChance = false
 
-            var anyArray = arrayOf<String>("1","2","3","4")
-
-            var mDialogView = LayoutInflater.from(context).inflate(R.layout.dialog,null)
-            var mBuilder = AlertDialog.Builder(context)
-                .setView(mDialogView)
-                .setNegativeButton("취소", object : DialogInterface.OnClickListener {
-                    override fun onClick(dialog: DialogInterface, which: Int) {
-
-                    }
-                })
-                .setTitle("추가할 리스트를 선택하세요")
-                .setItems(anyArray){
-                        p0,p1 ->
-                    Toast.makeText(context,"gd",Toast.LENGTH_LONG).show()
-                }
-
-
-            if(mDialogView != null) {
-                mDialogView = null
-            }
-            mBuilder.setView(mDialogView)
-
-
             rv_list.setOnClickListener {
-                val mAlertDialog = mBuilder.show()
+                mBulider.show()
             }
-
-
 
 
             rv_like.setOnClickListener {
                 if(likeChance == false){
-                    rv_like.setImageResource(R.drawable.ic_star_filled)
+                    rv_like.setImageResource(R.drawable.ic_like_heart_filled)
                     likeChance = true
+                    showToastMessage()
                 }
                 else if(likeChance == true){
-                    rv_like.setImageResource(R.drawable.ic_star_empty)
+                    rv_like.setImageResource(R.drawable.ic_like_heart_empty)
                     likeChance = false
                 }
             }
@@ -83,4 +67,8 @@ class RVAdapter(val fragment: Fragment, val context: Context, val items : Mutabl
             rv_title.text = item.itemTitle
         }
     }
+    private fun showToastMessage() {
+        CustomToast(context, "좋아요 목록에 추가되었습니다").show()
+    }
+
 }
