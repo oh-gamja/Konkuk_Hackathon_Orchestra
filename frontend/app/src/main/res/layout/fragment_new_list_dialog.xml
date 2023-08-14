@@ -3,64 +3,117 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:background="#D9D9D9">
+    android:layout_height="236dp"
+    android:background="@android:color/transparent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="플레이리스트 이름을 입력해주세요"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="@color/gray800"
+        app:cardCornerRadius="10dp">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:weightSum="2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
+                android:fontFamily="@font/lottemart_bold"
+                android:text="리스트명을 입력해주세요"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="65dp"
-            android:layout_height="35dp"
-            android:layout_weight="1"
-            android:layout_marginRight="10dp"
-            android:backgroundTint="@color/white"
-            android:text="확인"
-            android:textColor="@color/black"
-            android:textSize="9sp" />
+            <TextView
+                android:id="@+id/subtextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="15자 이내 리스트명만 가능합니다"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:fontFamily="@font/lottemart_light"
+                android:textColor="@color/gray300"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="65dp"
-            android:layout_height="35dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/white"
-            android:text="취소"
-            android:textColor="@color/black"
-            android:textSize="9sp" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="104dp"
+                android:layout_marginHorizontal="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:cardCornerRadius="5dp"
+                app:cardBackgroundColor="@color/gray500">
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="15">
 
-    </LinearLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lottemart_light"
+                        android:textSize="12dp"
+                        android:backgroundTint="@color/lavender_sub2"
+                        android:maxLength="15"/>
 
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="130dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="180dp"
+                android:layout_marginBottom="21dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="160dp"
+                android:background="@drawable/border_1dp_gray500_btn_background"
+                android:fontFamily="@font/lottemart_medium"
+                android:text="취소"
+                android:textColor="@color/gray500"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="130dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="180dp"
+                android:layout_marginBottom="21dp"
+                android:layout_marginLeft="160dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/border_1dp_lavender_main_btn_background"
+                android:fontFamily="@font/lottemart_medium"
+                android:text="추가"
+                android:textColor="@color/lavender_main"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

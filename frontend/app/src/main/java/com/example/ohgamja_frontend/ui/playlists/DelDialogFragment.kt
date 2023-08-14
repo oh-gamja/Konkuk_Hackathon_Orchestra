@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.example.ohgamja_frontend.databinding.FragmentNewListDialogBinding
+import com.example.ohgamja_frontend.databinding.FragmentDelDialogBinding
 
-class NewListDialogFragment : DialogFragment() {
+class DelDialogFragment : DialogFragment() {
 
-    private lateinit var binding : FragmentNewListDialogBinding
+    private lateinit var binding : FragmentDelDialogBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,11 +22,10 @@ class NewListDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentNewListDialogBinding.inflate(inflater)
+        binding = FragmentDelDialogBinding.inflate(inflater)
 
-        binding.button1.setOnClickListener {
-            //플리 추가됨
-            //binding.editText.text
+        binding.button2.setOnClickListener {
+            //플리 삭제됨
         }
 
         return binding.root

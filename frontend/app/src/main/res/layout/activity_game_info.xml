@@ -17,6 +17,7 @@
             <FrameLayout
                 android:id="@+id/infoTop"
                 android:layout_width="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
                 android:layout_height="360dp">
 
                 <ImageView
@@ -24,7 +25,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:background="#D9D9D9"
-                    android:src="@drawable/bts_2"
+                    android:src="@drawable/ic_botnav_heart_empty"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -46,7 +47,7 @@
                     android:layout_height="38dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
-                    android:src="@drawable/icon"
+                    android:src="@drawable/ic_botnav_heart_empty"
                     app:layout_constraintBottom_toBottomOf="@+id/mainImage"
                     app:layout_constraintEnd_toEndOf="parent" />
 

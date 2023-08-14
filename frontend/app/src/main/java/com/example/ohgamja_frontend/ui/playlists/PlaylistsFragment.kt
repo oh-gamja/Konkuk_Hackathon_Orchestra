@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ohgamja_frontend.databinding.FragmentPlaylistsBinding
 
-class PlaylistFragment : Fragment() {
+class PlaylistsFragment : Fragment() {
 
     private lateinit var binding : FragmentPlaylistsBinding
 

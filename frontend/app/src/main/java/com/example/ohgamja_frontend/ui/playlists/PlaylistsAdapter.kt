@@ -35,6 +35,9 @@ class PlaylistsAdapter(val items : ArrayList<PlaylistViewModel>) : RecyclerView.
             binding.rvDelButton.setOnClickListener {
                 items.removeAt(adapterPosition)
                 this@PlaylistsAdapter.notifyItemRemoved(adapterPosition)
+
+                val dialog = DelDialogFragment()
+                //dialog.show(this.supportFragmentManager,"DialogFragment")
             }
         }
 
