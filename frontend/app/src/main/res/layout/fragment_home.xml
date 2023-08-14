@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment"
-    android:background="@color/black">
+    android:background="@color/black"
+    tools:context=".ui.home.HomeFragment">
 
     <TextView
         android:id="@+id/textView"
@@ -19,34 +19,30 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
+
     <TextView
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="검색"
-        android:gravity="center_vertical"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginRight="22dp"
         android:background="@drawable/radius3"
+        android:gravity="center_vertical"
+        android:text="검색"
         android:textColor="#6F6F6F"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="57dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="22dp"
         tools:layout_editor_absoluteX="20dp"></TextView>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="110dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="110dp"
-        android:layout_marginLeft="24dp"
         tools:ignore="Orientation">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:text="선택한 필터가 없습니다."
-            android:textColor="@color/white"></TextView>
 
         <TextView
             android:id="@+id/check1Filter"
@@ -110,29 +106,251 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="실시간 TOP3"
-        android:textColor="@color/lavender_main"
+        android:layout_marginTop="111dp"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/gray500"></View>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:text="실시간 TOP3"
+            android:textColor="@color/lavender_main"
+            android:textSize="22dp"></TextView>
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/gray500"></View>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="141dp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="6dp"
+                android:text="TOP1"
+                android:textColor="@color/pink_sub2"
+                android:textSize="20dp"></TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/radius2"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_launcher_background"></ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="바니바니"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"></TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="7dp"
+                        app:srcCompat="@drawable/ic_like_heart_empty"></ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="200"
+                        android:textColor="@color/pink_sub2"
+                        android:textSize="16dp"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="6dp"
+                android:text="TOP2"
+                android:textColor="@color/pink_sub2"
+                android:textSize="20dp"></TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/radius2"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_launcher_background"></ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="바니바니"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"></TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="7dp"
+                        app:srcCompat="@drawable/ic_like_heart_empty"></ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="200"
+                        android:textColor="@color/pink_sub2"
+                        android:textSize="16dp"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="6dp"
+                android:text="TOP3"
+                android:textColor="@color/pink_sub2"
+                android:textSize="20dp"></TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/radius2"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_launcher_background"></ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="바니바니"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"></TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="7dp"
+                        app:srcCompat="@drawable/ic_like_heart_empty"></ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="200"
+                        android:textColor="@color/pink_sub2"
+                        android:textSize="16dp"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="330dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/gray500"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></View>
+
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="364dp"
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="22dp"
+        android:layout_marginTop="345dp"
         android:layout_marginRight="22dp"
+        android:layout_marginBottom="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:layout_marginBottom="70dp"
         android:layout_width="match_parent"
         android:layout_height="4px"
+        android:layout_marginBottom="70dp"
         android:background="#7C91E5"
         app:layout_constraintBottom_toBottomOf="parent"></View>
 </androidx.constraintlayout.widget.ConstraintLayout>
