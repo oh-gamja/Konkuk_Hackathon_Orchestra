@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="gray100">#DFDFDF</color>
+    <color name="gray200">#C1C1C1</color>
+    <color name="gray300">#A5A5A5</color>
+    <color name="gray400">#8B8B8B</color>
+    <color name="gray500">#6F6F6F</color>
+    <color name="gray600">#555555</color>
+    <color name="gray700">#3D3D3D</color>
+    <color name="gray800">#242424</color>
+    <color name="black">#000000</color>
+
+    <color name="background">#091D3C</color>
+    <color name="background1">#000000</color>
+    <color name="background2">#787FAA</color>
+    <color name="background3">#A9AECC</color>
+    <color name="background4">#1C1C1D</color>
+    <color name="background_black">#000000</color>
+
+    <color name="white45">#73FFFFFF</color>
+    <color name="success">#00C851</color>
+    <color name="error">#D7260D</color>
+    <color name="star">#F1C643</color>
+
+    <color name="pink_main">#EBB9CC</color>
+    <color name="pink_sub1">#E490B0</color>
+    <color name="pink_sub2">#D5799C</color>
+    <color name="blue">#3477D9</color>
+    <color name="lavender_back">#434F81</color>
+    <color name="lavender_main">#7C91E5</color>
+    <color name="lavender_sub1">#434F81</color>
+    <color name="lavender_sub2">#C7CFFF</color>
+
 </resources>
