@@ -8,352 +8,329 @@
     tools:context=".ui.home.HomeFragment">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="74dp"
-        android:layout_height="28dp"
-        android:layout_marginLeft="22dp"
+        android:id="@+id/home_title"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="18dp"
         android:text="술이슬쩍"
-        android:textColor="#7C91E5"
-        android:textSize="18dp"
-        android:textStyle="bold"
+        android:textColor="@color/lavender_main"
+        android:textSize="20sp"
+        android:fontFamily="@font/kcc_ganpan"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginRight="22dp"
+        android:layout_marginHorizontal="22dp"
+        android:layout_marginTop="13dp"
         android:background="@drawable/radius3"
         android:gravity="center_vertical"
-        android:text="     검색"
-        android:textColor="#6F6F6F"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="20dp"></TextView>
+        android:text="검색"
+        android:textColor="@color/gray500"
+        app:layout_constraintTop_toBottomOf="@id/home_title"
+        tools:layout_editor_absoluteX="20dp"
+        app:layout_goneMarginTop="3dp"/>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_marginTop="111dp"
-        app:layout_constraintEnd_toEndOf="parent"
+    <!--어떤 걸로 할까 edit text..?-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/search_bar"-->
+<!--        app:layout_constraintStart_toStartOf="parent">-->
+
+<!--    </LinearLayout>-->
+
+    <TextView
+        android:id="@+id/title_top3"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:text="실시간 TOP3"
+        android:fontFamily="@font/lottemart_medium"
+        android:textColor="@color/pink_sub2"
+        android:textSize="18dp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintTop_toBottomOf="@id/search_bar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:orientation="horizontal">
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/gray500"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/title_top3"
+        app:layout_constraintTop_toTopOf="@id/title_top3"
+        app:layout_constraintBottom_toBottomOf="@id/title_top3"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="4dp"/>
 
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/gray500"
+        app:layout_constraintStart_toEndOf="@id/title_top3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title_top3"
+        app:layout_constraintBottom_toBottomOf="@id/title_top3"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="20dp"/>
 
-            <TextView
-                android:id="@+id/check1Filter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"></TextView>
+    <!--top1-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="TOP 1"
+        android:fontFamily="@font/kcc_ganpan"
+        android:textSize="16dp"
+        android:textColor="@color/pink_sub2"
+        app:layout_constraintStart_toStartOf="@id/cv_top1"
+        app:layout_constraintEnd_toEndOf="@id/cv_top1"
+        app:layout_constraintBottom_toTopOf="@id/cv_top1"
+        android:layout_marginBottom="6dp"/>
+    
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_top1"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_top3"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="34dp">
 
-            <TextView
-                android:id="@+id/check2Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""></TextView>
-
-            <TextView
-                android:id="@+id/check3Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""></TextView>
-
-            <TextView
-                android:id="@+id/check4Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""></TextView>
-
-            <TextView
-                android:id="@+id/threeToFiveFilter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""></TextView>
-
-            <TextView
-                android:id="@+id/sixToEightFilter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""></TextView>
-
-            <TextView
-                android:id="@+id/nineToFilter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""></TextView>
-
-            <TextView
-                android:id="@+id/easyFilter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""></TextView>
-
-            <TextView
-                android:id="@+id/mediumFilter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""></TextView>
-
-            <TextView
-                android:id="@+id/difficultFilter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""></TextView>
-
-        </LinearLayout>
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/radius2">
 
-            <View
-                android:layout_width="120dp"
-                android:layout_height="2dp"
-                android:layout_gravity="center_vertical"
-                android:background="@color/gray500"></View>
+            <ImageView
+                android:id="@+id/iv_top1"
+                android:layout_width="match_parent"
+                android:layout_height="102dp"
+                android:src="@drawable/ex_rabbit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            
+            <TextView
+                android:id="@+id/tv_top1_title"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:text="바니바니"
+                android:fontFamily="@font/lottemart_medium"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_top1"
+                android:layout_marginTop="2dp"/>
+
+            <ImageView
+                android:id="@+id/iv_top1_heart"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                android:layout_width="10dp"
+                android:layout_height="8.82dp"
+                android:src="@drawable/ic_like_heart_empty"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tv_top1_num"
+                android:layout_marginBottom="6dp"/>
 
             <TextView
+                android:id="@+id/tv_top1_num"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                android:text="실시간 TOP3"
+                android:layout_height="16dp"
+                android:text="200"
+                android:fontFamily="@font/kcc_ganpan"
+                android:textSize="12dp"
                 android:textColor="@color/pink_sub2"
-                android:textSize="22dp"></TextView>
+                app:layout_constraintStart_toEndOf="@id/iv_top1_heart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="7dp"
+                android:layout_marginBottom="3dp"/>
 
-            <View
-                android:layout_width="120dp"
-                android:layout_height="2dp"
-                android:layout_gravity="center_vertical"
-                android:background="@color/gray500"></View>
-        </LinearLayout>
 
-        <LinearLayout
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--top2-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="TOP 2"
+        android:fontFamily="@font/kcc_ganpan"
+        android:textSize="16dp"
+        android:textColor="@color/pink_sub2"
+        app:layout_constraintStart_toStartOf="@id/cv_top2"
+        app:layout_constraintEnd_toEndOf="@id/cv_top2"
+        app:layout_constraintBottom_toTopOf="@id/cv_top2"
+        android:layout_marginBottom="6dp"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_top2"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintStart_toEndOf="@id/cv_top1"
+        app:layout_constraintEnd_toStartOf="@id/cv_top3"
+        app:layout_constraintTop_toBottomOf="@id/title_top3"
+        android:layout_marginTop="34dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="10dp">
+            android:layout_height="match_parent"
+            android:background="@drawable/radius2">
 
-            <LinearLayout
+            <ImageView
+                android:id="@+id/iv_top2"
+                android:layout_width="match_parent"
+                android:layout_height="102dp"
+                android:src="@drawable/ex_rabbit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_top2_title"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:orientation="vertical">
+                android:layout_height="18dp"
+                android:text="바니바니"
+                android:fontFamily="@font/lottemart_medium"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_top2"
+                android:layout_marginTop="2dp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="6dp"
-                    android:text="TOP1"
-                    android:textColor="@color/pink_sub2"
-                    android:textSize="20dp"></TextView>
+            <ImageView
+                android:id="@+id/iv_top2_heart"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                android:layout_width="10dp"
+                android:layout_height="8.82dp"
+                android:src="@drawable/ic_like_heart_empty"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tv_top2_num"
+                android:layout_marginBottom="6dp"/>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/radius2"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_launcher_background"></ImageView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="바니바니"
-                        android:textColor="@color/white"
-                        android:textSize="18dp"></TextView>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginRight="7dp"
-                            app:srcCompat="@drawable/ic_like_heart_empty"></ImageView>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:text="200"
-                            android:textColor="@color/pink_sub2"
-                            android:textSize="16dp"></TextView>
-                    </LinearLayout>
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/tv_top2_num"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="6dp"
-                    android:text="TOP2"
-                    android:textColor="@color/pink_sub2"
-                    android:textSize="20dp"></TextView>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/radius2"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_launcher_background"></ImageView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="바니바니"
-                        android:textColor="@color/white"
-                        android:textSize="18dp"></TextView>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginRight="7dp"
-                            app:srcCompat="@drawable/ic_like_heart_empty"></ImageView>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:text="200"
-                            android:textColor="@color/pink_sub2"
-                            android:textSize="16dp"></TextView>
-                    </LinearLayout>
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="6dp"
-                    android:text="TOP3"
-                    android:textColor="@color/pink_sub2"
-                    android:textSize="20dp"></TextView>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/radius2"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_launcher_background"></ImageView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="바니바니"
-                        android:textColor="@color/white"
-                        android:textSize="18dp"></TextView>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginRight="7dp"
-                            app:srcCompat="@drawable/ic_like_heart_empty"></ImageView>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:text="200"
-                            android:textColor="@color/pink_sub2"
-                            android:textSize="16dp"></TextView>
-                    </LinearLayout>
-                </LinearLayout>
-
-            </LinearLayout>
+                android:layout_height="16dp"
+                android:text="200"
+                android:fontFamily="@font/kcc_ganpan"
+                android:textSize="12dp"
+                android:textColor="@color/pink_sub2"
+                app:layout_constraintStart_toEndOf="@id/iv_top2_heart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="7dp"
+                android:layout_marginBottom="3dp"/>
 
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <View
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--top3-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="TOP 3"
+        android:fontFamily="@font/kcc_ganpan"
+        android:textSize="16dp"
+        android:textColor="@color/pink_sub2"
+        app:layout_constraintStart_toStartOf="@id/cv_top3"
+        app:layout_constraintEnd_toEndOf="@id/cv_top3"
+        app:layout_constraintBottom_toTopOf="@id/cv_top3"
+        android:layout_marginBottom="6dp"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_top3"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_top3"
+        android:layout_marginEnd="22dp"
+        android:layout_marginTop="34dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@color/gray500"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></View>
+            android:layout_height="match_parent"
+            android:background="@drawable/radius2">
+
+            <ImageView
+                android:id="@+id/iv_top3"
+                android:layout_width="match_parent"
+                android:layout_height="102dp"
+                android:src="@drawable/ex_rabbit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_top3_title"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:text="바니바니"
+                android:fontFamily="@font/lottemart_medium"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_top3"
+                android:layout_marginTop="2dp"/>
+
+            <ImageView
+                android:id="@+id/iv_top3_heart"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                android:layout_width="10dp"
+                android:layout_height="8.82dp"
+                android:src="@drawable/ic_like_heart_empty"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tv_top3_num"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tv_top3_num"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:text="200"
+                android:fontFamily="@font/kcc_ganpan"
+                android:textSize="12dp"
+                android:textColor="@color/pink_sub2"
+                app:layout_constraintStart_toEndOf="@id/iv_top3_heart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="7dp"
+                android:layout_marginBottom="3dp"/>
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="22dp"
-            android:layout_marginBottom="100dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray500"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cv_top2"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="20dp"/>
+
+
 
     <View
         android:layout_width="match_parent"
@@ -361,4 +338,5 @@
         android:layout_marginBottom="70dp"
         android:background="#7C91E5"
         app:layout_constraintBottom_toBottomOf="parent"></View>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
