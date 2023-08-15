@@ -10,6 +10,8 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -35,7 +37,12 @@ class HomeFragment : Fragment() {
 
 
 
+        val searchBar = binding.searchBar
 
+        searchBar.setOnClickListener {
+            val i = Intent(requireContext(),SearchActivity::class.java)
+            startActivity(i)
+        }
 
         val list_item = mutableListOf<String>()
 
