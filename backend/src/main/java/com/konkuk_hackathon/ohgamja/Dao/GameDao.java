@@ -33,7 +33,7 @@ public class GameDao {
             gameDetail.setGameId(rs.getLong("game_id"));
             gameDetail.setGameName(rs.getString("game_name"));
             gameDetail.setCategory(rs.getString("category"));
-            gameDetail.setDifficulty(rs.getString("g.difficulty"));
+            gameDetail.setDifficulty(rs.getString("difficulty"));
             gameDetail.setHeadCount(rs.getInt("head_count"));
             gameDetail.setDescription(rs.getString("description"));
             gameDetail.setGameImage(rs.getString("game_image"));
