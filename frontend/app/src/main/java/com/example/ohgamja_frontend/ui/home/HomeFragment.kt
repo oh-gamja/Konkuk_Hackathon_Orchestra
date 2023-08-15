@@ -1,6 +1,7 @@
 package com.example.ohgamja_frontend.ui.home
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,6 +32,9 @@ class HomeFragment : Fragment() {
         var items = mutableListOf<RecyclerviewModel>()
 
         var listvw = LayoutInflater.from(requireContext()).inflate(R.layout.dialog,null)
+
+
+
 
 
         val list_item = mutableListOf<String>()
