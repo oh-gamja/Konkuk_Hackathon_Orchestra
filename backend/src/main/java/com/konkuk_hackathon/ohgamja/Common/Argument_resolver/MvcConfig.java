@@ -22,6 +22,7 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/auth/test");
         registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/games/all");
         registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/games/detail");
+        registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/games");
         registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/likes");
         registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/likes/add");
         registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/likes/remove");

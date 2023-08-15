@@ -37,7 +37,6 @@ public class GameDao {
             gameDetail.setHeadCount(rs.getInt("head_count"));
             gameDetail.setDescription(rs.getString("description"));
             gameDetail.setGameImage(rs.getString("game_image"));
-            gameDetail.setLikeCount(getLikeCount(gameId));
             return gameDetail;
         };
 
@@ -54,30 +53,28 @@ public class GameDao {
     }
 
     public List<GamePreview> getGamePreviews(String category, String name, int headCount) {
-        String sql = "SELECT g.game_id, g.game_name, g.category, g.difficulty, g.head_count, g.game_image, count(gl.member_id)" +
-                "FROM game AS g " +
-                "JOIN game_like AS gl " +
-                "WHERE true";
-        if(category!=null)
-            sql += " AND g.category=:category";
-        if(headCount!=0)
-            sql += " AND g.head_count<=:headCount";
-        if(name!=null)
-            sql += " AND g.name LIKE '%:name'";
+        System.out.println("category : " + category + " name : " + name + " headCount : " + headCount);
+
+        String sql = "select game_id, game_name, category, difficulty, head_count, game_image " +
+                "from game WHERE category=:category AND head_count<=:head_count AND game_name LIKE :game_name";
+
+        Map<String, Object> param = Map.of("category", category,
+                "head_count", headCount,
+                    "game_name", "%"+name+"%");
+
 
         RowMapper<GamePreview> mapper = (rs, rowNum) -> {
             GamePreview gamePreview = new GamePreview();
-            gamePreview.setGameId(rs.getLong("g.game_id"));
-            gamePreview.setGameName(rs.getString("g.game_name"));
-            gamePreview.setCategory(rs.getString("g.category"));
-            gamePreview.setDifficulty(rs.getString("g.difficulty"));
-            gamePreview.setHeadCount(rs.getInt("g.head_count"));
-            gamePreview.setGameImage(rs.getString("g.game_image"));
-            gamePreview.setLikeCount(rs.getInt("count(gl.member_id)"));
+            gamePreview.setGameId(rs.getLong("game_id"));
+            gamePreview.setGameName(rs.getString("game_name"));
+            gamePreview.setCategory(rs.getString("category"));
+            gamePreview.setDifficulty(rs.getString("difficulty"));
+            gamePreview.setHeadCount(rs.getInt("head_count"));
+            gamePreview.setGameImage(rs.getString("game_image"));
             return gamePreview;
         };
 
-        return jdbcTemplate.query(sql, mapper);
+        return jdbcTemplate.query(sql, param, mapper);
     }
 
     public Boolean getIsLike(Long gameId, Long memberId) {
@@ -99,7 +96,6 @@ public class GameDao {
             gamePreview.setHeadCount(rs.getInt("head_count"));
             gamePreview.setDifficulty(rs.getString("difficulty"));
             gamePreview.setGameImage(rs.getString("game_image"));
-            gamePreview.setLikeCount(getLikeCount(rs.getLong("game_id")));
             return gamePreview;
         };
 
