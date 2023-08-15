@@ -9,7 +9,7 @@ import com.example.ohgamja_frontend.databinding.ActivityMainBinding
 import com.example.ohgamja_frontend.ui.home.HomeFragment
 import com.example.ohgamja_frontend.ui.home.LikeFragment
 import com.example.ohgamja_frontend.ui.home.MypageFragment
-import com.example.ohgamja_frontend.ui.home.PlaylistsFragment
+import com.example.ohgamja_frontend.ui.playlists.PlaylistsFragment
 import com.kakao.sdk.common.util.Utility
 
 class MainActivity : AppCompatActivity() {

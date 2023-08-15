@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Ohgamjafrontend"
         tools:targetApi="31">
         <activity
+            android:name=".ui.home.GameInfoActivity"
+            android:exported="false" />
+        <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
             <intent-filter>

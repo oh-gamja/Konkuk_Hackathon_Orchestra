@@ -22,6 +22,7 @@
     <color name="white45">#73FFFFFF</color>
     <color name="success">#00C851</color>
     <color name="error">#D7260D</color>
+    <color name="delete">#FF6666</color>
     <color name="star">#F1C643</color>
 
     <color name="pink_main">#EBB9CC</color>
