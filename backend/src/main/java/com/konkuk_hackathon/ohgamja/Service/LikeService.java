@@ -38,13 +38,13 @@ public class LikeService {
     public LikeResponse addLike(Long memberId, Long gameId){
         GameLike gameLike = new GameLike(memberId, gameId);
         likeDao.save(gameLike);
-        return new LikeResponse("good");
+        return new LikeResponse("좋아요 추가에 성공하였습니다.");
     }
 
     public LikeResponse deleteLike(Long memberId, Long gameId){
         GameLike gameLike = new GameLike(memberId, gameId);
         likeDao.delete(gameLike);
-        return new LikeResponse("good");
+        return new LikeResponse("좋아요 취소에 성공하였습니다.");
     }
 
 }
