@@ -1,6 +1,8 @@
 package com.konkuk_hackathon.ohgamja.Dao;
 
+import com.konkuk_hackathon.ohgamja.Domain.GameLike;
 import com.konkuk_hackathon.ohgamja.Domain.LikeTopGame;
+import com.konkuk_hackathon.ohgamja.Domain.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -14,9 +16,11 @@ import java.util.Map;
 @Repository
 public class LikeDao {
     private final NamedParameterJdbcTemplate jdbcTemplate;
+
     public LikeDao(DataSource dataSource) {
         this.jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
     }
+
     public List<LikeTopGame> getLikeTop() {
         String sql = "select g.game_id, g.game_name, g.game_image, count(gl.member_id) " +
                 "from game as g join game_like as gl on g.game_id=gl.game_id " +
@@ -32,6 +36,25 @@ public class LikeDao {
         };
 
         return jdbcTemplate.query(sql, mapper);
+    }
+
+    public void delete(GameLike gameLike) {
+        String sql = "delete from game_lide as gl " +
+                "where gl.member_id=:member_id " +
+                "and gl.game_id=:game_id";
+        Map<String, Long> param = Map.of("member_id", gameLike.getMemberId(),
+                "game_id", gameLike.getGameId());
+
+        jdbcTemplate.update(sql, param);
+    }
+
+    public void save(GameLike gameLike) {
+        // duplicate check 필요할까?
+        String sql = "insert into game_like (member_id, game_id) values (:member_id, :game_id)";
+        Map<String, Long> param = Map.of("member_id", gameLike.getMemberId(),
+                "game_id", gameLike.getGameId());
+
+        jdbcTemplate.update(sql, param);
     }
 
 
