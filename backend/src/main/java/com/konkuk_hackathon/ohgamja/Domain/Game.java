@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Game {
+    private Long gameId;
     private String gameName;
     private String category;
     private String difficulty;

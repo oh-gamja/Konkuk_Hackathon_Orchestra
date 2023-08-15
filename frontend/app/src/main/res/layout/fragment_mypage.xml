@@ -3,7 +3,118 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="74dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="18dp"
+        android:text="술이슬쩍"
+        android:textColor="#7C91E5"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="90dp"
+        android:src="@color/star"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="128dp"
+        android:src="@drawable/ic_playlist_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+    <TextView
+        android:layout_width="89dp"
+        android:layout_height="26dp"
+        android:text="닉네임자리"
+        android:layout_marginTop="256dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="28dp"
+        android:textColor="@color/white"
+        android:text="ohgamja5555@gmail.com"
+        android:gravity="center"
+        android:background="@drawable/border_1dp_white_btn_background"
+        android:layout_marginTop="292dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="600dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/deleteBtn"
+            android:layout_width="135dp"
+            android:layout_height="40dp"
+            android:background="@drawable/border_2dp_pink_main_btn_background"
+            android:text="회원탈퇴"
+            android:layout_marginLeft="36dp"
+            android:layout_marginRight="15dp"
+            android:textColor="#EBB9CC"
+            android:layout_weight="1"></Button>
+
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="135dp"
+            android:layout_height="40dp"
+            android:background="@drawable/border_2dp_lavendar_main_btn_background"
+            android:text="로그아웃"
+            android:textColor="#7C91E5"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="36dp"
+            android:layout_weight="1"></Button>
+    </LinearLayout>
+
+    <View
+        android:layout_marginBottom="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:background="#7C91E5"
+        app:layout_constraintBottom_toBottomOf="parent"></View>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+
+
+
+
+
+    </LinearLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

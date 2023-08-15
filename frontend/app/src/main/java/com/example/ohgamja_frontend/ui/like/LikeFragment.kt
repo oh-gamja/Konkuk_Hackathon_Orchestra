@@ -15,6 +15,12 @@ class LikeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentLikeBinding.inflate(inflater, container, false)
+        //카카오 로그인 버튼 누를시 동작 구현
+        val login_btn = binding.loginBtn
+        login_btn.setOnClickListener {
+
+        }
+
         return binding.root
     }
 
