@@ -13,4 +13,17 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!--Counter-->
+        <item name="counterTextAppearance">@style/CounterTextAppearance</item>
+    </style>
+
+    <style name="CounterTextAppearance">
+        <item name="android:textSize">12dp</item>
+        <item name="android:fontFamily">@font/lottemart_light</item>
+        <item name="android:textColor">@color/lavender_sub2</item>
+    </style>
+
+
 </resources>
