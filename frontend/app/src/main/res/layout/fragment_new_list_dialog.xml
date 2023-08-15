@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="236dp"
-    android:background="@drawable/border_dialog"
+    android:background="@drawable/border_add_dialog"
     android:layout_gravity="center">
 
         <androidx.constraintlayout.widget.ConstraintLayout
