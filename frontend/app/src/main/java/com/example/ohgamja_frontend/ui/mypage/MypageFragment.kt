@@ -24,9 +24,12 @@ class MypageFragment : Fragment() {
     ): View {
         binding = FragmentMypageBinding.inflate(inflater, container, false)
 
+
+
         return binding.root
     }
 
+    /*
     private fun addKakaoLogin() {
         val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
             if (error != null) {
@@ -61,5 +64,7 @@ class MypageFragment : Fragment() {
             UserApiClient.instance.loginWithKakaoAccount(requireContext(), callback = callback)
         }
     }
+    */
+
 
 }
