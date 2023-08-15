@@ -29,7 +29,7 @@ public class AuthController {
 
     @DeleteMapping("/signout")
     public BaseResponse<SignOutResponse> SignOut(@PreAuthorize Long memberId) {
-        log.info("[AuthController.kakaoLogin]");
+        log.info("[AuthController.SignOut]");
         authService.SignOut(memberId);
         return new BaseResponse<>(new SignOutResponse(memberId));
     }

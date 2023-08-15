@@ -79,7 +79,7 @@ public class MemberDao {
     }
 
     public int delete(Long memberId) {
-        String sql = "delete from member where member_id=:memberId";
+        String sql = "delete from member where member_id=:member_id";
         Map<String, Long> param = Map.of("member_id", memberId);
 
         return jdbcTemplate.update(sql, param);
