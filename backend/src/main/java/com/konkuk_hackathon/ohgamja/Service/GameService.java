@@ -31,6 +31,15 @@ public class GameService {
         }
         return new GamesResponse(gamePreviews);
     }
+
+    public GamesResponse getAllGamePreviews(Long memberId) {
+        List<GamePreview> gamePreviews = gameDao.getAllGamePreviews();
+        for (GamePreview gamePreview : gamePreviews) {
+            Boolean isLike = gameDao.getIsLike(gamePreview.getGameId(), memberId);
+            gamePreview.setLike(isLike);
+        }
+        return new GamesResponse(gamePreviews);
+    }
 }
 
 

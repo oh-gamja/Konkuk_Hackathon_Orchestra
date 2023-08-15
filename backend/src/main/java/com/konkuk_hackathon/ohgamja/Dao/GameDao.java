@@ -88,4 +88,21 @@ public class GameDao {
         return jdbcTemplate.queryForObject(sql, param, Boolean.class);
     }
 
+    public List<GamePreview> getAllGamePreviews() {
+        String sql = "select * from game";
+
+        RowMapper<GamePreview> mapper = (rs, rowNum) -> {
+            GamePreview gamePreview = new GamePreview();
+            gamePreview.setGameId(rs.getLong("game_id"));
+            gamePreview.setGameName(rs.getString("game_name"));
+            gamePreview.setCategory(rs.getString("category"));
+            gamePreview.setHeadCount(rs.getInt("head_count"));
+            gamePreview.setDifficulty(rs.getString("difficulty"));
+            gamePreview.setGameImage(rs.getString("game_image"));
+            gamePreview.setLikeCount(getLikeCount(rs.getLong("game_id")));
+            return gamePreview;
+        };
+
+        return jdbcTemplate.query(sql, mapper);
+    }
 }

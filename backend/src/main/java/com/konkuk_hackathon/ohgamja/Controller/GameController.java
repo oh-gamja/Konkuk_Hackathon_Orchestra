@@ -28,4 +28,10 @@ public class GameController {
         GameResponse gameResponse = gameService.getGame(memberGameIdRequest.getGameId(), memberGameIdRequest.getMemberId());
         return new BaseResponse<>(gameResponse);
     }
+
+    @GetMapping("/all")
+    public BaseResponse<GamesResponse> getAllGamePreViews(@RequestBody @Valid MemberGameIdRequest memberGameIdRequest) {
+        GamesResponse gamesResponse = gameService.getAllGamePreviews(memberGameIdRequest.getMemberId());
+        return new BaseResponse<>(gamesResponse);
+    }
 }
