@@ -83,23 +83,23 @@ class HomeFragment : Fragment() {
                 "도박",
                 "8")
         )
-        val rv = binding.rv
-        val rvAdapter = RVAdapter(this,requireContext(),items, mBuilder,listvw)
-        val mainActivity = activity as MainActivity
+//        val rv = binding.rv
+//        val rvAdapter = RVAdapter(this,requireContext(),items, mBuilder,listvw)
+//        val mainActivity = activity as MainActivity
+//
+//        rv.adapter = rvAdapter
+//        rv.layoutManager = LinearLayoutManager(activity)
 
-        rv.adapter = rvAdapter
-        rv.layoutManager = LinearLayoutManager(activity)
-
-        rvAdapter.itemClick = object : RVAdapter.ItemClick{
-            override fun onClick(view: View, position: Int) {
-
-            }
-            private fun check(){
-                if(listvw != null){
-                    listvw = null
-                }
-            }
-        }
+//        rvAdapter.itemClick = object : RVAdapter.ItemClick{
+//            override fun onClick(view: View, position: Int) {
+//
+//            }
+//            private fun check(){
+//                if(listvw != null){
+//                    listvw = null
+//                }
+//            }
+//        }
 
         return binding.root
     }
