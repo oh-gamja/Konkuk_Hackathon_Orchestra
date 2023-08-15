@@ -1,7 +1,10 @@
 package com.konkuk_hackathon.ohgamja.Dao;
 
+import com.konkuk_hackathon.ohgamja.Domain.GamePreview;
 import com.konkuk_hackathon.ohgamja.Domain.LikeTopGame;
 import com.konkuk_hackathon.ohgamja.Domain.Playlist;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -60,5 +63,25 @@ public class PlaylistDao {
         Map<String, Long> param = Map.of("playlist_id", playlistId);
         jdbcTemplate.update(playlistDetailSql, param);
         jdbcTemplate.update(playlistSql, param);
+    }
+
+    public List<GamePreview> getPlaylistDetail(Long playlistId, Long memberId) {
+        String sql = "select g.game_id, g.game_name, g.category, g.difficulty, g.head_count, g.game_image " +
+                "from playlist_detail as pd join game as g on pd.game_id=g.game_id " +
+                "where playlist_id=:playlist_id";
+        Map<String, Long> param = Map.of("playlist_id", playlistId);
+
+        RowMapper<GamePreview> mapper = (rs, rowNum) -> {
+            GamePreview gamePreview = new GamePreview();
+            gamePreview.setGameId(rs.getLong("g.game_id"));
+            gamePreview.setGameName(rs.getString("g.game_name"));
+            gamePreview.setCategory(rs.getString("g.category"));
+            gamePreview.setDifficulty(rs.getString("g.difficulty"));
+            gamePreview.setHeadCount(rs.getInt("g.head_count"));
+            gamePreview.setGameImage(rs.getString("g.game_image"));
+            return gamePreview;
+        };
+
+        return jdbcTemplate.query(sql, param, mapper);
     }
 }
