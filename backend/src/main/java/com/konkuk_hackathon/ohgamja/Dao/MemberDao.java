@@ -29,9 +29,9 @@ public class MemberDao {
         return jdbcTemplate.query(sql, param, mapper);
     }
 
-    public Member findUserById(Long userId) {
+    public Member findUserById(Long memberId) {
         String sql = "select * from member where member_id=:member_id and status=1";
-        Map<String, Long> param = Map.of("member_id", userId);
+        Map<String, Long> param = Map.of("member_id", memberId);
 
         RowMapper<Member> mapper = (rs, rowNum) -> {
             Member member = new Member();
@@ -76,6 +76,13 @@ public class MemberDao {
         String sql = "select member_id from member where email=:email and status=1";
         Map<String, Object> param = Map.of("email", email);
         return jdbcTemplate.queryForObject(sql, param, long.class);
+    }
+
+    public int delete(Long memberId) {
+        String sql = "delete from member where member_id=:memberId";
+        Map<String, Long> param = Map.of("member_id", memberId);
+
+        return jdbcTemplate.update(sql, param);
     }
 
 }

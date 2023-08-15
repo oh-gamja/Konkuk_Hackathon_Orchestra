@@ -8,6 +8,7 @@ import com.konkuk_hackathon.ohgamja.Domain.Member;
 import com.konkuk_hackathon.ohgamja.Dto.Request.LoginRequest;
 import com.konkuk_hackathon.ohgamja.Dto.Response.KakaoPlatformUserResponse;
 import com.konkuk_hackathon.ohgamja.Dto.Response.LoginResponse;
+import com.konkuk_hackathon.ohgamja.Dto.Response.SignOutResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
@@ -55,12 +56,17 @@ public class AuthService {
         return jwtTokenProvider.createToken(findMember.getMemberId());
     }
 
-    public Long getUserIdByEmail(String email) {
+    public Long getMemberIdByEmail(String email) {
         try {
             return memberDao.findIdByEmail(email);
         } catch (IncorrectResultSizeDataAccessException e) {
             throw new InvalidTokenException(TOKEN_MISMATCH);
         }
+    }
+
+    public SignOutResponse SignOut(Long memberId){
+        memberDao.delete(memberId);
+        return new SignOutResponse(memberId);
     }
 }
 
