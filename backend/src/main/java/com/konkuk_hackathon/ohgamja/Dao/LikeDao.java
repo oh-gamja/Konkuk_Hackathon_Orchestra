@@ -79,5 +79,4 @@ public class LikeDao {
         jdbcTemplate.update(sql, param);
     }
 
-
 }
