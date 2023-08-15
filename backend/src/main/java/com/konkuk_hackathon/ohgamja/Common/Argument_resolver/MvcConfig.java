@@ -20,6 +20,7 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/auth/test");
+        registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/games");
         registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/games/all");
         registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/games/detail");
         registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/likes");

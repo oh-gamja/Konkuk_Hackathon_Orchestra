@@ -84,4 +84,13 @@ public class PlaylistDao {
 
         return jdbcTemplate.query(sql, param, mapper);
     }
+
+    public void delteGameInPlaylist(Long playlistId, Long gameId) {
+        String playlistDetailSql = "delete from playlist_detail " +
+                "where playlist_id=:playlist_id and game_id=:game_id";
+
+        Map<String, Long> param = Map.of("playlist_id", playlistId,
+                "game_id", gameId);
+        jdbcTemplate.update(playlistDetailSql, param);
+    }
 }

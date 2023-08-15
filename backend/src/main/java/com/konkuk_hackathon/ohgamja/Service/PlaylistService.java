@@ -22,7 +22,7 @@ public class PlaylistService {
 
     public String createPlaylist(String playlistName, Long memberId) {
         playlistDao.createPlaylist(playlistName, memberId);
-        return "good";
+        return "플레이리스트 생성에 성공하였습니다.";
     }
 
     public PlaylistsResponse getPlaylist(Long memberId) {
@@ -32,7 +32,7 @@ public class PlaylistService {
 
     public String daletePlaylist(Long playlistId) {
         playlistDao.deletePlaylist(playlistId);
-        return "good";
+        return "플레이리스트 삭제에 성공하였습니다.";
     }
 
     public GamesResponse getPlaylistDetail(Long playlistId, Long memberId) {
@@ -44,5 +44,10 @@ public class PlaylistService {
         }
 
         return new GamesResponse(gamePreviews);
+    }
+
+    public String delteGameInPlaylist(Long playlistId, Long gameId) {
+        playlistDao.delteGameInPlaylist(playlistId, gameId);
+        return "플레이리스트 속 게임 삭제에 성공하였습니다.";
     }
 }

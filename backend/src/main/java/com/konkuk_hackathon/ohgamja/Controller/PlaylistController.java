@@ -1,7 +1,9 @@
 package com.konkuk_hackathon.ohgamja.Controller;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
 import com.konkuk_hackathon.ohgamja.Common.Argument_resolver.PreAuthorize;
 import com.konkuk_hackathon.ohgamja.Common.Response.BaseResponse;
+import com.konkuk_hackathon.ohgamja.Dto.Request.GameInPlaylistRequest;
 import com.konkuk_hackathon.ohgamja.Dto.Request.PlaylistIdRequest;
 import com.konkuk_hackathon.ohgamja.Dto.Request.PlaylistRequest;
 import com.konkuk_hackathon.ohgamja.Dto.Response.GamesResponse;
@@ -41,6 +43,12 @@ public class PlaylistController {
     public BaseResponse<GamesResponse> getPlaylistDetail(@RequestBody @Valid PlaylistIdRequest playlistIdRequest, @PreAuthorize Long memberId) {
         GamesResponse gamesResponse = playlistService.getPlaylistDetail(playlistIdRequest.getPlaylistId(), memberId);
         return new BaseResponse<>(gamesResponse);
+    }
+
+    @DeleteMapping("/detail/remove")
+    public BaseResponse<String> delteGameInPlaylist(@RequestBody @Valid GameInPlaylistRequest gameInPlaylistRequest) {
+        String response = playlistService.delteGameInPlaylist(gameInPlaylistRequest.getPlaylistId(), gameInPlaylistRequest.getGameId());
+        return new BaseResponse<>(response);
     }
 
 }
