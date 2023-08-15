@@ -13,4 +13,5 @@ public class GameResponse {
     private String description;
     private String gameImage;
     private int likeCount;
+    private Boolean isLike;
 }

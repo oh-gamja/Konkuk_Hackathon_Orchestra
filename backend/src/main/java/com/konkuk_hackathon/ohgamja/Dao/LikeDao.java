@@ -1,6 +1,7 @@
 package com.konkuk_hackathon.ohgamja.Dao;
 
 import com.konkuk_hackathon.ohgamja.Domain.GameLike;
+import com.konkuk_hackathon.ohgamja.Domain.GamePreview;
 import com.konkuk_hackathon.ohgamja.Domain.LikeTopGame;
 import com.konkuk_hackathon.ohgamja.Domain.Member;
 import lombok.extern.slf4j.Slf4j;
@@ -38,10 +39,31 @@ public class LikeDao {
         return jdbcTemplate.query(sql, mapper);
     }
 
+    public List<GamePreview> getLike(Long memberId) {
+        String sql = "select g.game_id, g.game_name, g.category, g.difficulty, g.head_count, g.game_image, count(gl.member_id) " +
+                "from game as g join game_like as gl on g.game_id=gl.game_id " +
+                "where gl.member_id=:member_id group by gl.game_id order by count(gl.member_id) desc";
+        Map<String, Long> param = Map.of("member_id", memberId);
+
+        RowMapper<GamePreview> mapper = (rs, rowNum) -> {
+            GamePreview gamePreview = new GamePreview();
+            gamePreview.setGameId(rs.getLong("g.game_id"));
+            gamePreview.setGameName(rs.getString("g.game_name"));
+            gamePreview.setCategory(rs.getString("g.category"));
+            gamePreview.setHeadCount(rs.getInt("g.head_count"));
+            gamePreview.setDifficulty(rs.getString("g.difficulty"));
+            gamePreview.setGameImage(rs.getString("g.game_image"));
+            gamePreview.setLikeCount(rs.getInt("count(gl.member_id)"));
+            return gamePreview;
+        };
+
+        return jdbcTemplate.query(sql, param, mapper);
+    }
+
     public void delete(GameLike gameLike) {
-        String sql = "delete from game_lide as gl " +
-                "where gl.member_id=:member_id " +
-                "and gl.game_id=:game_id";
+        String sql = "delete from game_like " +
+                "where member_id=:member_id " +
+                "and game_id=:game_id";
         Map<String, Long> param = Map.of("member_id", gameLike.getMemberId(),
                 "game_id", gameLike.getGameId());
 

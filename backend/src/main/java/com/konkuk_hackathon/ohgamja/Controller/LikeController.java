@@ -1,11 +1,11 @@
 package com.konkuk_hackathon.ohgamja.Controller;
 
 import com.konkuk_hackathon.ohgamja.Common.Response.BaseResponse;
-import com.konkuk_hackathon.ohgamja.Dto.Request.LikeRequest;
-import com.konkuk_hackathon.ohgamja.Dto.Request.LoginRequest;
+import com.konkuk_hackathon.ohgamja.Dto.Request.MemberGameIdRequest;
+import com.konkuk_hackathon.ohgamja.Dto.Request.MemberIdRequest;
+import com.konkuk_hackathon.ohgamja.Dto.Response.GamesResponse;
 import com.konkuk_hackathon.ohgamja.Dto.Response.LikeResponse;
 import com.konkuk_hackathon.ohgamja.Dto.Response.LikeTopResponse;
-import com.konkuk_hackathon.ohgamja.Dto.Response.LoginResponse;
 import com.konkuk_hackathon.ohgamja.Service.LikeService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -26,17 +26,24 @@ public class LikeController {
         return new BaseResponse<>(likeTopReaponse);
     }
 
+    @GetMapping
+    public BaseResponse<GamesResponse> getLike(@RequestBody @Valid MemberIdRequest memberIdRequest) {
+        log.info("[LikeController.getLike]");
+        GamesResponse gamesResponse = likeService.getLike(memberIdRequest.getMemberId());
+        return new BaseResponse<>(gamesResponse);
+    }
+
     @PostMapping("/add")
-    public BaseResponse<LikeResponse> addLike(@RequestBody @Valid LikeRequest likeRequest){
+    public BaseResponse<LikeResponse> addLike(@RequestBody @Valid MemberGameIdRequest memberGameIdRequest){
         log.info("[LikeController.addLike]");
-        LikeResponse likeResponse = likeService.addLike(likeRequest.getMemberId(), likeRequest.getGameId());
+        LikeResponse likeResponse = likeService.addLike(memberGameIdRequest.getMemberId(), memberGameIdRequest.getGameId());
         return new BaseResponse<>(likeResponse);
     }
 
     @DeleteMapping("/remove")
-    public BaseResponse<LikeResponse> removeLike(@RequestBody @Valid LikeRequest likeRequest){
+    public BaseResponse<LikeResponse> removeLike(@RequestBody @Valid MemberGameIdRequest memberGameIdRequest){
         log.info("[LikeController.addLike]");
-        LikeResponse likeResponse = likeService.deleteLike(likeRequest.getMemberId(), likeRequest.getGameId());
+        LikeResponse likeResponse = likeService.deleteLike(memberGameIdRequest.getMemberId(), memberGameIdRequest.getGameId());
         return new BaseResponse<>(likeResponse);
     }
 }

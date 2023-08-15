@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @Slf4j
 @Repository
@@ -23,26 +24,33 @@ public class GameDao {
         this.jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
     }
     public GameDetail getGame(Long gameId) {
-        String sql = "SELECT g.game_id, g.game_name, g.category, g.difficulty, g.head_count, g.description, g.game_image, count(gl.member_id)" +
-                "FROM game AS g " +
-                "JOIN game_like AS gl " +
-                "WHERE g.game_id=:gameId";
+        String sql = "select * from game where game_id=:game_id";
 
-        Map<String, Long> returnParam = Map.of("game_id", gameId);
+        Map<String, Object> returnParam = Map.of("game_id", gameId);
 
         RowMapper<GameDetail> mapper = (rs, rowNum) -> {
             GameDetail gameDetail = new GameDetail();
-            gameDetail.setGameId(rs.getLong("g.game_id"));
-            gameDetail.setGameName(rs.getString("g.game_name"));
-            gameDetail.setCategory(rs.getString("g.category"));
-            gameDetail.setHeadCount(rs.getInt("g.head_count"));
-            gameDetail.setDescription(rs.getString("g.description"));
-            gameDetail.setGameImage(rs.getString("g.game_image"));
-            gameDetail.setLikeCount(rs.getInt("count(gl.member_id)"));
+            gameDetail.setGameId(rs.getLong("game_id"));
+            gameDetail.setGameName(rs.getString("game_name"));
+            gameDetail.setCategory(rs.getString("category"));
+            gameDetail.setDifficulty(rs.getString("g.difficulty"));
+            gameDetail.setHeadCount(rs.getInt("head_count"));
+            gameDetail.setDescription(rs.getString("description"));
+            gameDetail.setGameImage(rs.getString("game_image"));
+            gameDetail.setLikeCount(getLikeCount(gameId));
             return gameDetail;
         };
 
         return jdbcTemplate.queryForObject(sql, returnParam, mapper);
+    }
+
+    public Integer getLikeCount(Long gameId) {
+        String sql = "select count(member_id) " +
+                "from game_like " +
+                "where game_id=:game_id";
+        Map<String, Object> param = Map.of("game_id", gameId);
+
+        return jdbcTemplate.queryForObject(sql, param, Integer.class);
     }
 
     public List<GamePreview> getGamePreviews(String category, String name, int headCount) {
@@ -62,6 +70,7 @@ public class GameDao {
             gamePreview.setGameId(rs.getLong("g.game_id"));
             gamePreview.setGameName(rs.getString("g.game_name"));
             gamePreview.setCategory(rs.getString("g.category"));
+            gamePreview.setDifficulty(rs.getString("g.difficulty"));
             gamePreview.setHeadCount(rs.getInt("g.head_count"));
             gamePreview.setGameImage(rs.getString("g.game_image"));
             gamePreview.setLikeCount(rs.getInt("count(gl.member_id)"));
@@ -71,5 +80,12 @@ public class GameDao {
         return jdbcTemplate.query(sql, mapper);
     }
 
+    public Boolean getIsLike(Long gameId, Long memberId) {
+        String sql = "select exists(select * from game_like where game_id=:game_id and member_id=:member_id);";
+        Map<String, Object> param = Map.of("game_id", gameId,
+                "member_id", memberId);
+
+        return jdbcTemplate.queryForObject(sql, param, Boolean.class);
+    }
 
 }

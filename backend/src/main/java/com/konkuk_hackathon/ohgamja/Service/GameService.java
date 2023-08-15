@@ -17,13 +17,18 @@ import java.util.List;
 public class GameService {
     private final GameDao gameDao;
 
-    public GameResponse getGame(Long gameId) {
+    public GameResponse getGame(Long gameId, Long memberId) {
         GameDetail gameDetail = gameDao.getGame(gameId);
-        return new GameResponse(gameDetail.getGameId(), gameDetail.getGameName(), gameDetail.getCategory(), gameDetail.getDifficulty(), gameDetail.getHeadCount(), gameDetail.getDescription(), gameDetail.getGameImage(), gameDetail.getLikeCount());
+        Boolean isLike = gameDao.getIsLike(gameId, memberId);
+        return new GameResponse(gameDetail.getGameId(), gameDetail.getGameName(), gameDetail.getCategory(), gameDetail.getDifficulty(), gameDetail.getHeadCount(), gameDetail.getDescription(), gameDetail.getGameImage(), gameDetail.getLikeCount(), isLike);
     }
 
-    public GamesResponse getGamePreviews(String category, String name, int headCount){
+    public GamesResponse getGamePreviews(String category, String name, int headCount, Long memberId){
         List<GamePreview> gamePreviews = gameDao.getGamePreviews(category, name, headCount);
+        for (GamePreview gamePreview : gamePreviews) {
+            Boolean isLike = gameDao.getIsLike(gamePreview.getGameId(), memberId);
+            gamePreview.setLike(isLike);
+        }
         return new GamesResponse(gamePreviews);
     }
 }
