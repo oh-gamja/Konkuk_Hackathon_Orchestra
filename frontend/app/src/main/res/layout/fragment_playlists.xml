@@ -6,37 +6,29 @@
     android:layout_height="match_parent"
     android:background="@color/black">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_marginTop="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
+
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
+                android:layout_height="26dp"
+                android:layout_marginLeft="24dp"
                 android:text="술이슬쩍"
+                android:fontFamily="@font/kcc_ganpan"
                 android:textColor="#7C91E5"
                 android:textSize="20dp"
+                android:layout_marginTop="18dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"></TextView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
+
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="16dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="60dp"
         android:text="나의 게임리스트 목록"
@@ -45,28 +37,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="18.75dp"
         android:layout_marginTop="57dp"
         android:layout_marginRight="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/deleteBtn"
+            android:id="@+id/deleteBtnBase"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="6dp"
             android:drawableRight="@drawable/ic_trash_bin"
             android:drawablePadding="6dp"
+            android:layout_marginRight="6dp"
             android:gravity="center"
             android:text="리스트 삭제"
             android:textColor="#FF6666"
-            android:textSize="10dp"></TextView>
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+        <TextView
+            android:id="@+id/deleteBtnChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:drawablePadding="6dp"
+            android:gravity="center"
+            android:text="취소"
+            android:visibility="gone"
+            android:textColor="#FF6666"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -80,10 +90,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></androidx.recyclerview.widget.RecyclerView>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="4px"
-        android:layout_marginBottom="70dp"
-        android:background="#7C91E5"
-        app:layout_constraintBottom_toBottomOf="parent"></View>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

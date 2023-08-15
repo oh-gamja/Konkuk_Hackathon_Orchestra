@@ -1,10 +1,13 @@
 package com.example.ohgamja_frontend.ui.home
 
 import android.app.AlertDialog
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintSet
@@ -26,27 +29,37 @@ class PlaylistsFragment : Fragment() {
     ): View {
         binding = FragmentPlaylistsBinding.inflate(inflater, container, false)
 
-        val playListItem = LayoutInflater.from(context).inflate(R.layout.rv_playlist_item,null)
+        val playListItem = LayoutInflater.from(context)
+            .inflate(R.layout.rv_playlist_item, null) // rv_playlist_item.xml 파일 뷰 설정
+        val playList_listBtn = playListItem.findViewById<ImageView>(R.id.listBtnBase)
 
-        val item = playListItem.findViewById<LinearLayout>(R.id.rv_playListItem)
+        val delete_btnBase = binding.deleteBtnBase //리스트 삭제 버튼
+        val delete_btnChange = binding.deleteBtnChange
+        var click_count = false //리스트 삭제 버튼 클릭 여부
 
-        val delete_btn = binding.deleteBtn
-        var click_count = false
+        var dialog_deleteItem =
+            LayoutInflater.from(context)
+                .inflate(R.layout.dialog_delete_item, null) //dialog_delete_item.xml 파일 뷰 설정
 
-        var dialog_deleteItem = LayoutInflater.from(context).inflate(R.layout.dialog_delete_item,null)
 
         var mBuilder_deleteItem = AlertDialog.Builder(context)
-            .setView(dialog_deleteItem)
+            .setCancelable(false)
 
-        delete_btn.setOnClickListener {
-            if(click_count == false){
-                delete_btn.setText("취소")
-                click_count = true
-            }
-            else if(click_count == true){
-                delete_btn.setText("리스트삭제")
-                click_count = false
-            }
+
+        val cancel_btn = dialog_deleteItem.findViewById<Button>(R.id.cancelBtn) //dialog의 취소버튼
+
+
+        delete_btnBase.setOnClickListener {
+            click_count = true
+            delete_btnBase.visibility = View.GONE
+            delete_btnChange.visibility = View.VISIBLE
+            RVAdapter_playList.ViewHolder(requireView()).trashCanImage()
+        }
+        delete_btnChange.setOnClickListener {
+            click_count = false
+            delete_btnBase.visibility = View.VISIBLE
+            delete_btnChange.visibility = View.GONE
+            RVAdapter_playList.ViewHolder(requireView()).BaseImage()
         }
 
 
@@ -57,17 +70,31 @@ class PlaylistsFragment : Fragment() {
         items.add("아파트")
         items.add("눈치게임")
 
+
+
         val rv = binding.rvPlayList
         val rvAdapter = RVAdapter_playList(items)
 
         rv.adapter = rvAdapter
         rv.layoutManager = LinearLayoutManager(context)
 
-        rvAdapter.itemClick = object : RVAdapter_playList.ItemClick{
+
+        rvAdapter.itemClick = object : RVAdapter_playList.ItemClick {
             override fun onClick(view: View, position: Int) {
-                if(click_count == true){
-                    mBuilder_deleteItem.show()
+                if (click_count == true) {
+                    if (dialog_deleteItem.parent != null) {
+                        ((dialog_deleteItem.parent) as ViewGroup).removeView(dialog_deleteItem)
+                    }
+                    mBuilder_deleteItem.setView(dialog_deleteItem)
+                    RVAdapter_playList.ViewHolder(view).setChangeBackGroundColor()
+                    var mAlertDialog = mBuilder_deleteItem.show()
+                    cancel_btn.setOnClickListener {
+                        mAlertDialog.dismiss()
+                        RVAdapter_playList.ViewHolder(view).setBaseBackGroundColor()
+                    }
                 }
+
+
             }
         }
 
