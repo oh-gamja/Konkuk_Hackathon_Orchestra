@@ -78,11 +78,26 @@ public class MemberDao {
         return jdbcTemplate.queryForObject(sql, param, long.class);
     }
 
-    public int delete(Long memberId) {
-        String sql = "delete from member where member_id=:member_id";
+    public void delete(Long memberId) {
+        String historySql = "delete h " +
+                "from history h left join plan p on h.plan_id=p.plan_id " +
+                "where p.team_id=:team_id and p.status=2 and p.history=1";
+
+        String gameLikeSql = "delete from game_like where member_id=:member_id";
+
+        String playlistDetailSql = "delete pd from playlist p join playlist_detail pd on p.playlist_id=pd.playlist_id " +
+                "where member_id=:member_id";
+
+        String playlistSql = "delete from playlist where member_id=:member_id";
+
+        String memberSql = "delete from member where member_id=:member_id";
+
         Map<String, Long> param = Map.of("member_id", memberId);
 
-        return jdbcTemplate.update(sql, param);
+        jdbcTemplate.update(gameLikeSql, param);
+        jdbcTemplate.update(playlistDetailSql, param);
+        jdbcTemplate.update(playlistSql, param);
+        jdbcTemplate.update(memberSql, param);
     }
 
 }
