@@ -3,8 +3,8 @@ package com.konkuk_hackathon.ohgamja.Service;
 import com.konkuk_hackathon.ohgamja.Auth.JwtTokenProvider;
 import com.konkuk_hackathon.ohgamja.Auth.Kakao.KakaoUserProvider;
 import com.konkuk_hackathon.ohgamja.Common.Exception.InvalidTokenException;
-import com.konkuk_hackathon.ohgamja.Dao.UserDao;
-import com.konkuk_hackathon.ohgamja.Domain.User;
+import com.konkuk_hackathon.ohgamja.Dao.MemberDao;
+import com.konkuk_hackathon.ohgamja.Domain.Member;
 import com.konkuk_hackathon.ohgamja.Dto.Request.LoginRequest;
 import com.konkuk_hackathon.ohgamja.Dto.Response.KakaoPlatformUserResponse;
 import com.konkuk_hackathon.ohgamja.Dto.Response.LoginResponse;
@@ -21,7 +21,7 @@ import static com.konkuk_hackathon.ohgamja.Common.Response.Status.BaseExceptionR
 @Service
 @RequiredArgsConstructor
 public class AuthService {
-    private final UserDao userDao;
+    private final MemberDao memberDao;
     private final KakaoUserProvider kakaoUserProvider;
     private final JwtTokenProvider jwtTokenProvider;
 
@@ -31,33 +31,33 @@ public class AuthService {
     }
 
     private LoginResponse generateOAuthTokenResponse(String name, String email, String platformId, String imageUrl) {
-        List<Long> userId = userDao.findIdByPlatformId(platformId);
+        List<Long> userId = memberDao.findIdByPlatformId(platformId);
         if (!userId.isEmpty()) {
-            User findUser = userDao.findUserById(userId.get(0));
+            Member findMember = memberDao.findUserById(userId.get(0));
 
-            String token = issueToken(findUser);
+            String token = issueToken(findMember);
 
             // OAuth 로그인은 성공했지만 회원가입에 실패한 경우
-            if (findUser.getName() == null) {
-                return new LoginResponse(token, findUser.getEmail(), false);
+            if (findMember.getName() == null) {
+                return new LoginResponse(token, findMember.getEmail(), false);
             } else {
-                return new LoginResponse(token, findUser.getEmail(), true);
+                return new LoginResponse(token, findMember.getEmail(), true);
             }
         } else {
-            User oauthUser = new User(name, email, platformId, imageUrl);
-            User savedUser = userDao.save(oauthUser);
-            String token = issueToken(savedUser);
+            Member oauthMember = new Member(name, email, platformId, imageUrl);
+            Member savedMember = memberDao.save(oauthMember);
+            String token = issueToken(savedMember);
             return new LoginResponse(token, email, true);
         }
     }
 
-    private String issueToken(final User findUser) {
-        return jwtTokenProvider.createToken(findUser.getUserId());
+    private String issueToken(final Member findMember) {
+        return jwtTokenProvider.createToken(findMember.getMemberId());
     }
 
     public Long getUserIdByEmail(String email) {
         try {
-            return userDao.findIdByEmail(email);
+            return memberDao.findIdByEmail(email);
         } catch (IncorrectResultSizeDataAccessException e) {
             throw new InvalidTokenException(TOKEN_MISMATCH);
         }

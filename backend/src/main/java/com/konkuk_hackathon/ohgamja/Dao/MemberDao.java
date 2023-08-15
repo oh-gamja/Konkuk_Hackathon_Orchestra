@@ -1,6 +1,6 @@
 package com.konkuk_hackathon.ohgamja.Dao;
 
-import com.konkuk_hackathon.ohgamja.Domain.User;
+import com.konkuk_hackathon.ohgamja.Domain.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.SingleColumnRowMapper;
@@ -13,10 +13,10 @@ import java.util.Map;
 
 @Slf4j
 @Repository
-public class UserDao {
+public class MemberDao {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
-    public UserDao(DataSource dataSource) {
+    public MemberDao(DataSource dataSource) {
         this.jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
     }
 
@@ -29,44 +29,44 @@ public class UserDao {
         return jdbcTemplate.query(sql, param, mapper);
     }
 
-    public User findUserById(Long userId) {
+    public Member findUserById(Long userId) {
         String sql = "select * from member where member_id=:member_id and status=1";
         Map<String, Long> param = Map.of("member_id", userId);
 
-        RowMapper<User> mapper = (rs, rowNum) -> {
-            User user = new User();
-            user.setUserId(rs.getLong("member_id"));
-            user.setName(rs.getString("name"));
-            user.setEmail(rs.getString("email"));
-            user.setUserImgUrl(rs.getString("img_url"));
-            user.setPlatformId(rs.getString("platform_id"));
-            return user;
+        RowMapper<Member> mapper = (rs, rowNum) -> {
+            Member member = new Member();
+            member.setMemberId(rs.getLong("member_id"));
+            member.setName(rs.getString("name"));
+            member.setEmail(rs.getString("email"));
+            member.setMemberImgUrl(rs.getString("img_url"));
+            member.setPlatformId(rs.getString("platform_id"));
+            return member;
         };
 
         return jdbcTemplate.queryForObject(sql, param, mapper);
     }
 
-    public User save(User oauthUser) {
+    public Member save(Member oauthMember) {
         // 회원가입 -> insert 한 후, 넣은 애 반환
         String sql = "insert into member (name, email, platform_id, img_url) values (:name, :email, :platform_id, :img_url)";
-        Map<String, String> param = Map.of("name", oauthUser.getName(),
-                "email", oauthUser.getEmail(),
-                "platform_id", oauthUser.getPlatformId(),
-                "img_url", oauthUser.getUserImgUrl());
+        Map<String, String> param = Map.of("name", oauthMember.getName(),
+                "email", oauthMember.getEmail(),
+                "platform_id", oauthMember.getPlatformId(),
+                "img_url", oauthMember.getMemberImgUrl());
 
         jdbcTemplate.update(sql, param);
 
         String returnSql = "select * from member where platform_id=:platform_id";
-        Map<String, String> returnParam = Map.of("platform_id", oauthUser.getPlatformId());
+        Map<String, String> returnParam = Map.of("platform_id", oauthMember.getPlatformId());
 
-        RowMapper<User> returnMapper = (rs, rowNum) -> {
-            User user = new User();
-            user.setUserId(rs.getLong("member_id"));
-            user.setName(rs.getString("name"));
-            user.setEmail(rs.getString("email"));
-            user.setUserImgUrl(rs.getString("img_url"));
-            user.setPlatformId(rs.getString("platform_id"));
-            return user;
+        RowMapper<Member> returnMapper = (rs, rowNum) -> {
+            Member member = new Member();
+            member.setMemberId(rs.getLong("member_id"));
+            member.setName(rs.getString("name"));
+            member.setEmail(rs.getString("email"));
+            member.setMemberImgUrl(rs.getString("img_url"));
+            member.setPlatformId(rs.getString("platform_id"));
+            return member;
         };
 
         return jdbcTemplate.queryForObject(returnSql, returnParam, returnMapper);
