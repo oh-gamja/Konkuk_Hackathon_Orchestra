@@ -19,13 +19,16 @@ public class GameService {
 
     public GameResponse getGame(Long gameId, Long memberId) {
         GameDetail gameDetail = gameDao.getGame(gameId);
+        int likeCount = gameDao.getLikeCount(gameId);
         Boolean isLike = gameDao.getIsLike(gameId, memberId);
-        return new GameResponse(gameDetail.getGameId(), gameDetail.getGameName(), gameDetail.getCategory(), gameDetail.getDifficulty(), gameDetail.getHeadCount(), gameDetail.getDescription(), gameDetail.getGameImage(), gameDetail.getLikeCount(), isLike);
+        return new GameResponse(gameDetail.getGameId(), gameDetail.getGameName(), gameDetail.getCategory(), gameDetail.getDifficulty(), gameDetail.getHeadCount(), gameDetail.getDescription(), gameDetail.getGameImage(), likeCount, isLike);
     }
 
     public GamesResponse getGamePreviews(String category, String name, int headCount, Long memberId){
         List<GamePreview> gamePreviews = gameDao.getGamePreviews(category, name, headCount);
         for (GamePreview gamePreview : gamePreviews) {
+            int likeCount = gameDao.getLikeCount(gamePreview.getGameId());
+            gamePreview.setLikeCount(likeCount);
             Boolean isLike = gameDao.getIsLike(gamePreview.getGameId(), memberId);
             gamePreview.setLike(isLike);
         }
@@ -35,6 +38,8 @@ public class GameService {
     public GamesResponse getAllGamePreviews(Long memberId) {
         List<GamePreview> gamePreviews = gameDao.getAllGamePreviews();
         for (GamePreview gamePreview : gamePreviews) {
+            int likeCount = gameDao.getLikeCount(gamePreview.getGameId());
+            gamePreview.setLikeCount(likeCount);
             Boolean isLike = gameDao.getIsLike(gamePreview.getGameId(), memberId);
             gamePreview.setLike(isLike);
         }
