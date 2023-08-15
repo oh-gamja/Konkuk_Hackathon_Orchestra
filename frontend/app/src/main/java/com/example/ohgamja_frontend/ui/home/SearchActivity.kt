@@ -1,9 +1,8 @@
 package com.example.ohgamja_frontend.ui.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.databinding.DataBindingUtil
 import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.ActivityMainBinding
 import com.example.ohgamja_frontend.databinding.ActivitySearchBinding
@@ -12,7 +11,7 @@ class SearchActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySearchBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_search)
+        val binding = ActivitySearchBinding.inflate(layoutInflater)
 
         var check1 = false
         var check2 = false
@@ -172,6 +171,7 @@ class SearchActivity : AppCompatActivity() {
 
 
 
+        setContentView(binding.root)
 
 
 
