@@ -2,8 +2,7 @@ package com.konkuk_hackathon.ohgamja.Common.Interceptor;
 
 import com.konkuk_hackathon.ohgamja.Auth.JwtTokenProvider;
 import com.konkuk_hackathon.ohgamja.Common.Exception.InvalidTokenException;
-import com.konkuk_hackathon.ohgamja.Dao.UserDao;
-import com.konkuk_hackathon.ohgamja.Service.AuthService;
+import com.konkuk_hackathon.ohgamja.Dao.MemberDao;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +20,7 @@ public class JwtAuthInterceptor implements HandlerInterceptor {
     private static final String JWT_TOKEN_PREFIX = "Bearer ";
 
     private final JwtTokenProvider jwtTokenProvider;
-    private final UserDao userDao;
+    private final MemberDao memberDao;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

@@ -7,17 +7,17 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class User {
-    private Long userId;
+public class Member {
+    private Long memberId;
     private String name;
     private String email;
-    private String userImgUrl;
+    private String memberImgUrl;
     private String platformId;
 
-    public User(String name, String email, String platformId, String userImgUrl) {
+    public Member(String name, String email, String platformId, String memberImgUrl) {
         this.name = name;
         this.email = email;
         this.platformId = platformId;
-        this.userImgUrl = userImgUrl;
+        this.memberImgUrl = memberImgUrl;
     }
 }
