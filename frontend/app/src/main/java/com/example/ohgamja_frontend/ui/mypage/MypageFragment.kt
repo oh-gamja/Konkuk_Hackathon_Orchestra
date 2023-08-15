@@ -13,6 +13,8 @@ import com.example.ohgamja_frontend.MainActivity
 import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.FragmentMypageBinding
 import com.example.ohgamja_frontend.databinding.FragmentPlaylistsBinding
+import com.example.ohgamja_frontend.ui.mypage.DeleteDialog
+import com.example.ohgamja_frontend.ui.mypage.LogoutDialog
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
@@ -27,23 +29,25 @@ class MypageFragment : Fragment() {
     ): View {
         binding = FragmentMypageBinding.inflate(inflater, container, false)
 
-        val dialog_logout = LayoutInflater.from(context).inflate(R.layout.dialog_logout,null)
-        val mBuilder_logout = AlertDialog.Builder(context)
-            .setView(dialog_logout)
-
-        val dialog_delete = LayoutInflater.from(context).inflate(R.layout.dialog_delete,null)
-        val mBuilder_delete = AlertDialog.Builder(context)
-            .setView(dialog_delete)
+//        val dialog_logout = LayoutInflater.from(context).inflate(R.layout.dialog_logout,null)
+//        val mBuilder_logout = AlertDialog.Builder(context)
+//            .setView(dialog_logout)
+//
+//        val dialog_delete = LayoutInflater.from(context).inflate(R.layout.dialog_delete,null)
+//        val mBuilder_delete = AlertDialog.Builder(context)
+//            .setView(dialog_delete)
 
         val delete_btn = binding.deleteBtn
         val logout_btn = binding.logoutBtn
 
         logout_btn.setOnClickListener {
-            mBuilder_logout.show()
+            val dialogFragment = LogoutDialog()
+            dialogFragment.show(requireActivity().supportFragmentManager, "CustomDialog")
         }
 
         delete_btn.setOnClickListener {
-            mBuilder_delete.show()
+            val dialogFragment = DeleteDialog()
+            dialogFragment.show(requireActivity().supportFragmentManager, "CustomDialog")
         }
 
         return binding.root
