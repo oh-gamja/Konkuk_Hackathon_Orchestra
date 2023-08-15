@@ -2,6 +2,8 @@ package com.example.ohgamja_frontend.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.ActivityGameInfoBinding
 
 class GameInfoActivity : AppCompatActivity() {
@@ -14,10 +16,26 @@ class GameInfoActivity : AppCompatActivity() {
         binding = ActivityGameInfoBinding.inflate(layoutInflater)
 
         binding.addButton.setOnClickListener {
-
+            //추가할 플레이리스트를 고르는 dialog
             val dialog = AddListDialogFragment()
             dialog.show(supportFragmentManager,"DialogFragment")
+        }
 
+        var joa = false
+
+        binding.gameHeart.setOnClickListener {
+            //좋아요 적용 및 취소
+
+            if (joa == false){
+                binding.gameHeart.setImageResource(R.drawable.ic_like_heart_filled)
+                Toast.makeText(this, "좋아요 목록에 추가되었습니다", Toast.LENGTH_SHORT).show()
+                joa = true
+            } else {
+                binding.gameHeart.setImageResource(R.drawable.ic_like_heart_empty)
+                Toast.makeText(this, "좋아요 목록에서 삭제되었습니다", Toast.LENGTH_SHORT).show()
+
+                joa = false
+            }
         }
 
         //데이터 불러오기

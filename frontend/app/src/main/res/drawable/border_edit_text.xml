@@ -7,11 +7,9 @@
         </shape>
     </item>
     <item
-        android:top="-3dp"
-        android:bottom="3dp"
-        android:left="-3dp"
-        android:right="-3dp">
-        <shape>
+        android:top="25dp">
+        <shape
+            android:shape="line">
             <stroke
                 android:gravity="center_horizontal"
                 android:color="@color/lavender_sub2"
