@@ -9,7 +9,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class MemberGameIdRequest {
-    private Long memberId;
+public class GameIdRequest {
     private Long gameId;
 }

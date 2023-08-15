@@ -31,7 +31,7 @@ public class JwtAuthInterceptor implements HandlerInterceptor {
         String userIdStr = jwtTokenProvider.getPrincipal(accessToken);
         validatePayload(userIdStr);
 
-        request.setAttribute("userId", userIdStr);
+        request.setAttribute("memberId", userIdStr);
         return true;
     }
 
