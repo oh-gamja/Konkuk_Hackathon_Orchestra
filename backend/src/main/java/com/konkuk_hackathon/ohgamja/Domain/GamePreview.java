@@ -13,4 +13,5 @@ public class GamePreview {
     private int headCount;
     private String gameImage;
     private int likeCount;
+    private boolean isLike;
 }
