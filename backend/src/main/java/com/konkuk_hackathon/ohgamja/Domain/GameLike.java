@@ -8,6 +8,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 public class GameLike {
+    private Long gameLikeId;
     private Long memberId;
     private Long gameId;
 
