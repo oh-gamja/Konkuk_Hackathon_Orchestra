@@ -4,6 +4,7 @@ import com.konkuk_hackathon.ohgamja.Common.Argument_resolver.PreAuthorize;
 import com.konkuk_hackathon.ohgamja.Common.Response.BaseResponse;
 import com.konkuk_hackathon.ohgamja.Dto.Request.LoginRequest;
 import com.konkuk_hackathon.ohgamja.Dto.Response.LoginResponse;
+import com.konkuk_hackathon.ohgamja.Dto.Response.SignOutResponse;
 import com.konkuk_hackathon.ohgamja.Service.AuthService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -26,12 +27,19 @@ public class AuthController {
         return new BaseResponse<>(loginResponse);
     }
 
+    @DeleteMapping("/signout")
+    public BaseResponse<SignOutResponse> SignOut(@PreAuthorize Long memberId) {
+        log.info("[AuthController.SignOut]");
+        authService.SignOut(memberId);
+        return new BaseResponse<>(new SignOutResponse(memberId));
+    }
+
     /**
      * 인가(JWT 검증) 테스트
      */
     @GetMapping("/test")
-    public BaseResponse<String> checkAuthorization(@PreAuthorize Long userId) {
+    public BaseResponse<String> checkAuthorization(@PreAuthorize Long memberId) {
         log.info("[AuthController.checkAuthorization]");
-        return new BaseResponse<>("userId = " + userId.toString());
+        return new BaseResponse<>("userId = " + memberId.toString());
     }
 }

@@ -38,6 +38,7 @@ public class JwtAuthInterceptor implements HandlerInterceptor {
     private String resolveAccessToken(HttpServletRequest request) {
         String token = request.getHeader(HttpHeaders.AUTHORIZATION);
         validateToken(token);
+        System.out.println(token);
         return token.substring(JWT_TOKEN_PREFIX.length());
     }
 

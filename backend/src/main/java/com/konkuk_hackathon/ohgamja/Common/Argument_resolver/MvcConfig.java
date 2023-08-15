@@ -29,6 +29,7 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/likes/remove");
         registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/playlists");
         registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/playlists/detail");
+        registry.addInterceptor(jwtAuthInterceptor).addPathPatterns("/auth/signout");
     }
 
     @Override
