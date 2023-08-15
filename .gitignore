@@ -26,3 +26,5 @@ frontend/build
 frontend/captures
 frontend/.externalNativeBuild
 frontend/.cxx
+
+backend/build/

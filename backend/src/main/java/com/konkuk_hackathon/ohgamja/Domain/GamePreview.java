@@ -1,18 +1,17 @@
 package com.konkuk_hackathon.ohgamja.Domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
-@Setter
 @NoArgsConstructor
-public class Game {
+@Setter
+public class GamePreview {
     private Long gameId;
     private String gameName;
     private String category;
     private String difficulty;
     private int headCount;
-    private String description;
     private String gameImage;
+    private int likeCount;
+    private boolean isLike;
 }

@@ -25,8 +25,8 @@ public class JwtAuthHandlerArgumentResolver implements HandlerMethodArgumentReso
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
         log.info("[JwtAuthHandlerArgumentResolver.resolveArgument]");
         HttpServletRequest request = (HttpServletRequest) webRequest.getNativeRequest();
-        log.info("userId = " + (String) request.getAttribute("userId"));
-        return Long.parseLong((String) request.getAttribute("userId"));
+        log.info("memberId = " + (String) request.getAttribute("memberId"));
+        return Long.parseLong((String) request.getAttribute("memberId"));
         // JwtAuthInterceptor에서 HttpServletRequest에 저장했던 accessToken의 userId를 반환
     }
 }

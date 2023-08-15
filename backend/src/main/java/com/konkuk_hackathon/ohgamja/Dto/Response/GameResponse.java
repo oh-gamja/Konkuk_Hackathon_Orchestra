@@ -1,13 +1,10 @@
-package com.konkuk_hackathon.ohgamja.Domain;
+package com.konkuk_hackathon.ohgamja.Dto.Response;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
-@Setter
-@NoArgsConstructor
-public class Game {
+@AllArgsConstructor
+public class GameResponse {
     private Long gameId;
     private String gameName;
     private String category;
@@ -15,4 +12,6 @@ public class Game {
     private int headCount;
     private String description;
     private String gameImage;
+    private int likeCount;
+    private Boolean isLike;
 }
