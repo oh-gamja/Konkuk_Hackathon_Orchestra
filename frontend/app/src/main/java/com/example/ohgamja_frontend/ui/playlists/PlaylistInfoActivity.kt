@@ -21,7 +21,7 @@ import retrofit2.Response
 
 class PlaylistInfoActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivitySearchBinding
+    private lateinit var binding: ActivityPlaylistInfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +47,7 @@ class PlaylistInfoActivity : AppCompatActivity() {
                         val items = result.gamePreviews
                         items.forEach {
                             rvAdapter.items.add(
-                                RVViewModel(it.gameId, it.gameName, it.difficulty, it.category, it.headCount, it.likeCount)
+                                RVViewModel(it.gameId,it.gameImage, it.gameName, it.difficulty, it.category, it.headCount, it.likeCount)
                             )
                         }
                         rvAdapter.notifyDataSetChanged()
