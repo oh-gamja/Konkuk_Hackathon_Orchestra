@@ -14,7 +14,7 @@
         android:fontFamily="@font/kcc_ganpan"
         android:text="술이슬쩍"
         android:textColor="@color/lavender_main"
-        android:textSize="20sp"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

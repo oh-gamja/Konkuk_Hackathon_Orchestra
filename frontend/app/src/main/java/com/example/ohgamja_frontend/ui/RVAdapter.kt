@@ -51,6 +51,10 @@ class RVAdapter(val type: Int, val context: Context, val fragmentManger: Fragmen
             val rv_list = binding.listBtn
             val rv_likeCount = binding.likeCount
 
+            if(type==1){
+                binding.listBtn.setImageResource(R.drawable.ic_added_game_into_playlist)
+            }
+
             //게임 타이틀 설정
             binding.itemTitle.text = item.itemTitle
 
