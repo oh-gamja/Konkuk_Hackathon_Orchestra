@@ -53,7 +53,9 @@
 - 좋아요를 누르거나 해제할 수 있고, 커스텀 리스트에 게임을 담거나 제외시킬 수도 있습니다.
 <br>
 <br>
+
 ### 3. Like 💟
+
 ![Group 21](https://github.com/oh-gamja/Konkuk_Hackathon_Orchestra/assets/81912226/92f23006-9d46-4740-993b-9c57b7511cf7)
 
 
@@ -67,8 +69,11 @@
 - 오른쪽 '+'토글 버튼으로 커스텀 리스트에 추가를, '-'토글 버튼으로 커스텀 리스트에서 제외시킬 수 있습니다.
 <br>
 <br>
+
 ### 4. Game List
+
 ![gameList](https://github.com/oh-gamja/Konkuk_Hackathon_Orchestra/assets/89915076/24b05aac-d37a-4422-904b-2497e0fed006)
+
 #### 4.1 나만의 게임리스트 만들기➕ 및 삭제❌
 
 - 하단 내비게이션의 List로 이동하면 커스텀 리스트를 볼 수 있습니다
@@ -78,8 +83,9 @@
 - 오른쪽 상단 '리스트 삭제' 버튼을 이용하여 게임리스트를 삭제할 수 있습니다.
 
 - 리스트block을 클릭하면 모아둔 게임 리스트를 볼 수 있습니다.
+
 <br>
-<br>
+
 #### 4.2 게임리스트 detail화면 속 게임 삭제❌
 - 게임리스트 중 게임block의 <리스트에서 해제 버튼>을 누르면 해당 게임이 리스트에서 삭제 됩니다.
 
@@ -90,6 +96,7 @@
 <br>
 
 ### 5. MyPage
+
 ![Frame (8)](https://github.com/oh-gamja/Konkuk_Hackathon_Orchestra/assets/89915076/dde819a2-4586-42ae-883d-c7d914302148)
 - 하단 내비게이션의 My로 이동하면 My page를 볼 수 있습니다
 
