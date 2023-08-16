@@ -94,23 +94,17 @@ class HomeFragment : Fragment() {
                 "도박",
                 "8")
         )
-//        val rv = binding.rv
-//        val rvAdapter = RVAdapter(this,requireContext(),items, mBuilder,listvw)
-//        val mainActivity = activity as MainActivity
-//
-//        rv.adapter = rvAdapter
-//        rv.layoutManager = LinearLayoutManager(activity)
+        val rv = binding.rv
+        val rvAdapter = RVAdapter(this,requireContext(),items)
 
-//        rvAdapter.itemClick = object : RVAdapter.ItemClick{
-//            override fun onClick(view: View, position: Int) {
-//
-//            }
-//            private fun check(){
-//                if(listvw != null){
-//                    listvw = null
-//                }
-//            }
-//        }
+        rv.adapter = rvAdapter
+        rv.layoutManager = LinearLayoutManager(context)
+
+        rvAdapter.itemClick = object : RVAdapter.ItemClick{
+            override fun onClick(view: View, position: Int) {
+
+            }
+        }
 
         return binding.root
     }
