@@ -227,10 +227,10 @@
             android:background="@drawable/radius2">
 
             <ImageView
-                android:scaleType="fitXY"
                 android:id="@+id/iv_top2"
                 android:layout_width="match_parent"
                 android:layout_height="102dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/ex_rabbit"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

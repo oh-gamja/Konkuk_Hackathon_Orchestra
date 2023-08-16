@@ -100,16 +100,16 @@ class HomeFragment : Fragment() {
                     binding.tvTop3Title.setText(topItems[2].gameName)
 
                     binding.topItem1.setOnClickListener {
-                        startActivity(info_intent)
                         info_intent.putExtra("gameId",topItems[0].gameId)
+                        startActivity(info_intent)
                     }
                     binding.topItem2.setOnClickListener {
-                        startActivity(info_intent)
                         info_intent.putExtra("gameId",topItems[1].gameId)
+                        startActivity(info_intent)
                     }
                     binding.topItem3.setOnClickListener {
-                        startActivity(info_intent)
                         info_intent.putExtra("gameId",topItems[2].gameId)
+                        startActivity(info_intent)
                     }
 
                     binding.tvTop1Num.setText(topItems[0].likeCount.toString())
