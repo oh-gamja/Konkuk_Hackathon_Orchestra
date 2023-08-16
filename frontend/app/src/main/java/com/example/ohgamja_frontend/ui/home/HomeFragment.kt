@@ -1,6 +1,7 @@
 package com.example.ohgamja_frontend.ui.home
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -32,6 +35,14 @@ class HomeFragment : Fragment() {
 
         var listvw = LayoutInflater.from(requireContext()).inflate(R.layout.dialog,null)
 
+
+
+        val searchBar = binding.searchBar
+
+        searchBar.setOnClickListener {
+            val i = Intent(requireContext(),SearchActivity::class.java)
+            startActivity(i)
+        }
 
         val list_item = mutableListOf<String>()
 
@@ -83,23 +94,17 @@ class HomeFragment : Fragment() {
                 "도박",
                 "8")
         )
-//        val rv = binding.rv
-//        val rvAdapter = RVAdapter(this,requireContext(),items, mBuilder,listvw)
-//        val mainActivity = activity as MainActivity
-//
-//        rv.adapter = rvAdapter
-//        rv.layoutManager = LinearLayoutManager(activity)
+        val rv = binding.rv
+        val rvAdapter = RVAdapter(this,requireContext(),items)
 
-//        rvAdapter.itemClick = object : RVAdapter.ItemClick{
-//            override fun onClick(view: View, position: Int) {
-//
-//            }
-//            private fun check(){
-//                if(listvw != null){
-//                    listvw = null
-//                }
-//            }
-//        }
+        rv.adapter = rvAdapter
+        rv.layoutManager = LinearLayoutManager(context)
+
+        rvAdapter.itemClick = object : RVAdapter.ItemClick{
+            override fun onClick(view: View, position: Int) {
+
+            }
+        }
 
         return binding.root
     }

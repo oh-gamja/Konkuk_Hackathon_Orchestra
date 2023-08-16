@@ -14,10 +14,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ohgamja_frontend.R
 import org.w3c.dom.Text
 
-class RVAdapter(val fragment: Fragment, val context: Context, val items : MutableList<RecyclerviewModel>, var mBulider : AlertDialog.Builder, var listvw : View) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
+class RVAdapter(val fragment: Fragment, val context: Context, val items : MutableList<RecyclerviewModel>) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVAdapter.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_gameblock,parent,false)
-
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_item,parent,false)
         return ViewHolder(view)
     }
     interface ItemClick {
@@ -41,15 +40,12 @@ class RVAdapter(val fragment: Fragment, val context: Context, val items : Mutabl
 
     inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun bindItems(item : RecyclerviewModel){
-            val rv_title = itemView.findViewById<TextView>(R.id.tv_gameblock_name)
-            val rv_like = itemView.findViewById<ImageView>(R.id.iv_like_empty)
-            val rv_list = itemView.findViewById<ImageView>(R.id.iv_list)
+            val rv_title = itemView.findViewById<TextView>(R.id.itemTitle)
+            val rv_like = itemView.findViewById<ImageView>(R.id.likeBtn)
+            val rv_list = itemView.findViewById<ImageView>(R.id.listBtn)
 
             var likeChance = false
 
-            rv_list.setOnClickListener {
-                mBulider.show()
-            }
 
 
             rv_like.setOnClickListener {
