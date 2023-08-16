@@ -16,7 +16,7 @@ import org.w3c.dom.Text
 
 class RVAdapter(val fragment: Fragment, val context: Context, val items : MutableList<RecyclerviewModel>, var mBulider : AlertDialog.Builder, var listvw : View) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVAdapter.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_item,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_gameblock,parent,false)
 
         return ViewHolder(view)
     }
@@ -41,9 +41,9 @@ class RVAdapter(val fragment: Fragment, val context: Context, val items : Mutabl
 
     inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun bindItems(item : RecyclerviewModel){
-            val rv_title = itemView.findViewById<TextView>(R.id.rvItem)
-            val rv_like = itemView.findViewById<ImageView>(R.id.likeBtn)
-            val rv_list = itemView.findViewById<ImageView>(R.id.listBtn)
+            val rv_title = itemView.findViewById<TextView>(R.id.tv_gameblock_name)
+            val rv_like = itemView.findViewById<ImageView>(R.id.iv_like_empty)
+            val rv_list = itemView.findViewById<ImageView>(R.id.iv_list)
 
             var likeChance = false
 
