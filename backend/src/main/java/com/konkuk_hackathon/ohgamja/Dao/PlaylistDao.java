@@ -3,6 +3,9 @@ package com.konkuk_hackathon.ohgamja.Dao;
 import com.konkuk_hackathon.ohgamja.Domain.GamePreview;
 import com.konkuk_hackathon.ohgamja.Domain.LikeTopGame;
 import com.konkuk_hackathon.ohgamja.Domain.Playlist;
+import com.konkuk_hackathon.ohgamja.Domain.PlaylistInfo;
+import com.konkuk_hackathon.ohgamja.Dto.Request.GameIdRequest;
+import com.konkuk_hackathon.ohgamja.Dto.Response.PlaylistInfoResponse;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -92,5 +95,38 @@ public class PlaylistDao {
         Map<String, Long> param = Map.of("playlist_id", playlistId,
                 "game_id", gameId);
         jdbcTemplate.update(playlistDetailSql, param);
+    }
+
+    public List<PlaylistInfo> getPlaylistInfo(Long gameId, Long memberId) {
+        String sql = "select playlist_id, playlist_name " +
+                "from playlist " +
+                "where member_id=:member_id";
+        Map<String, Long> param = Map.of("member_id", memberId);
+
+        RowMapper<PlaylistInfo> mapper = (rs, rowNum) -> {
+            PlaylistInfo playlistInfo = new PlaylistInfo();
+            playlistInfo.setPlaylistId(rs.getLong("playlist_id"));
+            playlistInfo.setPlaylistName(rs.getString("playlist_name"));
+            playlistInfo.setGameCount(getGameInPlaylist(playlistInfo.getPlaylistId()));
+            return playlistInfo;
+        };
+
+        return jdbcTemplate.query(sql, param, mapper);
+    }
+
+    public Boolean isInPlaylist(Long playlistId, Long gameId) {
+        String sql = "select exists(select * from playlist_detail where game_id=:game_id and playlist_id=:playlist_id)";
+        Map<String, Long> param = Map.of("game_id", gameId,
+                "playlist_id", playlistId);
+
+        return jdbcTemplate.queryForObject(sql, param, Boolean.class);
+    }
+
+    public void putInPlaylist(Long gameId, Long playlistId) {
+        String sql = "insert into playlist_detail (game_id, playlist_id) values (:game_id, :playlist_id)";
+        Map<String, Long> param = Map.of("game_id", gameId,
+                "playlist_id", playlistId);
+
+        jdbcTemplate.update(sql, param);
     }
 }
