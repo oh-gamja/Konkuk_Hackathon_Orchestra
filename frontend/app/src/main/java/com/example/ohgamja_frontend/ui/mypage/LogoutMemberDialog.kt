@@ -1,5 +1,6 @@
 package com.example.ohgamja_frontend.ui.mypage
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -11,6 +12,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.example.ohgamja_frontend.R
+import com.example.ohgamja_frontend.ui.KakaoLoginActivity
 
 class LogoutMemberDialog : DialogFragment() {
 
@@ -34,6 +36,8 @@ class LogoutMemberDialog : DialogFragment() {
         logoutBtn.setOnClickListener {
             Toast.makeText(context, "logout", Toast.LENGTH_SHORT).show()
             // 로그아웃 api 호출
+            val intent = Intent(requireContext(),KakaoLoginActivity::class.java)
+            startActivity(intent)
         }
 
         return rootView
