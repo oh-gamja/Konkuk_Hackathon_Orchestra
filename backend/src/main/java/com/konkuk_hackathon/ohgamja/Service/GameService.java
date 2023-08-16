@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Random;
 
 @Slf4j
 @Service
@@ -18,6 +19,7 @@ public class GameService {
     private final GameDao gameDao;
 
     public GameResponse getGame(Long gameId, Long memberId) {
+        log.info("gameId: {}", gameId);
         GameDetail gameDetail = gameDao.getGame(gameId);
         int likeCount = gameDao.getLikeCount(gameId);
         Boolean isLike = gameDao.getIsLike(gameId, memberId);
@@ -44,6 +46,16 @@ public class GameService {
             gamePreview.setLike(isLike);
         }
         return new GamesResponse(gamePreviews);
+    }
+
+    public GameResponse getRandomGame(Long memberId) {
+        Random rand = new Random();
+        Long gameId = rand.nextLong(gameDao.getGamecount());
+
+        GameDetail gameDetail = gameDao.getGame(gameId);
+        int likeCount = gameDao.getLikeCount(gameId);
+        Boolean isLike = gameDao.getIsLike(gameId, memberId);
+        return new GameResponse(gameDetail.getGameId(), gameDetail.getGameName(), gameDetail.getCategory(), gameDetail.getDifficulty(), gameDetail.getHeadCount(), gameDetail.getDescription(), gameDetail.getGameImage(), likeCount, isLike);
     }
 }
 

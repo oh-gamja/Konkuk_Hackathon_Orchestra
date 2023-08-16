@@ -25,7 +25,7 @@ public class GameController {
     }
 
     @GetMapping("/detail")
-    public BaseResponse<GameResponse> getGame(@RequestBody @Valid GameIdRequest gameIdRequest, @PreAuthorize Long memberId){
+    public BaseResponse<GameResponse> getGame(@ModelAttribute @Valid GameIdRequest gameIdRequest, @PreAuthorize Long memberId){
         GameResponse gameResponse = gameService.getGame(gameIdRequest.getGameId(), memberId);
         return new BaseResponse<>(gameResponse);
     }
@@ -34,5 +34,11 @@ public class GameController {
     public BaseResponse<GamesResponse> getAllGamePreViews(@PreAuthorize Long memberId) {
         GamesResponse gamesResponse = gameService.getAllGamePreviews(memberId);
         return new BaseResponse<>(gamesResponse);
+    }
+
+    @GetMapping("/random")
+    public BaseResponse<GameResponse> getRandomGame(@PreAuthorize Long memberId) {
+        GameResponse gameResponse = gameService.getRandomGame(memberId);
+        return new BaseResponse<>(gameResponse);
     }
 }
