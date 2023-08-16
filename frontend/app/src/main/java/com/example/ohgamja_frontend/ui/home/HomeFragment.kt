@@ -108,6 +108,13 @@ class HomeFragment : Fragment() {
                     response: Response<BaseResponse<GamesResponse>>
                 ) {
                     if (response.isSuccessful) {
+                        val result = response.body()!!.result
+                        val items = result.gamePreviews
+                        items.forEach {
+                            rvAdapter.items.add(
+                                RVViewModel(it.gameId, it.gameName, it.difficulty, it.category, it.headCount, it.likeCount)
+                            )
+                        }
                     } else {
                         Log.d("Retrofit", response.message())
                     }
