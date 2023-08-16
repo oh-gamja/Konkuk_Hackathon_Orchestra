@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="310dp"
     android:layout_height="165dp"
-    android:background="@drawable/border_dialog"
     android:layout_gravity="center">
 
     <TextView
