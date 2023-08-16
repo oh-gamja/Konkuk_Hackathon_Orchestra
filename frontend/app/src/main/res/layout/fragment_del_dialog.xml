@@ -44,7 +44,6 @@
             android:textColor="@color/gray500"
             android:textSize="14dp" />
 
-
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
