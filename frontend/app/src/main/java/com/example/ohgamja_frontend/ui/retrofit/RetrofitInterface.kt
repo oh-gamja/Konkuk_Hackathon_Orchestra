@@ -17,6 +17,10 @@ interface RetrofitInterface {
     @GET("/likes/top")
     fun GetTopGameList(
     ): Call<BaseResponse<TopGameResponse>>
+
+    @GET("/likes")
+    fun GetLikes(
+    ): Call<BaseResponse<GamesResponse>>
 }
 
 
