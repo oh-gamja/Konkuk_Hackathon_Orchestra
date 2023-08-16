@@ -7,11 +7,11 @@
 
 ## 목차
 
-### 1. [Home](#1-home)
-### 2. [Game Detail](#2-game-detail)
-### 3. [Like](#3-like)
-### 4. [Game List](#4-game-list)
-### 5. [My Page](#5-my-page)
+### 1. [Home](#1.-home)
+### 2. [Game Detail](#2.-game-detail)
+### 3. [Like](#3.-like)
+### 4. [Game List](#4.-game-list)
+### 5. [My Page](#5.-my-page)
 
 <br>
 <br>
