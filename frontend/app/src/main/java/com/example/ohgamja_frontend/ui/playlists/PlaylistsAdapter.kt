@@ -35,7 +35,7 @@ class PlaylistsAdapter(private val context: Context, private val fragmentManager
                 Toast.makeText(context, "delete!!", Toast.LENGTH_SHORT).show()
 
                 if (item.trashStatus) {
-                    val dialog = DeletePlaylistDialog()
+                    val dialog = DeletePlaylistDialog(items, adapterPosition, this@PlaylistsAdapter)
                     dialog.show(fragmentManager,"DialogFragment")
                 }
             }
