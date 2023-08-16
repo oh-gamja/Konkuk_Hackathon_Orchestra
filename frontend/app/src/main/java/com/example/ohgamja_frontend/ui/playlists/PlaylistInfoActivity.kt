@@ -61,6 +61,14 @@ class PlaylistInfoActivity : AppCompatActivity() {
                 }
             })
 
+        binding.backBtn.setOnClickListener {
+            finish()
+        }
+
+        binding.backBtnTv.setOnClickListener {
+            finish()
+        }
+
 
         setContentView(binding.root)
 
