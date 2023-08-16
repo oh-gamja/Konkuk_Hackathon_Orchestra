@@ -23,7 +23,7 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ex_rabbit"></ImageView>
+                android:src="@drawable/ex_rabbit" />
         </com.google.android.material.card.MaterialCardView>
 
 
@@ -141,6 +141,7 @@
             app:srcCompat="@drawable/ic_like_heart_empty"></ImageView>
 
         <TextView
+            android:id="@+id/likeCount"
             android:layout_width="wrap_content"
             android:layout_height="12dp"
             android:layout_marginRight="14dp"

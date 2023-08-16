@@ -32,7 +32,7 @@ class LikeFragment : Fragment() {
                 "젠가",
                 3,
                 "스릴러",
-                "4"
+                "4",200
             )
         )
         items.add(
@@ -40,7 +40,7 @@ class LikeFragment : Fragment() {
                 "젠가",
                 3,
                 "스릴러",
-                "4"
+                "4",300
             )
         )
         items.add(
@@ -48,7 +48,7 @@ class LikeFragment : Fragment() {
                 "젠가",
                 3,
                 "스릴러",
-                "4"
+                "4",100
             )
         )
         items.add(
@@ -56,7 +56,7 @@ class LikeFragment : Fragment() {
                 "젠가",
                 3,
                 "스릴러",
-                "4"
+                "4",200
             )
         )
         items.add(
@@ -64,7 +64,7 @@ class LikeFragment : Fragment() {
                 "젠가",
                 3,
                 "스릴러",
-                "4"
+                "4",300
             )
         )
         items.add(
@@ -72,7 +72,7 @@ class LikeFragment : Fragment() {
                 "젠가",
                 3,
                 "스릴러",
-                "4"
+                "4",200
             )
         )
         items.add(
@@ -80,7 +80,7 @@ class LikeFragment : Fragment() {
                 "젠가",
                 3,
                 "스릴러",
-                "4"
+                "4",100
             )
         )
         items.add(
@@ -88,7 +88,7 @@ class LikeFragment : Fragment() {
                 "젠가",
                 3,
                 "스릴러",
-                "4"
+                "4",100
             )
         )
         items.add(
@@ -96,12 +96,12 @@ class LikeFragment : Fragment() {
                 "젠가",
                 3,
                 "스릴러",
-                "4"
+                "4",50
             )
         )
 
         val rv = binding.likerv
-        val rvAdapter = RVAdapter(0, requireContext(), items)
+        val rvAdapter = RVAdapter(0, requireContext(), childFragmentManager, items)
 
         rv.adapter = rvAdapter
         rv.layoutManager = LinearLayoutManager(context)

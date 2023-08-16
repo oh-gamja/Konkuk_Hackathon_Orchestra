@@ -4,5 +4,6 @@ data class RVViewModel(
     var itemTitle: String = "",
     var itemDifficulty: Int,
     var itemCategory: String = "",
-    var itemPersonnel: String = ""
+    var itemPersonnel: String = "",
+    var itemLikeCount : Int
 )
