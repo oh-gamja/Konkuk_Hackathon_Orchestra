@@ -12,6 +12,16 @@ data class LoginRequest(
     @SerializedName("idToken") val idToken: String
 )
 
+data class PlaylistRequest(
+    @SerializedName("playlistName") val playlistName: String
+)
+
+data class DeletePlaylistRequest(
+    @SerializedName("playlistId") val playlistId: Int
+)
+
+
+
 data class BaseResponse<T>(
     @SerializedName("code") val code: Int,
     @SerializedName("status") val status: Int,
@@ -50,7 +60,7 @@ data class  LikeTopGame(
 )
 
 data class  PlaylistResponse(
-    @SerializedName("playListResponse") val playListResponse: List<Playlist>,
+    @SerializedName("playlistList") val playlistList: List<Playlist>,
 )
 
 data class  Playlist(

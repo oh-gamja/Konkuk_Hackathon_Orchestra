@@ -20,12 +20,12 @@ import retrofit2.Response
 
 class PlaylistsFragment : Fragment() {
 
-    private lateinit var binding : FragmentPlaylistsBinding
+    private lateinit var binding: FragmentPlaylistsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentPlaylistsBinding.inflate(inflater)
 
@@ -43,7 +43,8 @@ class PlaylistsFragment : Fragment() {
 
 
         val rv = binding.playRv
-        val playlistsAdapter = PlaylistsAdapter(requireContext(), requireActivity().supportFragmentManager, items)
+        val playlistsAdapter =
+            PlaylistsAdapter(requireContext(), requireActivity().supportFragmentManager, items)
         rv.adapter = playlistsAdapter
         rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
@@ -55,16 +56,15 @@ class PlaylistsFragment : Fragment() {
                 ) {
                     if (response.isSuccessful) {
                         val result = response.body()!!.result
-                        val playItems = result.playListResponse
-                        playlistsAdapter.items.clear()
-                        if(playItems != null){
-                            playItems.forEach {
-                                playlistsAdapter.items.add(
-                                    PlaylistViewModel(false,it.playlistName,it.gameCount)
-                                )
-                            }
-                            playlistsAdapter.notifyDataSetChanged()
+                        val playItems = result.playlistList
+                        items.clear()
+                        Log.e("asd", playItems.toString())
+                        playItems.forEach {
+                            items.add(
+                                PlaylistViewModel(false, it.playlistName, it.gameCount)
+                            )
                         }
+                        playlistsAdapter.notifyDataSetChanged()
                     } else {
                         Log.d("Retrofit", response.message())
                     }
@@ -80,7 +80,7 @@ class PlaylistsFragment : Fragment() {
 
         binding.playlistAddButton.setOnClickListener {
             val dialog = AddPlaylistDialog()
-            dialog.show(requireActivity().supportFragmentManager,"DialogFragment")
+            dialog.show(requireActivity().supportFragmentManager, "DialogFragment")
         }
 
         binding.deleteListIv.setOnClickListener {
