@@ -7,5 +7,6 @@ data class RVViewModel(
     var itemDifficulty: String,
     var itemCategory: String = "",
     var itemPersonnel: Int,
-    var itemLikeCount : Int
+    var itemLikeCount : Int,
+    var isLiked: Boolean
 )
