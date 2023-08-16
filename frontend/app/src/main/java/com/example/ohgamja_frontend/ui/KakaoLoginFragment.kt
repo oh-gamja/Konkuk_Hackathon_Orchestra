@@ -93,7 +93,7 @@ class KakaoLoginFragment : Fragment() {
                         val accessToken = result.accessToken
                         val email = result.email
                         Log.d("Retrofit", accessToken)
-
+                        Log.d("qwerty123", "get token")
                         saveAccessToken(requireContext(), accessToken)
                         saveEmail(requireContext(), email)
                         RetrofitUtil.setAccessToken(accessToken)

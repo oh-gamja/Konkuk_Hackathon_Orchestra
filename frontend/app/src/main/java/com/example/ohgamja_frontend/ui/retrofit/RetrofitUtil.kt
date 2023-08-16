@@ -54,7 +54,7 @@ object RetrofitUtil {
         } else {
             interceptor.level = HttpLoggingInterceptor.Level.NONE
         }
-        Log.d("qwerty123", accessTokenString)
+        Log.d("qwerty123", "getokhttpclient"+accessTokenString)
 
         return OkHttpClient.Builder().addInterceptor(interceptor).addInterceptor(
             AddedTokenRequest(
@@ -74,6 +74,7 @@ object RetrofitUtil {
                 .build()
             instance = retrofit.create(RetrofitInterface::class.java)
         }
+        Log.d("qwerty123", "getretrofit" + accessTokenString)
         return instance!!
     }
 

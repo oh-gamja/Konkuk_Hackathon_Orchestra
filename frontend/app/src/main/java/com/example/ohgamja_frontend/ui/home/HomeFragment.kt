@@ -56,6 +56,7 @@ class HomeFragment : Fragment() {
         }
 
 
+        Log.d("qwerty123", "getallgames")
         RetrofitUtil.getRetrofit().GetAllGames()
             .enqueue(object : Callback<BaseResponse<GamesResponse>>{
                 override fun onResponse(
