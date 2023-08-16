@@ -1,6 +1,7 @@
 package com.example.ohgamja_frontend.ui.playlists
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -49,6 +50,7 @@ class PlaylistsFragment : Fragment() {
             val dialog = NewListDialogFragment()
             dialog.show(requireActivity().supportFragmentManager,"DialogFragment")
         }
+
 
 
         return binding.root

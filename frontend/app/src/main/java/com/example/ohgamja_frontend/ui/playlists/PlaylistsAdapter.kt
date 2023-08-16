@@ -18,7 +18,9 @@ class PlaylistsAdapter(val items : ArrayList<PlaylistViewModel>) : RecyclerView.
         fun onItemClicked()
     }
 
+
     override fun onBindViewHolder(holder: PlaylistsAdapter.ViewHolder, position: Int) {
+
         holder.bindItems(items[position])
     }
 
