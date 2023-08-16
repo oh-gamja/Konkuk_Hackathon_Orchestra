@@ -18,3 +18,18 @@ data class BaseResponse<T>(
     @SerializedName("message") val message: String,
     @SerializedName("result") val result: T,
 )
+
+data class GamesResponse(
+    @SerializedName("gamePreviews") val gamePreviews: List<GamePreview>,
+)
+
+data class GamePreview(
+    @SerializedName("gameId") val gameId: Int,
+    @SerializedName("gameName") val gameName: String,
+    @SerializedName("category") val category: String,
+    @SerializedName("difficulty") val difficulty: String,
+    @SerializedName("headCount") val headCount: Int,
+    @SerializedName("gameImage") val gameImage: String,
+    @SerializedName("likeCount") val likeCount: Int,
+    @SerializedName("like") val like: Boolean
+)
