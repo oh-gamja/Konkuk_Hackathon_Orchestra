@@ -94,9 +94,23 @@ class HomeFragment : Fragment() {
                 if (response.isSuccessful) {
                     val result = response.body()!!.result
                     val topItems = result.likeTopGames
+                    val info_intent = Intent(requireContext(),GameInfoActivity::class.java)
                     binding.tvTop1Title.setText(topItems[0].gameName)
                     binding.tvTop2Title.setText(topItems[1].gameName)
                     binding.tvTop3Title.setText(topItems[2].gameName)
+
+                    binding.topItem1.setOnClickListener {
+                        startActivity(info_intent)
+                        info_intent.putExtra("GameIt",topItems[0].gameId)
+                    }
+                    binding.topItem2.setOnClickListener {
+                        startActivity(info_intent)
+                        info_intent.putExtra("GameIt",topItems[1].gameId)
+                    }
+                    binding.topItem3.setOnClickListener {
+                        startActivity(info_intent)
+                        info_intent.putExtra("GameIt",topItems[2].gameId)
+                    }
 
                     binding.tvTop1Num.setText(topItems[0].likeCount.toString())
                     binding.tvTop2Num.setText(topItems[1].likeCount.toString())
