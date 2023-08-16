@@ -8,44 +8,40 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="74dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="18dp"
         android:text="술이슬쩍"
-        android:textColor="#7C91E5"
-        android:textSize="18dp"
-        android:textStyle="bold"
+        android:textColor="@color/lavender_main"
+        android:textSize="20dp"
+        android:fontFamily="@font/kcc_ganpan"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <ImageView
+        android:id="@+id/profileImage"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginTop="90dp"
         android:src="@color/star"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
-    <ImageView
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="128dp"
-        android:src="@drawable/ic_playlist_add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:layout_width="89dp"
-        android:layout_height="26dp"
-        android:text="닉네임자리"
-        android:layout_marginTop="256dp"
+        android:id="@+id/profileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오감자"
+        android:layout_marginTop="26dp"
         android:gravity="center"
         android:textColor="@color/white"
+        android:fontFamily="@font/lottemart_bold"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toBottomOf="@id/profileImage"></TextView>
 
     <TextView
         android:layout_width="180dp"
@@ -54,68 +50,54 @@
         android:text="ohgamja5555@gmail.com"
         android:gravity="center"
         android:background="@drawable/border_1dp_white_btn_background"
-        android:layout_marginTop="292dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toBottomOf="@id/profileName"></TextView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="135dp"
         android:layout_height="40dp"
-        android:layout_marginTop="600dp"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginBottom="88dp"
+        android:layout_marginLeft="36dp"
+        app:cardBackgroundColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/deleteBtn"
             android:layout_width="135dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="36dp"
-            android:layout_marginRight="15dp"
-            android:layout_weight="1"
             android:background="@drawable/border_2dp_pink_main_btn_background"
+            android:fontFamily="@font/lottemart_medium"
             android:text="회원탈퇴"
-            android:textColor="#EBB9CC"></Button>
+            android:textColor="@color/pink_main"
+            android:textSize="12dp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="135dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="88dp"
+        app:cardBackgroundColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <Button
             android:id="@+id/logoutBtn"
             android:layout_width="135dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="36dp"
-            android:layout_weight="1"
+            android:layout_height="35dp"
             android:background="@drawable/border_2dp_lavendar_main_btn_background"
+            android:fontFamily="@font/lottemart_medium"
             android:text="로그아웃"
-            android:textColor="#7C91E5"></Button>
-    </LinearLayout>
+            android:textColor="@color/lavender_main"
+            android:textSize="12dp" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="4px"
-        android:layout_marginBottom="70dp"
-        android:background="#7C91E5"
-        app:layout_constraintBottom_toBottomOf="parent"></View>
-
-
-<!--    <LinearLayout-->
-<!--        android:id="@+id/linearLayout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="70dp"-->
-<!--        android:background="@color/black"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        tools:layout_editor_absoluteX="0dp">-->
-
-
-
-
-
-
-<!--    </LinearLayout>-->
-
-
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
