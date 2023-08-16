@@ -45,7 +45,8 @@ class DialogAdapter(val items : ArrayList<PlaylistViewModel>, val context: Conte
                 if (added == false){
                     //아이콘(DrvButton) 바뀜
                     binding.DrvButton.setImageResource(R.drawable.ic_playlist_remove)
-                    binding.DrvListName.setTextColor(ColorStateList.valueOf(context.getColor(R.color.lavender_main)))
+                    binding.DrvButton.imageTintList = ColorStateList.valueOf(context.getColor(R.color.lavender_sub1))
+                    binding.DrvListName.setTextColor(ColorStateList.valueOf(context.getColor(R.color.lavender_sub1)))
 
                     //플리(item)에서 해당 게임 삭제 -> 아직 구현 못함 ㅎ
 
