@@ -33,7 +33,7 @@ class SearchActivity : AppCompatActivity() {
         val mAdapter = FilterRVAdapter(items)
 
         rv.adapter = mAdapter
-        rv.layoutManager = LinearLayoutManager(this)
+        rv.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
 
 
         binding.imgBtn1.setOnClickListener {
@@ -61,6 +61,8 @@ class SearchActivity : AppCompatActivity() {
                 binding.imgBtn2.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.category2.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check2 = false
+                mAdapter.removeItem("카테고리2")
+
             }
         }
         binding.imgBtn3.setOnClickListener {
@@ -74,6 +76,7 @@ class SearchActivity : AppCompatActivity() {
                 binding.imgBtn3.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.category3.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check3 = false
+                mAdapter.removeItem("카테고리3")
             }
         }
         binding.imgBtn4.setOnClickListener {
@@ -87,6 +90,7 @@ class SearchActivity : AppCompatActivity() {
                 binding.imgBtn4.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.category4.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check4 = false
+                mAdapter.removeItem("카테고리4")
             }
         }
 
@@ -100,13 +104,21 @@ class SearchActivity : AppCompatActivity() {
                 binding.personnel3.setTextColor(ContextCompat.getColor(this, R.color.white))
                 mAdapter.addItem("3명이상")
                 check5 = true
-                check6 = false
-                check7 = false
+                if(check6 == true) {
+                    check6 = false
+                    mAdapter.removeItem("4명이상")
+                }
+                if(check7 == true){
+                    check7 = false
+                    mAdapter.removeItem("5명이상")
+                }
             }
             else {
                 binding.imgBtn5.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.personnel1.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check5 = false
+                mAdapter.removeItem("3명이상")
+
             }
         }
 
@@ -119,14 +131,22 @@ class SearchActivity : AppCompatActivity() {
                 binding.imgBtn7.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.personnel3.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check6 = true
-                check5 = false
-                check7 = false
+
                 mAdapter.addItem("4명이상")
+                if(check5 == true) {
+                    check5 = false
+                    mAdapter.removeItem("3명이상")
+                }
+                if(check7 == true){
+                    check7 = false
+                    mAdapter.removeItem("5명이상")
+                }
             }
             else {
                 binding.imgBtn6.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.personnel2.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check6 = false
+                mAdapter.removeItem("4명이상")
             }
         }
 
@@ -139,14 +159,21 @@ class SearchActivity : AppCompatActivity() {
                 binding.imgBtn5.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.personnel1.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check7 = true
-                check6 = false
-                check5 = false
                 mAdapter.addItem("5명이상")
+                if(check6 == true) {
+                    check6 = false
+                    mAdapter.removeItem("4명이상")
+                }
+                if(check5 == true){
+                    check5 = false
+                    mAdapter.removeItem("3명이상")
+                }
             }
             else {
                 binding.imgBtn7.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.personnel3.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check7 = false
+                mAdapter.removeItem("5명이상")
             }
         }
 
@@ -155,11 +182,14 @@ class SearchActivity : AppCompatActivity() {
                 binding.imgBtn8.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.difficulty1.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 check8 = true
+                mAdapter.addItem("별하나")
             }
             else {
                 binding.imgBtn8.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.difficulty1.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check8 = false
+                mAdapter.removeItem("별하나")
+
             }
         }
         binding.imgBtn9.setOnClickListener {
@@ -167,11 +197,15 @@ class SearchActivity : AppCompatActivity() {
                 binding.imgBtn9.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.difficulty2.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 check9 = true
+                mAdapter.addItem("별두개")
+
             }
             else {
                 binding.imgBtn9.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.difficulty2.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check9 = false
+                mAdapter.removeItem("별두개")
+
             }
         }
         binding.imgBtn10.setOnClickListener {
@@ -179,11 +213,15 @@ class SearchActivity : AppCompatActivity() {
                 binding.imgBtn10.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.difficulty3.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 check10 = true
+                mAdapter.addItem("별세개")
+
             }
             else {
                 binding.imgBtn10.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.difficulty3.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check10 = false
+                mAdapter.removeItem("별세개")
+
             }
         }
 
