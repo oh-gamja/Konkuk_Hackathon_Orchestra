@@ -4,9 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.ohgamja_frontend.R
-import com.example.ohgamja_frontend.databinding.ActivityMainBinding
 import com.example.ohgamja_frontend.databinding.ActivitySearchBinding
 
 class SearchActivity : AppCompatActivity() {
@@ -30,7 +28,7 @@ class SearchActivity : AppCompatActivity() {
 
         var items = mutableListOf<String>()
         val rv = binding.recyclerView
-        val mAdapter = FilterRVAdapter(items)
+        val mAdapter = SearchFilterAdapter(items)
 
         rv.adapter = mAdapter
         rv.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)

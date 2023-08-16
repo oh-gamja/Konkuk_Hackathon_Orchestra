@@ -1,6 +1,6 @@
 package com.example.ohgamja_frontend.ui.home
 
-data class PlaylistViewModel (
+data class AddToPlaylistViewModel (
     val listName : String,
     val gameNum : Int
     )

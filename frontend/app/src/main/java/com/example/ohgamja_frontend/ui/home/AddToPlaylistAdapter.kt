@@ -1,21 +1,19 @@
 package com.example.ohgamja_frontend.ui.home
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ohgamja_frontend.R
-import com.example.ohgamja_frontend.databinding.ItemDialogPlaylistsBinding
+import com.example.ohgamja_frontend.databinding.DialogAddToPlaylistBinding
+import com.example.ohgamja_frontend.databinding.ItemDialogAddToPlaylistAdapterBinding
 
-class DialogAdapter(val items : ArrayList<PlaylistViewModel>, val context: Context) : RecyclerView.Adapter<DialogAdapter.ViewHolder>() {
+class AddToPlaylistAdapter(val items : ArrayList<AddToPlaylistViewModel>, val context: Context) : RecyclerView.Adapter<AddToPlaylistAdapter.ViewHolder>() {
 
     //playlist 불러오기
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DialogAdapter.ViewHolder {
-        val binding = ItemDialogPlaylistsBinding.inflate(LayoutInflater.from(parent.context))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddToPlaylistAdapter.ViewHolder {
+        val binding = ItemDialogAddToPlaylistAdapterBinding.inflate(LayoutInflater.from(parent.context))
         return ViewHolder(binding)
     }
 
@@ -32,10 +30,10 @@ class DialogAdapter(val items : ArrayList<PlaylistViewModel>, val context: Conte
         return items.size
     }
 
-    inner class ViewHolder(val binding: ItemDialogPlaylistsBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: ItemDialogAddToPlaylistAdapterBinding) : RecyclerView.ViewHolder(binding.root) {
 
 
-        fun bindItems(item : PlaylistViewModel) {
+        fun bindItems(item : AddToPlaylistViewModel) {
             binding.DrvListName.text = item.listName
 
             var added = false

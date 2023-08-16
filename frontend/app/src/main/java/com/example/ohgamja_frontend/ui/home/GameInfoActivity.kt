@@ -17,7 +17,7 @@ class GameInfoActivity : AppCompatActivity() {
 
         binding.addButton.setOnClickListener {
             //추가할 플레이리스트를 고르는 dialog
-            val dialog = AddListDialogFragment()
+            val dialog = AddToPlaylistDialog()
             dialog.show(supportFragmentManager,"DialogFragment")
         }
 

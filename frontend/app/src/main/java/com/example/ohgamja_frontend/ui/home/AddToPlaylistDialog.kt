@@ -10,12 +10,11 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ohgamja_frontend.MainActivity
-import com.example.ohgamja_frontend.databinding.FragmentAddListDialogBinding
+import com.example.ohgamja_frontend.databinding.DialogAddToPlaylistBinding
 
-class AddListDialogFragment : DialogFragment() {
+class AddToPlaylistDialog : DialogFragment() {
 
-    private lateinit var binding : FragmentAddListDialogBinding
+    private lateinit var binding : DialogAddToPlaylistBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,27 +26,27 @@ class AddListDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentAddListDialogBinding.inflate(inflater)
+        binding = DialogAddToPlaylistBinding.inflate(inflater)
 
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
 
-        val items = arrayListOf<PlaylistViewModel>()
+        val items = arrayListOf<AddToPlaylistViewModel>()
 
-        items.add(PlaylistViewModel("플레이리스트1",3))
-        items.add(PlaylistViewModel("플레이리스트2",4))
-        items.add(PlaylistViewModel("플레이리스트3",5))
-        items.add(PlaylistViewModel("플레이리스트4",6))
-        items.add(PlaylistViewModel("플레이리스트5",7))
-        items.add(PlaylistViewModel("플레이리스트6",8))
-        items.add(PlaylistViewModel("플레이리스트7",9))
-        items.add(PlaylistViewModel("플레이리스트8",10))
-        items.add(PlaylistViewModel("플레이리스트9",11))
+        items.add(AddToPlaylistViewModel("플레이리스트1",3))
+        items.add(AddToPlaylistViewModel("플레이리스트2",4))
+        items.add(AddToPlaylistViewModel("플레이리스트3",5))
+        items.add(AddToPlaylistViewModel("플레이리스트4",6))
+        items.add(AddToPlaylistViewModel("플레이리스트5",7))
+        items.add(AddToPlaylistViewModel("플레이리스트6",8))
+        items.add(AddToPlaylistViewModel("플레이리스트7",9))
+        items.add(AddToPlaylistViewModel("플레이리스트8",10))
+        items.add(AddToPlaylistViewModel("플레이리스트9",11))
 
         val Drv = binding.dialogListRv
-        val DialogAdapter = DialogAdapter(items, requireContext())
+        val AddToPlaylistAdapter = AddToPlaylistAdapter(items, requireContext())
 
-        Drv.adapter = DialogAdapter
+        Drv.adapter = AddToPlaylistAdapter
         Drv.layoutManager = LinearLayoutManager(context)
 
         binding.cancelButton.setOnClickListener {

@@ -1,16 +1,13 @@
 package com.example.ohgamja_frontend.ui.home
 
-import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ohgamja_frontend.R
-import com.google.android.material.animation.Positioning
 
-class FilterRVAdapter (val items : MutableList<String>) : RecyclerView.Adapter<FilterRVAdapter.ViewHolder>(){
+class SearchFilterAdapter (val items : MutableList<String>) : RecyclerView.Adapter<SearchFilterAdapter.ViewHolder>(){
     
     var mPosition = 0
 
@@ -32,12 +29,12 @@ class FilterRVAdapter (val items : MutableList<String>) : RecyclerView.Adapter<F
         items.removeAt(index)
         notifyDataSetChanged()
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilterRVAdapter.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.filter_rv_item,parent,false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchFilterAdapter.ViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_search_filter_adapter,parent,false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: FilterRVAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SearchFilterAdapter.ViewHolder, position: Int) {
         holder.bindItems(items[position])
     }
 

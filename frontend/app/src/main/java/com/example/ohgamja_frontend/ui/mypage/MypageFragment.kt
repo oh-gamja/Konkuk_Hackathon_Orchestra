@@ -1,24 +1,13 @@
 package com.example.ohgamja_frontend.ui.home
 
-import android.app.AlertDialog
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
-import com.example.ohgamja_frontend.MainActivity
-import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.FragmentMypageBinding
-import com.example.ohgamja_frontend.databinding.FragmentPlaylistsBinding
-import com.example.ohgamja_frontend.ui.mypage.DeleteDialog
-import com.example.ohgamja_frontend.ui.mypage.LogoutDialog
-import com.kakao.sdk.auth.model.OAuthToken
-import com.kakao.sdk.common.model.ClientError
-import com.kakao.sdk.common.model.ClientErrorCause
-import com.kakao.sdk.user.UserApiClient
+import com.example.ohgamja_frontend.ui.mypage.DeleteMemberDialog
+import com.example.ohgamja_frontend.ui.mypage.LogoutMemberDialog
 
 class MypageFragment : Fragment() {
     lateinit var binding: FragmentMypageBinding
@@ -41,12 +30,12 @@ class MypageFragment : Fragment() {
         val logout_btn = binding.logoutBtn
 
         logout_btn.setOnClickListener {
-            val dialogFragment = LogoutDialog()
+            val dialogFragment = LogoutMemberDialog()
             dialogFragment.show(requireActivity().supportFragmentManager, "CustomDialog")
         }
 
         delete_btn.setOnClickListener {
-            val dialogFragment = DeleteDialog()
+            val dialogFragment = DeleteMemberDialog()
             dialogFragment.show(requireActivity().supportFragmentManager, "CustomDialog")
         }
 

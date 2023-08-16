@@ -1,22 +1,17 @@
 package com.example.ohgamja_frontend.ui
 
-import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ohgamja_frontend.R
-import org.w3c.dom.Text
 
-class RVAdapter(val fragment: Fragment, val context: Context, val items : MutableList<RecyclerviewModel>) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
+class RVAdapter(val type: Int, val context: Context, val items : MutableList<RVViewModel>) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVAdapter.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_item,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_rvadapter,parent,false)
         return ViewHolder(view)
     }
     interface ItemClick {
@@ -39,14 +34,12 @@ class RVAdapter(val fragment: Fragment, val context: Context, val items : Mutabl
     }
 
     inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-        fun bindItems(item : RecyclerviewModel){
+        fun bindItems(item : RVViewModel){
             val rv_title = itemView.findViewById<TextView>(R.id.itemTitle)
             val rv_like = itemView.findViewById<ImageView>(R.id.likeBtn)
             val rv_list = itemView.findViewById<ImageView>(R.id.listBtn)
 
             var likeChance = false
-
-
 
             rv_like.setOnClickListener {
                 if(likeChance == false){

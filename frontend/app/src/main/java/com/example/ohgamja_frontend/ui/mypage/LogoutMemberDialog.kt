@@ -12,14 +12,14 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.example.ohgamja_frontend.R
 
-class LogoutDialog : DialogFragment() {
+class LogoutMemberDialog : DialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.dialog_logout, container, false)
+        val rootView = inflater.inflate(R.layout.dialog_logout_member, container, false)
 
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)

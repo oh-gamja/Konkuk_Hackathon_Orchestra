@@ -3,18 +3,17 @@ package com.example.ohgamja_frontend.ui.playlists
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ohgamja_frontend.R
-import com.example.ohgamja_frontend.databinding.ItemPlaylistsBinding
+import com.example.ohgamja_frontend.databinding.ItemPlaylistsAdapterBinding
 
 class PlaylistsAdapter(private val context: Context, private val fragmentManager: FragmentManager, val items : ArrayList<PlaylistViewModel>) : RecyclerView.Adapter<PlaylistsAdapter.ViewHolder>() {
 
     //playlist 불러오기
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlaylistsAdapter.ViewHolder {
-        val binding = ItemPlaylistsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemPlaylistsAdapterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -27,7 +26,7 @@ class PlaylistsAdapter(private val context: Context, private val fragmentManager
         return items.size
     }
 
-    inner class ViewHolder(val binding: ItemPlaylistsBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: ItemPlaylistsAdapterBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item : PlaylistViewModel) {
             binding.rvListName.text = item.listName
@@ -36,7 +35,7 @@ class PlaylistsAdapter(private val context: Context, private val fragmentManager
                 Toast.makeText(context, "delete!!", Toast.LENGTH_SHORT).show()
 
                 if (item.trashStatus) {
-                    val dialog = DelDialogFragment()
+                    val dialog = DeletePlaylistDialog()
                     dialog.show(fragmentManager,"DialogFragment")
                 }
             }
