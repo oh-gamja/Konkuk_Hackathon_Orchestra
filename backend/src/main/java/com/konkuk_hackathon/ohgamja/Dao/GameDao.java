@@ -101,4 +101,12 @@ public class GameDao {
 
         return jdbcTemplate.query(sql, mapper);
     }
+
+    public Integer getGamecount() {
+        String sql = "select count(game_id) " +
+                "from game";
+
+        Map<String, Object> param = Map.of();
+        return jdbcTemplate.queryForObject(sql, param, Integer.class);
+    }
 }
