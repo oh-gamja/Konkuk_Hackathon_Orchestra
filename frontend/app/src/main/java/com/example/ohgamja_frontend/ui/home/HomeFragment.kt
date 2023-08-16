@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.ohgamja_frontend.MainActivity
 import com.example.ohgamja_frontend.databinding.FragmentHomeBinding
+import com.example.ohgamja_frontend.ui.AddToPlaylistDialog
 import com.example.ohgamja_frontend.ui.RVAdapter
 import com.example.ohgamja_frontend.ui.RVViewModel
 import com.example.ohgamja_frontend.ui.retrofit.BaseResponse
@@ -48,12 +49,15 @@ class HomeFragment : Fragment() {
         rv.adapter = rvAdapter
         rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
+
+        //추가 버튼 클릭 시 AddToPlayListDialog() 띄우기
         rvAdapter.itemClick = object : RVAdapter.ItemClick {
-            override fun onClick(view: View, position: Int) {
-                val intent = Intent(requireContext(),GameInfoActivity::class.java)
-                startActivity(intent)
+            override fun onClick() {
+                val dialog = AddToPlaylistDialog()
+                dialog.show(childFragmentManager, "DialogFragment")
             }
         }
+
 
 
         Log.d("qwerty123", "getallgames")

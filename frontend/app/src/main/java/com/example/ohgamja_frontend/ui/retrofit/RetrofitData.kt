@@ -58,3 +58,20 @@ data class  Playlist(
     @SerializedName("playlistName") val playlistName: String,
     @SerializedName("gameCount") val gameCount: Int,
 )
+
+data class DetailRequest(
+    @SerializedName("gameId") val gameId: Int
+)
+
+data class DetailResponse(
+    @SerializedName("gameId") val gameId: Int,
+    @SerializedName("gameName") val gameName: String,
+    @SerializedName("category") val category: String,
+    @SerializedName("difficulty") val difficulty: String,
+    @SerializedName("headCount") val headCount: Int,
+    @SerializedName("description") val description: String,
+    @SerializedName("gameImage") val gameImage: String,
+    @SerializedName("likeCount") val likeCount: Int,
+    @SerializedName("isLike") val isLike: Boolean
+)
+

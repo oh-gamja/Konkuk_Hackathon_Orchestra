@@ -19,49 +19,49 @@ class PlaylistInfoActivity : AppCompatActivity() {
         val binding = ActivityPlaylistInfoBinding.inflate(layoutInflater)
 
         val items = mutableListOf<RVViewModel>()
-//
-//        items.add(
-//            RVViewModel(
-//                "젠가",
-//                3,
-//                "스릴러",
-//                "4", 4
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "경도",
-//                2,
-//                "범죄",
-//                "2", 4
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "바니바니",
-//                2,
-//                "농락",
-//                "5", 4
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "출석부",
-//                1,
-//                "속도",
-//                "6",
-//                4
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "더 게임 오브 데스",
-//                3,
-//                "도박",
-//                "8",
-//                4
-//            )
-//        )
+
+        /*items.add(
+            RVViewModel(
+                "젠가",
+                3,
+                "스릴러",
+                "4", 4
+            )
+        )
+        items.add(
+            RVViewModel(
+                "경도",
+                2,
+                "범죄",
+                "2", 4
+            )
+        )
+        items.add(
+            RVViewModel(
+                "바니바니",
+                2,
+                "농락",
+                "5", 4
+            )
+        )
+        items.add(
+            RVViewModel(
+                "출석부",
+                1,
+                "속도",
+                "6",
+                4
+            )
+        )
+        items.add(
+            RVViewModel(
+                "더 게임 오브 데스",
+                3,
+                "도박",
+                "8",
+                4
+            )
+        )*/
 
         val rvAdapter = RVAdapter(0, this, supportFragmentManager, items)
 

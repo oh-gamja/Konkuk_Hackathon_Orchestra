@@ -1,11 +1,29 @@
 package com.example.ohgamja_frontend.ui.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import com.bumptech.glide.Glide
+import com.example.ohgamja_frontend.MainActivity
 import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.ActivityGameInfoBinding
 import com.example.ohgamja_frontend.ui.AddToPlaylistDialog
+import com.example.ohgamja_frontend.ui.retrofit.BaseResponse
+import com.example.ohgamja_frontend.ui.retrofit.DetailRequest
+import com.example.ohgamja_frontend.ui.retrofit.DetailResponse
+import com.example.ohgamja_frontend.ui.retrofit.LoginRequest
+import com.example.ohgamja_frontend.ui.retrofit.LoginResponse
+import com.example.ohgamja_frontend.ui.retrofit.RetrofitUtil
+import com.example.ohgamja_frontend.ui.retrofit.saveAccessToken
+import com.example.ohgamja_frontend.ui.retrofit.saveEmail
+import com.kakao.sdk.auth.model.OAuthToken
+import okhttp3.Request
+import okio.Timeout
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class GameInfoActivity : AppCompatActivity() {
 
@@ -45,17 +63,43 @@ class GameInfoActivity : AppCompatActivity() {
             }
         }
 
-        //데이터 불러오기
-//        binding.gameName.text = "asdf"
-//        binding.gameLevel1, 2, 3 -> 배열
-//        binding.gameLevel1.visibility = View.GONE
-//        binding.gameLevel1.visibility = View.VISIBLE
-//        for(배열){
-//            배열[i].visibility
-//        }
-//        binding.gameName.text = 3.toString()
-
+        getGameInfo()
 
         setContentView(binding.root)
+    }
+
+    private fun getGameInfo() {
+        val detailRequest = DetailRequest(intent.getIntExtra("gameId",-1))
+
+        RetrofitUtil.getRetrofit().GetGameDetail(detailRequest).enqueue(object:
+            Callback<BaseResponse<DetailResponse>> {
+            override fun onResponse(
+                call: Call<BaseResponse<DetailResponse>>,
+                response: Response<BaseResponse<DetailResponse>>
+            ) {
+                if(response.isSuccessful){
+                    //데이터 처리
+                    val result = response.body()!!.result
+
+                    binding.gameName.setText(result.gameName)
+                    binding.tag.setText(result.category)
+                    binding.heartNum.setText(result.likeCount)
+                    binding.detailContent.setText(result.description)
+
+                    Glide.with(this@GameInfoActivity)
+                        .load(result.gameImage)
+                        .into(binding.mainImage)
+
+                } else {
+                    //에러 코드
+                }
+            }
+
+            override fun onFailure(call: Call<BaseResponse<DetailResponse>>, t: Throwable) {
+                //ㅁ이라ㅓ짇차ㅡ
+            }
+
+        })
+
     }
 }

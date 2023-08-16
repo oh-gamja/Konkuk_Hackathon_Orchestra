@@ -26,6 +26,11 @@ interface RetrofitInterface {
     @DELETE("/auth/signout")
     fun KaKaoSingout(
     ): Call<BaseResponse<SignoutResponse>>
+
+    @POST("/games/detail")
+    fun GetGameDetail(
+        @Body requestBody: DetailRequest
+    ): Call<BaseResponse<DetailResponse>>
 }
 
 
