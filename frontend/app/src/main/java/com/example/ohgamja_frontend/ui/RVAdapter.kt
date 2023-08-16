@@ -1,5 +1,6 @@
 package com.example.ohgamja_frontend.ui
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ohgamja_frontend.R
+import com.google.android.material.datepicker.MaterialDatePicker.Builder.datePicker
+
+
+
 
 class RVAdapter(val type: Int, val context: Context, val items : MutableList<RVViewModel>) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVAdapter.ViewHolder {
@@ -38,16 +43,33 @@ class RVAdapter(val type: Int, val context: Context, val items : MutableList<RVV
             val rv_title = itemView.findViewById<TextView>(R.id.itemTitle)
             val rv_like = itemView.findViewById<ImageView>(R.id.likeBtn)
             val rv_list = itemView.findViewById<ImageView>(R.id.listBtn)
+            val rv_likeCount = itemView.findViewById<TextView>(R.id.likeCount)
+
+            val mDialogView = LayoutInflater.from(context).inflate(R.layout.dialog_add_to_playlist,null)
+            val mBuilder = AlertDialog.Builder(context)
+            rv_list.setOnClickListener {
+                if(mDialogView.parent != null){
+                    ((mDialogView.parent) as ViewGroup).removeView(mDialogView)
+                }
+                mBuilder.setView(mDialogView)
+                mBuilder.show()
+            }
+
+
 
             var likeChance = false
 
             rv_like.setOnClickListener {
                 if(likeChance == false){
+                    val lc_int =Integer.parseInt(rv_likeCount.text.toString())
+                    rv_likeCount.setText("${lc_int+1}")
                     rv_like.setImageResource(R.drawable.ic_like_heart_filled)
                     likeChance = true
                     showToastMessage()
                 }
                 else if(likeChance == true){
+                    val lc_int =Integer.parseInt(rv_likeCount.text.toString())
+                    rv_likeCount.setText("${lc_int-1}")
                     rv_like.setImageResource(R.drawable.ic_like_heart_empty)
                     likeChance = false
                 }

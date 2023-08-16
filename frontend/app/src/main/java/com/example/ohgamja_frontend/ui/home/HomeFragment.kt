@@ -29,12 +29,6 @@ class HomeFragment : Fragment() {
             startActivity(i)
         }
 
-        val list_item = mutableListOf<String>()
-
-        list_item.add("내가 즐겨하는 게임")
-        list_item.add("여자친구가 좋아하는 게임")
-        list_item.add("원우가 좋아하는 게임")
-
 
 
         items.add(
@@ -43,6 +37,7 @@ class HomeFragment : Fragment() {
                 3,
                 "스릴러",
                 "4"
+                ,200
             )
         )
         items.add(
@@ -50,7 +45,8 @@ class HomeFragment : Fragment() {
                 "경도",
                 2,
                 "범죄",
-                "2"
+                "2",
+                100
             )
         )
         items.add(
@@ -58,7 +54,8 @@ class HomeFragment : Fragment() {
                 "바니바니",
                 2,
                 "농락",
-                "5"
+                "5",
+                300
             )
         )
         items.add(
@@ -66,7 +63,8 @@ class HomeFragment : Fragment() {
                 "출석부",
                 1,
                 "속도",
-                "6"
+                "6",
+                50
             )
         )
         items.add(
@@ -74,7 +72,8 @@ class HomeFragment : Fragment() {
                 "더 게임 오브 데스",
                 3,
                 "도박",
-                "8"
+                "8",
+                60
             )
         )
         val rv = binding.rv
@@ -85,7 +84,8 @@ class HomeFragment : Fragment() {
 
         rvAdapter.itemClick = object : RVAdapter.ItemClick {
             override fun onClick(view: View, position: Int) {
-
+                val intent = Intent(requireContext(),GameInfoActivity::class.java)
+                startActivity(intent)
             }
         }
 
