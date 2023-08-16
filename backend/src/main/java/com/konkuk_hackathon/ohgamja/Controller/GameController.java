@@ -19,8 +19,8 @@ public class GameController {
     private final GameService gameService;
 
     @GetMapping("")
-    public BaseResponse<GamesResponse> getGamePreviewsBy(@RequestParam String category, @RequestParam String name, @RequestParam int headCount, @PreAuthorize Long memberId) {
-        GamesResponse gamesResponse = gameService.getGamePreviews(category, name, headCount, memberId);
+    public BaseResponse<GamesResponse> getGamePreviewsBy(@RequestParam String difficulty, @RequestParam String category, @RequestParam String name, @RequestParam int headCount, @PreAuthorize Long memberId) {
+        GamesResponse gamesResponse = gameService.getGamePreviews(difficulty, category, name, headCount, memberId);
         return new BaseResponse<>(gamesResponse);
     }
 

@@ -64,7 +64,7 @@ public class AuthService {
         }
     }
 
-    public SignOutResponse SignOut(Long memberId){
+    public SignOutResponse SignOut(Long memberId) {
         memberDao.delete(memberId);
         System.out.println("service : " + memberId);
         return new SignOutResponse(memberId);
