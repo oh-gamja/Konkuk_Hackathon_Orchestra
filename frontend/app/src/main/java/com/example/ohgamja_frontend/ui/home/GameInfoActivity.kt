@@ -72,7 +72,7 @@ class GameInfoActivity : AppCompatActivity() {
 
                     binding.gameName.setText(result.gameName)
                     binding.tag.setText(result.category)
-                    binding.heartNum.setText(result.likeCount)
+                    binding.heartNum.setText(result.likeCount.toString())
                     binding.detailContent.setText(result.description)
 
                     Glide.with(this@GameInfoActivity)
