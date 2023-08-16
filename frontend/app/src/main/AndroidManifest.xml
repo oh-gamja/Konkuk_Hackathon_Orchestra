@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-            android:usesCleartextTraffic="true"
+        android:usesCleartextTraffic="true"
         android:name=".GlobalApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -40,7 +40,7 @@
 
                 <data
                     android:host="oauth"
-                    android:scheme="${KAKAO_APP_KEY}" />
+                    android:scheme="kakao56a8f3243380ef1399c99afc99f668ff" />
             </intent-filter>
         </activity>
         <activity
