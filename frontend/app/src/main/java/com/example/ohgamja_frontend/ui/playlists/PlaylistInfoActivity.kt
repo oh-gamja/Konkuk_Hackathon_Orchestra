@@ -8,7 +8,7 @@ import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.ActivityPlaylistInfoBinding
 import com.example.ohgamja_frontend.databinding.ActivitySearchBinding
 import com.example.ohgamja_frontend.ui.RVAdapter
-import com.example.ohgamja_frontend.ui.RecyclerviewModel
+import com.example.ohgamja_frontend.ui.RVViewModel
 
 class PlaylistInfoActivity : AppCompatActivity() {
 
@@ -18,45 +18,52 @@ class PlaylistInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityPlaylistInfoBinding.inflate(layoutInflater)
 
-        val items = mutableListOf<RecyclerviewModel>()
+        val items = mutableListOf<RVViewModel>()
 
         items.add(
-            RecyclerviewModel(
+            RVViewModel(
                 "젠가",
                 3,
                 "스릴러",
-                "4")
+                "4", 4
+            )
         )
         items.add(
-            RecyclerviewModel(
+            RVViewModel(
                 "경도",
                 2,
                 "범죄",
-                "2")
+                "2", 4
+            )
         )
         items.add(
-            RecyclerviewModel(
+            RVViewModel(
                 "바니바니",
                 2,
                 "농락",
-                "5")
+                "5", 4
+            )
         )
         items.add(
-            RecyclerviewModel(
+            RVViewModel(
                 "출석부",
                 1,
                 "속도",
-                "6")
+                "6",
+                4
+            )
         )
         items.add(
-            RecyclerviewModel(
+            RVViewModel(
                 "더 게임 오브 데스",
                 3,
                 "도박",
-                "8")
+                "8",
+                4
+            )
         )
 
-        val rvAdapter = RVAdapter(Fragment(),this, items)
+        val rvAdapter = RVAdapter(0, this, supportFragmentManager, items)
 
         binding.playlistRv.adapter = rvAdapter
         binding.playlistRv.layoutManager = LinearLayoutManager(this)
