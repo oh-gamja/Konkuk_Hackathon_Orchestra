@@ -1,18 +1,12 @@
 package com.example.ohgamja_frontend
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
 import com.example.ohgamja_frontend.databinding.ActivityMainBinding
-import com.example.ohgamja_frontend.ui.home.GameInfoActivity
 import com.example.ohgamja_frontend.ui.home.HomeFragment
-import com.example.ohgamja_frontend.ui.home.LikeFragment
 import com.example.ohgamja_frontend.ui.home.MypageFragment
+import com.example.ohgamja_frontend.ui.like.LikeFragment
 import com.example.ohgamja_frontend.ui.playlists.PlaylistsFragment
-import com.kakao.sdk.common.util.Utility
 
 class MainActivity : AppCompatActivity() {
 

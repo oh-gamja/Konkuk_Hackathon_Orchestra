@@ -1,4 +1,4 @@
-package com.example.ohgamja_frontend.ui.home
+package com.example.ohgamja_frontend.ui.like
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ohgamja_frontend.databinding.FragmentLikeBinding
 import com.example.ohgamja_frontend.ui.RVAdapter
-import com.example.ohgamja_frontend.ui.RecyclerviewModel
+import com.example.ohgamja_frontend.ui.RVViewModel
 
 class LikeFragment : Fragment() {
     lateinit var binding: FragmentLikeBinding
@@ -19,7 +19,7 @@ class LikeFragment : Fragment() {
     ): View {
         binding = FragmentLikeBinding.inflate(inflater, container, false)
 
-        var items = mutableListOf<RecyclerviewModel>()
+        var items = mutableListOf<RVViewModel>()
 
         /*//카카오 로그인 버튼 누를시 동작 구현
         val login_btn = binding.loginBtn
@@ -28,71 +28,80 @@ class LikeFragment : Fragment() {
         }*/
 
         items.add(
-            RecyclerviewModel(
+            RVViewModel(
                 "젠가",
                 3,
                 "스릴러",
-                "4")
+                "4"
+            )
         )
         items.add(
-            RecyclerviewModel(
+            RVViewModel(
                 "젠가",
                 3,
                 "스릴러",
-                "4")
+                "4"
+            )
         )
         items.add(
-            RecyclerviewModel(
+            RVViewModel(
                 "젠가",
                 3,
                 "스릴러",
-                "4")
+                "4"
+            )
         )
         items.add(
-            RecyclerviewModel(
+            RVViewModel(
                 "젠가",
                 3,
                 "스릴러",
-                "4")
+                "4"
+            )
         )
         items.add(
-            RecyclerviewModel(
+            RVViewModel(
                 "젠가",
                 3,
                 "스릴러",
-                "4")
+                "4"
+            )
         )
         items.add(
-            RecyclerviewModel(
+            RVViewModel(
                 "젠가",
                 3,
                 "스릴러",
-                "4")
+                "4"
+            )
         )
         items.add(
-            RecyclerviewModel(
+            RVViewModel(
                 "젠가",
                 3,
                 "스릴러",
-                "4")
+                "4"
+            )
         )
         items.add(
-            RecyclerviewModel(
+            RVViewModel(
                 "젠가",
                 3,
                 "스릴러",
-                "4")
+                "4"
+            )
         )
         items.add(
-            RecyclerviewModel(
+            RVViewModel(
                 "젠가",
                 3,
                 "스릴러",
-                "4")
+                "4"
+            )
         )
 
         val rv = binding.likerv
-        val rvAdapter = RVAdapter(this,requireContext(),items)
+        val rvAdapter = RVAdapter(0, requireContext(), items)
 
         rv.adapter = rvAdapter
         rv.layoutManager = LinearLayoutManager(context)
