@@ -55,6 +55,17 @@ class HomeFragment : Fragment() {
             }
         }
 
+            val info_intent = Intent(requireContext(),GameInfoActivity::class.java)
+        binding.topItem1.setOnClickListener {
+            startActivity(info_intent)
+        }
+        binding.topItem2.setOnClickListener {
+            startActivity(info_intent)
+        }
+        binding.topItem3.setOnClickListener {
+            startActivity(info_intent)
+        }
+
 
         Log.d("qwerty123", "getallgames")
         RetrofitUtil.getRetrofit().GetAllGames()
