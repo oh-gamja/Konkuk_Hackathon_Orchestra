@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ohgamja_frontend.R
+import com.example.ohgamja_frontend.databinding.ItemRvadapterBinding
 import com.google.android.material.datepicker.MaterialDatePicker.Builder.datePicker
 
 
@@ -16,8 +17,8 @@ import com.google.android.material.datepicker.MaterialDatePicker.Builder.datePic
 
 class RVAdapter(val type: Int, val context: Context, val items : MutableList<RVViewModel>) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVAdapter.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_rvadapter,parent,false)
-        return ViewHolder(view)
+        val binding = ItemRvadapterBinding.inflate(LayoutInflater.from(parent.context))
+        return ViewHolder(binding)
     }
     interface ItemClick {
         fun onClick(view : View, position: Int)
@@ -38,12 +39,12 @@ class RVAdapter(val type: Int, val context: Context, val items : MutableList<RVV
         return items.size
     }
 
-    inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(val binding: ItemRvadapterBinding) : RecyclerView.ViewHolder(binding.root){
         fun bindItems(item : RVViewModel){
-            val rv_title = itemView.findViewById<TextView>(R.id.itemTitle)
-            val rv_like = itemView.findViewById<ImageView>(R.id.likeBtn)
-            val rv_list = itemView.findViewById<ImageView>(R.id.listBtn)
-            val rv_likeCount = itemView.findViewById<TextView>(R.id.likeCount)
+            val rv_title = binding.itemTitle
+            val rv_like = binding.likeBtn
+            val rv_list = binding.listBtn
+            val rv_likeCount = binding.likeCount
 
             val mDialogView = LayoutInflater.from(context).inflate(R.layout.dialog_add_to_playlist,null)
             val mBuilder = AlertDialog.Builder(context)
