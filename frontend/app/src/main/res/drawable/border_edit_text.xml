@@ -7,7 +7,9 @@
         </shape>
     </item>
     <item
-        android:top="25dp">
+        android:top="25dp"
+        android:gravity="center"
+        android:width="270dp">
         <shape
             android:shape="line">
             <stroke

@@ -24,7 +24,7 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginTop="90dp"
-        android:src="@color/star"
+        android:src="@drawable/ic_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -44,10 +44,14 @@
         app:layout_constraintTop_toBottomOf="@id/profileImage"></TextView>
 
     <TextView
-        android:layout_width="180dp"
+        android:id="@+id/profileEmail"
+        android:layout_width="wrap_content"
         android:layout_height="28dp"
+        android:paddingHorizontal="14dp"
         android:textColor="@color/white"
         android:text="ohgamja5555@gmail.com"
+        android:textSize="14dp"
+        android:fontFamily="@font/lottemart_medium"
         android:gravity="center"
         android:background="@drawable/border_1dp_white_btn_background"
         android:layout_marginTop="10dp"
@@ -68,7 +72,7 @@
         <Button
             android:id="@+id/deleteBtn"
             android:layout_width="135dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/border_2dp_pink_main_btn_background"
             android:fontFamily="@font/lottemart_medium"
             android:text="회원탈퇴"
@@ -90,7 +94,7 @@
         <Button
             android:id="@+id/logoutBtn"
             android:layout_width="135dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/border_2dp_lavendar_main_btn_background"
             android:fontFamily="@font/lottemart_medium"
             android:text="로그아웃"

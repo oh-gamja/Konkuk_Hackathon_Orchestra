@@ -7,10 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.DialogDeletePlaylistBinding
 
-class DeletePlaylistDialog : DialogFragment() {
+class DeletePlaylistDialog(val items : ArrayList<PlaylistViewModel>, val adapterPosition: Int, private val adapter: PlaylistsAdapter) : DialogFragment() {
 
     private lateinit var binding : DialogDeletePlaylistBinding
 
@@ -25,22 +28,26 @@ class DeletePlaylistDialog : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        val rootView = inflater.inflate(R.layout.dialog_delete_playlist, container, false)
+
         binding = DialogDeletePlaylistBinding.inflate(inflater)
 
-        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
-
-
-        binding.button1.setOnClickListener {
-            //취소
-            this.dismiss()
+        val cancelBtn: Button = rootView.findViewById(R.id.cancelBtn)
+        cancelBtn.setOnClickListener {
+            Toast.makeText(context, "delete Cancel", Toast.LENGTH_SHORT).show()
+            dismiss()
         }
 
-        binding.button2.setOnClickListener {
+        val deleteListBtn: Button = rootView.findViewById(R.id.deleteListBtn)
+        deleteListBtn.setOnClickListener {
+            Toast.makeText(context, "deleteList", Toast.LENGTH_SHORT).show()
             //플리 삭제됨
+            items.removeAt(adapterPosition)
+            adapter.notifyItemRemoved(adapterPosition)
+            dismiss()
         }
 
-        return binding.root
+        return rootView
     }
 
 }

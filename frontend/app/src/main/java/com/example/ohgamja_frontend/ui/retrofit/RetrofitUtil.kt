@@ -1,4 +1,4 @@
-package com.example.bangwool.retrofit
+package com.example.ohgamja_frontend.ui.retrofit
 
 import android.util.Log
 import com.example.ohgamja_frontend.BuildConfig
@@ -77,10 +77,12 @@ object RetrofitUtil {
         return instance!!
     }
 
-
-
     fun setAccessToken(str: String) {
         accessTokenString = str
+    }
+
+    fun getAccessToken(): String {
+        return accessTokenString
     }
 
     class AddedTokenRequest(val token: String) : Interceptor {
