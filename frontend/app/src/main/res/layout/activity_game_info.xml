@@ -27,6 +27,7 @@
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_like_heart_filled"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,6 +38,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     android:src="@drawable/btn_prev"
+                    android:background="@drawable/border_1dp_lavender_main_btn_background"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
