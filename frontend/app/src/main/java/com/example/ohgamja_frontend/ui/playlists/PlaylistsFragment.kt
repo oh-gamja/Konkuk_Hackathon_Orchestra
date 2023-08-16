@@ -87,7 +87,7 @@ class PlaylistsFragment : Fragment() {
 
 
         binding.playlistAddButton.setOnClickListener {
-            val dialog = AddPlaylistDialog()
+            val dialog = AddPlaylistDialog(this)
             dialog.show(requireActivity().supportFragmentManager, "DialogFragment")
         }
 
@@ -104,6 +104,45 @@ class PlaylistsFragment : Fragment() {
 
 
         return binding.root
+    }
+
+    fun getPlaylist() {
+        val items = arrayListOf<PlaylistViewModel>()
+        val rv = binding.playRv
+        val playlistsAdapter =
+            PlaylistsAdapter(requireContext(), requireActivity().supportFragmentManager, items)
+        rv.adapter = playlistsAdapter
+        rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+        RetrofitUtil.getRetrofit().GetPlaylist()
+            .enqueue(object : Callback<BaseResponse<PlaylistResponse>> {
+                override fun onResponse(
+                    call: Call<BaseResponse<PlaylistResponse>>,
+                    response: Response<BaseResponse<PlaylistResponse>>
+                ) {
+                    if (response.isSuccessful) {
+                        val result = response.body()!!.result
+                        val playItems = result.playlistList
+                        items.clear()
+                        if(playItems != null){
+                            playItems.forEach {
+                                items.add(
+                                    PlaylistViewModel(it.playlistId,false,it.playlistName,it.gameCount)
+                                )
+                            }
+                            playlistsAdapter.notifyDataSetChanged()
+
+                        }
+                        playlistsAdapter.notifyDataSetChanged()
+                    } else {
+                        Log.d("Retrofit", response.message())
+                    }
+                }
+
+                override fun onFailure(call: Call<BaseResponse<PlaylistResponse>>, t: Throwable) {
+                    Log.d("Retrofit", t.message.toString())
+                }
+            })
     }
 
 }
