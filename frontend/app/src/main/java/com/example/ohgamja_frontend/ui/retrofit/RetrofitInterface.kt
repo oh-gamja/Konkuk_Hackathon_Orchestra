@@ -43,6 +43,11 @@ interface RetrofitInterface {
         @Body requestBody: gameIdRequest
     ): Call<BaseResponse<resultResponse>>
 
+    @GET("/games/random")
+    fun GetRandomGame(
+    ): Call<BaseResponse<DetailResponse>>
+
+
 }
 
 
