@@ -19,6 +19,9 @@
             android:name=".ui.home.SearchActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.home.SearchResultActivity"
+            android:exported="false"/>
+        <activity
             android:name=".ui.home.GameInfoActivity"
             android:exported="false" >
         </activity>

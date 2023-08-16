@@ -1,6 +1,8 @@
 package com.example.ohgamja_frontend.ui.home
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,6 +11,7 @@ import com.example.ohgamja_frontend.databinding.ActivitySearchBinding
 
 class SearchActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySearchBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivitySearchBinding.inflate(layoutInflater)
@@ -33,19 +36,34 @@ class SearchActivity : AppCompatActivity() {
         rv.adapter = mAdapter
         rv.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
 
+        binding.btnSearch.setOnClickListener {
+            Log.d("search", "찾기 버튼 클릭")
+            var intent = Intent(this, SearchResultActivity::class.java)
+            intent.putExtra("search", binding.etSearch.text.toString())
+            for (i in 0 until items.size){
+                intent.putExtra("$i", items[i])
+                Log.d("search", "item[$i]값 : ${items[i]}")
+            }
+            var num = items.size
+            intent.putExtra("itemSize", num)
+            Log.d("search", "itemSize : $num")
+
+            startActivity(intent)
+        }
+
 
         binding.imgBtn1.setOnClickListener {
             if(check1 == false){
                 binding.imgBtn1.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.category1.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 check1 = true
-                mAdapter.addItem("카테고리1")
+                mAdapter.addItem("순발력")
             }
             else {
                 binding.imgBtn1.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.category1.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check1 = false
-                mAdapter.removeItem("카테고리1")
+                mAdapter.removeItem("순발력")
             }
         }
         binding.imgBtn2.setOnClickListener {
@@ -53,13 +71,13 @@ class SearchActivity : AppCompatActivity() {
                 binding.imgBtn2.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.category2.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 check2 = true
-                mAdapter.addItem("카테고리2")
+                mAdapter.addItem("두뇌")
             }
             else {
                 binding.imgBtn2.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.category2.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check2 = false
-                mAdapter.removeItem("카테고리2")
+                mAdapter.removeItem("두뇌")
 
             }
         }
@@ -68,13 +86,13 @@ class SearchActivity : AppCompatActivity() {
                 binding.imgBtn3.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.category3.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 check3 = true
-                mAdapter.addItem("카테고리3")
+                mAdapter.addItem("아이엠그라운드")
             }
             else {
                 binding.imgBtn3.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.category3.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check3 = false
-                mAdapter.removeItem("카테고리3")
+                mAdapter.removeItem("아이엠그라운드")
             }
         }
         binding.imgBtn4.setOnClickListener {
@@ -82,13 +100,13 @@ class SearchActivity : AppCompatActivity() {
                 binding.imgBtn4.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.category4.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 check4 = true
-                mAdapter.addItem("카테고리4")
+                mAdapter.addItem("기타")
             }
             else {
                 binding.imgBtn4.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.category4.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check4 = false
-                mAdapter.removeItem("카테고리4")
+                mAdapter.removeItem("기타")
             }
         }
 
@@ -224,14 +242,7 @@ class SearchActivity : AppCompatActivity() {
         }
 
 
-
-
-
         setContentView(binding.root)
-
-
-
-
 
     }
 }
