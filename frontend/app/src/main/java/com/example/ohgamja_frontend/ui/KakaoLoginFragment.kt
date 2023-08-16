@@ -82,26 +82,6 @@ class KakaoLoginFragment : Fragment() {
     private fun requestKakaoLogin(token: OAuthToken) {
         val loginRequest = LoginRequest(token.idToken!!)
 
-        RetrofitUtil.getLoginRetrofit().KaKaoLogin(loginRequest).enqueue(object: Callback<BaseResponse<LoginResponse>>{
-            override fun onResponse(
-                call: Call<BaseResponse<LoginResponse>>,
-                response: Response<BaseResponse<LoginResponse>>
-            ) {
-                if(response.isSuccessful){
-                    //데이터 처리
-                    //
-                } else {
-                    //에러 코드ㅣ낭러ㅣㄴ마얼
-                }
-            }
-
-            override fun onFailure(call: Call<BaseResponse<LoginResponse>>, t: Throwable) {
-                //ㅁ이라ㅓ짇차ㅡ
-            }
-
-        })
-
-
         RetrofitUtil.getLoginRetrofit().KaKaoLogin(loginRequest)
             .enqueue(object : Callback<BaseResponse<LoginResponse>>{
                 override fun onResponse(

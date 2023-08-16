@@ -19,7 +19,7 @@ class PlaylistInfoActivity : AppCompatActivity() {
         val binding = ActivityPlaylistInfoBinding.inflate(layoutInflater)
 
         val items = mutableListOf<RVViewModel>()
-
+//
 //        items.add(
 //            RVViewModel(
 //                "젠가",
