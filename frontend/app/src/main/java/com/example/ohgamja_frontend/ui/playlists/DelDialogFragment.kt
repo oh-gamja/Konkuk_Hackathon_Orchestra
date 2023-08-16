@@ -30,6 +30,7 @@ class DelDialogFragment : DialogFragment() {
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
 
+
         binding.button1.setOnClickListener {
             //취소
             this.dismiss()

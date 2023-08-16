@@ -1,11 +1,16 @@
 package com.example.ohgamja_frontend.ui.home
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.ohgamja_frontend.MainActivity
 import com.example.ohgamja_frontend.databinding.FragmentAddListDialogBinding
 
 class AddListDialogFragment : DialogFragment() {
@@ -24,6 +29,9 @@ class AddListDialogFragment : DialogFragment() {
 
         binding = FragmentAddListDialogBinding.inflate(inflater)
 
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
+
         val items = arrayListOf<PlaylistViewModel>()
 
         items.add(PlaylistViewModel("플레이리스트1",3))
@@ -36,15 +44,18 @@ class AddListDialogFragment : DialogFragment() {
         items.add(PlaylistViewModel("플레이리스트8",10))
         items.add(PlaylistViewModel("플레이리스트9",11))
 
-        val Drv = binding.dialogRv
-        val DialogAdapter = DialogAdapter(items)
+        val Drv = binding.dialogListRv
+        val DialogAdapter = DialogAdapter(items, requireContext())
 
         Drv.adapter = DialogAdapter
         Drv.layoutManager = LinearLayoutManager(context)
 
         binding.cancelButton.setOnClickListener {
             //취소
+            this.dismiss()
+            Log.e("dialog","뒤로가기")
         }
+
 
         return binding.root
     }

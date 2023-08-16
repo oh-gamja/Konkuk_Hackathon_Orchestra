@@ -20,7 +20,8 @@
             android:exported="false" />
         <activity
             android:name=".ui.home.GameInfoActivity"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
