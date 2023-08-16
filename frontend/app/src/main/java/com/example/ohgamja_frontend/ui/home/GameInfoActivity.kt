@@ -1,11 +1,28 @@
 package com.example.ohgamja_frontend.ui.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import com.example.ohgamja_frontend.MainActivity
 import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.ActivityGameInfoBinding
 import com.example.ohgamja_frontend.ui.AddToPlaylistDialog
+import com.example.ohgamja_frontend.ui.retrofit.BaseResponse
+import com.example.ohgamja_frontend.ui.retrofit.DetailRequest
+import com.example.ohgamja_frontend.ui.retrofit.DetailResponse
+import com.example.ohgamja_frontend.ui.retrofit.LoginRequest
+import com.example.ohgamja_frontend.ui.retrofit.LoginResponse
+import com.example.ohgamja_frontend.ui.retrofit.RetrofitUtil
+import com.example.ohgamja_frontend.ui.retrofit.saveAccessToken
+import com.example.ohgamja_frontend.ui.retrofit.saveEmail
+import com.kakao.sdk.auth.model.OAuthToken
+import okhttp3.Request
+import okio.Timeout
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class GameInfoActivity : AppCompatActivity() {
 
@@ -57,5 +74,30 @@ class GameInfoActivity : AppCompatActivity() {
 
 
         setContentView(binding.root)
+    }
+
+    private fun getGameInfo(token: DetailRequest) {
+        val detailRequest = DetailRequest(token.gameId!!)
+
+        RetrofitUtil.getRetrofit().GetGameDetail(detailRequest).enqueue(object:
+            Callback<BaseResponse<DetailResponse>> {
+            override fun onResponse(
+                call: Call<BaseResponse<DetailResponse>>,
+                response: Response<BaseResponse<DetailResponse>>
+            ) {
+                if(response.isSuccessful){
+                    //데이터 처리
+                    //
+                } else {
+                    //에러 코드
+                }
+            }
+
+            override fun onFailure(call: Call<BaseResponse<DetailResponse>>, t: Throwable) {
+                //ㅁ이라ㅓ짇차ㅡ
+            }
+
+        })
+
     }
 }

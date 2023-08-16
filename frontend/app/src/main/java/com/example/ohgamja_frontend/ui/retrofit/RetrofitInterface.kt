@@ -14,22 +14,11 @@ interface RetrofitInterface {
     fun GetAllGames(
     ): Call<BaseResponse<GamesResponse>>
 
+    @GET("/games/detail")
+    fun GetGameDetail(
+        @Body requestBody: DetailRequest
+    ): Call<BaseResponse<DetailResponse>>
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 interface RetrofitLoginInterface {
