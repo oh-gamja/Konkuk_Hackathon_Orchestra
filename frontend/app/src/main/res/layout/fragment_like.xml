@@ -6,76 +6,31 @@
     android:layout_height="match_parent"
     android:background="@color/black">
 
-
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="74dp"
-        android:layout_height="28dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:fontFamily="@font/kcc_ganpan"
         android:text="술이슬쩍"
-        android:textColor="#7C91E5"
-        android:textSize="18dp"
-        android:textStyle="bold"
+        android:textColor="@color/lavender_main"
+        android:textSize="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
-    <!--
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="22dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="100dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        -->
-    <LinearLayout
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/likerv"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginBottom="100dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="로그인이 필요한 서비스입니다."
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="26dp"></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="아래 버튼을 이용하여\n카카오 로그인을 할 수 있습니다."
-            android:textAlignment="center"
-            android:textColor="@color/gray300"
-            android:textSize="20dp"></TextView>
-
-        <ImageView
-            android:id="@+id/loginBtn"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/kakao_login_medium_wide"></ImageView>
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent"></androidx.recyclerview.widget.RecyclerView>
 
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="4px"
-        android:layout_marginBottom="70dp"
-        android:background="#7C91E5"
-        app:layout_constraintBottom_toBottomOf="parent"></View>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

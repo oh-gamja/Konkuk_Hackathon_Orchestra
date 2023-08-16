@@ -138,7 +138,7 @@
             android:layout_marginBottom="25.89dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_like_heart_filled"></ImageView>
+            app:srcCompat="@drawable/ic_like_heart_empty"></ImageView>
 
         <TextView
             android:layout_width="wrap_content"
