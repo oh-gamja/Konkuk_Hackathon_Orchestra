@@ -47,15 +47,17 @@ interface RetrofitInterface {
     @GET("/games/random")
     fun GetRandomGame(
     ): Call<BaseResponse<DetailResponse>>
+
     @GET("/playlists/detail")
     fun GetPlaylistDetail(
         @Query("playlistId") playlistId: Int
     ): Call<BaseResponse<GamesResponse>>
+
     @GET("/games")
     fun GetSearch(
-        @Query("difficulty") difficulty: String,
-        @Query("category") category : String,
-        @Query("name") name : String,
+        @Query("difficulty") difficulty: String?,
+        @Query("category") category : String?,
+        @Query("name") name : String?,
         @Query("headCount") headCount : Int
     ) : Call<BaseResponse<SearchResponse>>
 

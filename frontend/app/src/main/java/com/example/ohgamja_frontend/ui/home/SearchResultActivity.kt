@@ -12,7 +12,14 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.ActivitySearchResultBinding
+import com.example.ohgamja_frontend.ui.RVAdapter
+import com.example.ohgamja_frontend.ui.RVViewModel
+import com.example.ohgamja_frontend.ui.retrofit.BaseResponse
 import com.example.ohgamja_frontend.ui.retrofit.RetrofitUtil
+import com.example.ohgamja_frontend.ui.retrofit.SearchResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SearchResultActivity : AppCompatActivity() {
     lateinit var binding: ActivitySearchResultBinding
@@ -51,10 +58,54 @@ class SearchResultActivity : AppCompatActivity() {
             binding.tvFilter.setTextColor(ContextCompat.getColor(this, R.color.gray400))
         }
 
-        //검색 결과 조회 api
+        var searchDifficulty = when (difficulty) {
+            "별한개" -> "1"
+            "별두개" -> "2"
+            "별세개" -> "3"
+            else -> ""
+        }
+
+        var rvItems = mutableListOf<RVViewModel>()
+        var rvAdapter = RVAdapter(0, this, supportFragmentManager, rvItems)
+        binding.rv.layoutManager = LinearLayoutManager(this)
+        binding.rv.adapter = rvAdapter
+
+        RetrofitUtil.getRetrofit().GetSearch(searchDifficulty, category, name!!, headCount)
+            .enqueue(object : Callback<BaseResponse<SearchResponse>> {
+                override fun onResponse(
+                    call: Call<BaseResponse<SearchResponse>>,
+                    response: Response<BaseResponse<SearchResponse>>
+                ) {
+                    if (response.isSuccessful) {
+                        val result = response.body()!!.result
+                        rvItems.clear()
+                        result.gamePreviews.forEach {
+                            rvItems.add(
+                                RVViewModel(
+                                    it.gameId,
+                                    it.gameName,
+                                    it.difficulty,
+                                    it.category,
+                                    it.headCount,
+                                    it.likeCount
+                                )
+                            )
+                        }
+                        rvAdapter.notifyDataSetChanged()
+                        if (rvItems.isEmpty()) {
+                            binding.tvNoResult.visibility = View.VISIBLE
+                        } else {
+                            binding.tvNoResult.visibility = View.GONE
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<BaseResponse<SearchResponse>>, t: Throwable) {
+                }
+
+            })
 
         //검색 결과 없을 때
-        //binding.tvNoResult.visibility = View.VISIBLE
 
 
         binding.imageView.setOnClickListener { finish() }
@@ -76,15 +127,13 @@ class SearchResultActivity : AppCompatActivity() {
         })
 
         binding.btnSearch.setOnClickListener {
-            if (isInput) {
-                var intent = Intent(this, SearchResultActivity::class.java)
-                intent.putExtra("name", binding.etSearch.text.toString())
-                intent.putExtra("category", category)
-                intent.putExtra("headCount", headCount)
-                intent.putExtra("difficulty", difficulty)
-                startActivity(intent)
-                finish()
-            }
+            var intent = Intent(this, SearchResultActivity::class.java)
+            intent.putExtra("name", binding.etSearch.text.toString())
+            intent.putExtra("category", category)
+            intent.putExtra("headCount", headCount)
+            intent.putExtra("difficulty", difficulty)
+            startActivity(intent)
+            finish()
         }
         setContentView(binding.root)
 

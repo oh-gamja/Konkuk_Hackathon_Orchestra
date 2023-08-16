@@ -41,50 +41,48 @@ class SearchActivity : AppCompatActivity() {
         val mAdapter = SearchFilterAdapter(items)
 
         rv.adapter = mAdapter
-        rv.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        rv.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         binding.btnSearch.setOnClickListener {
-            if (isInput) {
-                var intent = Intent(this, SearchResultActivity::class.java)
+            var intent = Intent(this, SearchResultActivity::class.java)
 
-                intent.putExtra("name", binding.etSearch.text.toString())
-                var category = ""
-                if(check1){
-                    category = "순발력"
-                }else if(check2){
-                    category = "두뇌"
-                }else if(check3){
-                    category = "아이엠그라운드"
-                }else if(check4){
-                    category = "기타"
-                }
-
-                var headCount = -1
-                if(check5){
-                    headCount = 3
-                }else if(check6){
-                    headCount = 4
-                }else if(check7){
-                    headCount = 5
-                }
-
-                var difficulty = ""
-                if(check8){
-                    difficulty="별한개"
-                }else if(check9){
-                    difficulty="별두개"
-                }else if(check10) {
-                    difficulty="별세개"
-                }
-                intent.putExtra("category", category)
-                intent.putExtra("headCount", headCount)
-                intent.putExtra("difficulty", difficulty)
-                startActivity(intent)
+            intent.putExtra("name", binding.etSearch.text.toString())
+            var category = ""
+            if (check1) {
+                category = "순발력"
+            } else if (check2) {
+                category = "두뇌"
+            } else if (check3) {
+                category = "아이엠그라운드"
+            } else if (check4) {
+                category = "기타"
             }
+
+            var headCount = -1
+            if (check5) {
+                headCount = 3
+            } else if (check6) {
+                headCount = 4
+            } else if (check7) {
+                headCount = 5
+            }
+
+            var difficulty = ""
+            if (check8) {
+                difficulty = "별한개"
+            } else if (check9) {
+                difficulty = "별두개"
+            } else if (check10) {
+                difficulty = "별세개"
+            }
+            intent.putExtra("category", category)
+            intent.putExtra("headCount", headCount)
+            intent.putExtra("difficulty", difficulty)
+            startActivity(intent)
         }
 
         binding.imgBtn1.setOnClickListener {
-            if(check1 == false){
+            if (check1 == false) {
                 binding.imgBtn1.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.category1.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 binding.imgBtn3.setImageResource(R.drawable.ic_radio_btn_unchecked)
@@ -95,20 +93,19 @@ class SearchActivity : AppCompatActivity() {
                 binding.category4.setTextColor(ContextCompat.getColor(this, R.color.white))
                 mAdapter.addItem("순발력")
                 check1 = true
-                if(check3 == true) {
+                if (check3 == true) {
                     check3 = false
                     mAdapter.removeItem("아이엠그라운드")
                 }
-                if(check2 == true){
+                if (check2 == true) {
                     check2 = false
                     mAdapter.removeItem("두뇌")
                 }
-                if(check4 == true){
+                if (check4 == true) {
                     check4 = false
                     mAdapter.removeItem("기타")
                 }
-            }
-            else {
+            } else {
                 binding.imgBtn1.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.category1.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check1 = false
@@ -116,7 +113,7 @@ class SearchActivity : AppCompatActivity() {
             }
         }
         binding.imgBtn2.setOnClickListener {
-            if(check2 == false){
+            if (check2 == false) {
                 binding.imgBtn2.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.category2.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 binding.imgBtn3.setImageResource(R.drawable.ic_radio_btn_unchecked)
@@ -127,20 +124,19 @@ class SearchActivity : AppCompatActivity() {
                 binding.category1.setTextColor(ContextCompat.getColor(this, R.color.white))
                 mAdapter.addItem("두뇌")
                 check2 = true
-                if(check3 == true) {
+                if (check3 == true) {
                     check3 = false
                     mAdapter.removeItem("아이엠그라운드")
                 }
-                if(check4 == true){
+                if (check4 == true) {
                     check4 = false
                     mAdapter.removeItem("기타")
                 }
-                if(check1 == true){
+                if (check1 == true) {
                     check1 = false
                     mAdapter.removeItem("순발력")
                 }
-            }
-            else {
+            } else {
                 binding.imgBtn2.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.category2.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check2 = false
@@ -148,7 +144,7 @@ class SearchActivity : AppCompatActivity() {
             }
         }
         binding.imgBtn3.setOnClickListener {
-            if(check3 == false){
+            if (check3 == false) {
                 binding.imgBtn3.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.category3.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 binding.imgBtn4.setImageResource(R.drawable.ic_radio_btn_unchecked)
@@ -159,20 +155,19 @@ class SearchActivity : AppCompatActivity() {
                 binding.category1.setTextColor(ContextCompat.getColor(this, R.color.white))
                 mAdapter.addItem("아이엠그라운드")
                 check3 = true
-                if(check4 == true) {
+                if (check4 == true) {
                     check4 = false
                     mAdapter.removeItem("기타")
                 }
-                if(check2 == true){
+                if (check2 == true) {
                     check2 = false
                     mAdapter.removeItem("두뇌")
                 }
-                if(check1 == true){
+                if (check1 == true) {
                     check1 = false
                     mAdapter.removeItem("순발력")
                 }
-            }
-            else {
+            } else {
                 binding.imgBtn3.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.category3.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check3 = false
@@ -180,7 +175,7 @@ class SearchActivity : AppCompatActivity() {
             }
         }
         binding.imgBtn4.setOnClickListener {
-            if(check4 == false){
+            if (check4 == false) {
                 binding.imgBtn4.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.category4.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 binding.imgBtn3.setImageResource(R.drawable.ic_radio_btn_unchecked)
@@ -191,20 +186,19 @@ class SearchActivity : AppCompatActivity() {
                 binding.category1.setTextColor(ContextCompat.getColor(this, R.color.white))
                 mAdapter.addItem("기타")
                 check4 = true
-                if(check3 == true) {
+                if (check3 == true) {
                     check3 = false
                     mAdapter.removeItem("아이엠그라운드")
                 }
-                if(check2 == true){
+                if (check2 == true) {
                     check2 = false
                     mAdapter.removeItem("두뇌")
                 }
-                if(check1 == true){
+                if (check1 == true) {
                     check1 = false
                     mAdapter.removeItem("순발력")
                 }
-            }
-            else {
+            } else {
                 binding.imgBtn4.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.category4.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check4 = false
@@ -213,7 +207,7 @@ class SearchActivity : AppCompatActivity() {
         }
 
         binding.imgBtn5.setOnClickListener {
-            if(check5 == false){
+            if (check5 == false) {
                 binding.imgBtn5.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.personnel1.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 binding.imgBtn6.setImageResource(R.drawable.ic_radio_btn_unchecked)
@@ -222,16 +216,15 @@ class SearchActivity : AppCompatActivity() {
                 binding.personnel3.setTextColor(ContextCompat.getColor(this, R.color.white))
                 mAdapter.addItem("3명이상")
                 check5 = true
-                if(check6 == true) {
+                if (check6 == true) {
                     check6 = false
                     mAdapter.removeItem("4명이상")
                 }
-                if(check7 == true){
+                if (check7 == true) {
                     check7 = false
                     mAdapter.removeItem("5명이상")
                 }
-            }
-            else {
+            } else {
                 binding.imgBtn5.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.personnel1.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check5 = false
@@ -239,7 +232,7 @@ class SearchActivity : AppCompatActivity() {
             }
         }
         binding.imgBtn6.setOnClickListener {
-            if(check6 == false){
+            if (check6 == false) {
                 binding.imgBtn6.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.personnel2.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 binding.imgBtn5.setImageResource(R.drawable.ic_radio_btn_unchecked)
@@ -249,16 +242,15 @@ class SearchActivity : AppCompatActivity() {
                 check6 = true
 
                 mAdapter.addItem("4명이상")
-                if(check5 == true) {
+                if (check5 == true) {
                     check5 = false
                     mAdapter.removeItem("3명이상")
                 }
-                if(check7 == true){
+                if (check7 == true) {
                     check7 = false
                     mAdapter.removeItem("5명이상")
                 }
-            }
-            else {
+            } else {
                 binding.imgBtn6.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.personnel2.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check6 = false
@@ -266,7 +258,7 @@ class SearchActivity : AppCompatActivity() {
             }
         }
         binding.imgBtn7.setOnClickListener {
-            if(check7 == false){
+            if (check7 == false) {
                 binding.imgBtn7.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.personnel3.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 binding.imgBtn6.setImageResource(R.drawable.ic_radio_btn_unchecked)
@@ -275,16 +267,15 @@ class SearchActivity : AppCompatActivity() {
                 binding.personnel1.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check7 = true
                 mAdapter.addItem("5명이상")
-                if(check6 == true) {
+                if (check6 == true) {
                     check6 = false
                     mAdapter.removeItem("4명이상")
                 }
-                if(check5 == true){
+                if (check5 == true) {
                     check5 = false
                     mAdapter.removeItem("3명이상")
                 }
-            }
-            else {
+            } else {
                 binding.imgBtn7.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.personnel3.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check7 = false
@@ -293,7 +284,7 @@ class SearchActivity : AppCompatActivity() {
         }
 
         binding.imgBtn8.setOnClickListener {
-            if(check8 == false){
+            if (check8 == false) {
                 binding.imgBtn8.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.difficulty1.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 binding.imgBtn9.setImageResource(R.drawable.ic_radio_btn_unchecked)
@@ -302,16 +293,15 @@ class SearchActivity : AppCompatActivity() {
                 binding.difficulty3.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check8 = true
                 mAdapter.addItem("별하나")
-                if(check9 == true) {
+                if (check9 == true) {
                     check9 = false
                     mAdapter.removeItem("별두개")
                 }
-                if(check10 == true){
+                if (check10 == true) {
                     check10 = false
                     mAdapter.removeItem("별세개")
                 }
-            }
-            else {
+            } else {
                 binding.imgBtn8.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.difficulty1.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check8 = false
@@ -319,7 +309,7 @@ class SearchActivity : AppCompatActivity() {
             }
         }
         binding.imgBtn9.setOnClickListener {
-            if(check9 == false){
+            if (check9 == false) {
                 binding.imgBtn9.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.difficulty2.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 binding.imgBtn8.setImageResource(R.drawable.ic_radio_btn_unchecked)
@@ -328,16 +318,15 @@ class SearchActivity : AppCompatActivity() {
                 binding.difficulty3.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check9 = true
                 mAdapter.addItem("별두개")
-                if(check8 == true) {
+                if (check8 == true) {
                     check8 = false
                     mAdapter.removeItem("별하나")
                 }
-                if(check10 == true){
+                if (check10 == true) {
                     check10 = false
                     mAdapter.removeItem("별세개")
                 }
-            }
-            else {
+            } else {
                 binding.imgBtn9.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.difficulty2.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check9 = false
@@ -345,7 +334,7 @@ class SearchActivity : AppCompatActivity() {
             }
         }
         binding.imgBtn10.setOnClickListener {
-            if(check10 == false){
+            if (check10 == false) {
                 binding.imgBtn10.setImageResource(R.drawable.ic_radio_btn_checked)
                 binding.difficulty3.setTextColor(ContextCompat.getColor(this, R.color.pink_sub1))
                 binding.imgBtn8.setImageResource(R.drawable.ic_radio_btn_unchecked)
@@ -354,16 +343,15 @@ class SearchActivity : AppCompatActivity() {
                 binding.difficulty2.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check10 = true
                 mAdapter.addItem("별세개")
-                if(check8 == true) {
+                if (check8 == true) {
                     check8 = false
                     mAdapter.removeItem("별하나")
                 }
-                if(check9 == true){
+                if (check9 == true) {
                     check9 = false
                     mAdapter.removeItem("별두개")
                 }
-            }
-            else {
+            } else {
                 binding.imgBtn10.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.difficulty3.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check10 = false
@@ -373,15 +361,15 @@ class SearchActivity : AppCompatActivity() {
 
         binding.etSearch.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                Log.d("texting","입력전")
+                Log.d("texting", "입력전")
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                Log.d("texting","입력중")
+                Log.d("texting", "입력중")
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                Log.d("texting","입력끝")
+                Log.d("texting", "입력끝")
                 isInput = p0!!.isNotEmpty()
             }
         })
