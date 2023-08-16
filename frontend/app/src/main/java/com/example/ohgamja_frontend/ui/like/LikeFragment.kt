@@ -62,6 +62,34 @@ class LikeFragment : Fragment() {
                 "스릴러",
                 "4")
         )
+        items.add(
+            RecyclerviewModel(
+                "젠가",
+                3,
+                "스릴러",
+                "4")
+        )
+        items.add(
+            RecyclerviewModel(
+                "젠가",
+                3,
+                "스릴러",
+                "4")
+        )
+        items.add(
+            RecyclerviewModel(
+                "젠가",
+                3,
+                "스릴러",
+                "4")
+        )
+        items.add(
+            RecyclerviewModel(
+                "젠가",
+                3,
+                "스릴러",
+                "4")
+        )
 
         val rv = binding.likerv
         val rvAdapter = RVAdapter(this,requireContext(),items)
