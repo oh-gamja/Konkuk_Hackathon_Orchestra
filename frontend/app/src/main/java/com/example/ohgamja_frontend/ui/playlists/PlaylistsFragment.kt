@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.FragmentPlaylistsBinding
 import com.example.ohgamja_frontend.ui.RVAdapter_playList
+import com.example.ohgamja_frontend.ui.home.AddListDialogFragment
 
 class PlaylistsFragment : Fragment() {
 
@@ -49,7 +50,7 @@ class PlaylistsFragment : Fragment() {
         rv.layoutManager = LinearLayoutManager(context)
 
         binding.playlistAddButton.setOnClickListener {
-            val dialog = NewListDialogFragment()
+            val dialog = AddListDialogFragment()
             dialog.show(requireActivity().supportFragmentManager,"DialogFragment")
         }
 
