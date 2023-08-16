@@ -16,6 +16,7 @@ import com.example.ohgamja_frontend.ui.retrofit.BaseResponse
 import com.example.ohgamja_frontend.ui.retrofit.GamesResponse
 import com.example.ohgamja_frontend.ui.retrofit.LoginResponse
 import com.example.ohgamja_frontend.ui.retrofit.RetrofitUtil
+import com.example.ohgamja_frontend.ui.retrofit.TopGameResponse
 import com.example.ohgamja_frontend.ui.retrofit.saveAccessToken
 import com.example.ohgamja_frontend.ui.retrofit.saveEmail
 import retrofit2.Call
@@ -40,53 +41,6 @@ class HomeFragment : Fragment() {
             startActivity(i)
         }
 
-
-
-//        items.add(
-//            RVViewModel(
-//                "젠가",
-//                3,
-//                "스릴러",
-//                "4"
-//                ,200
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "경도",
-//                2,
-//                "범죄",
-//                "2",
-//                100
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "바니바니",
-//                2,
-//                "농락",
-//                "5",
-//                300
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "출석부",
-//                1,
-//                "속도",
-//                "6",
-//                50
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "더 게임 오브 데스",
-//                3,
-//                "도박",
-//                "8",
-//                60
-//            )
-//        )
         val rv = binding.rv
         val rvAdapter = RVAdapter(0, requireContext(), childFragmentManager , items)
 
@@ -115,6 +69,7 @@ class HomeFragment : Fragment() {
                                 RVViewModel(it.gameId, it.gameName, it.difficulty, it.category, it.headCount, it.likeCount)
                             )
                         }
+                        rvAdapter.notifyDataSetChanged()
                     } else {
                         Log.d("Retrofit", response.message())
                     }
@@ -124,6 +79,35 @@ class HomeFragment : Fragment() {
                     Log.d("Retrofit", t.message.toString())
                 }
             })
+
+        RetrofitUtil.getRetrofit().GetTopGameList().enqueue(object : Callback<BaseResponse<TopGameResponse>>{
+            override fun onResponse(
+                call: Call<BaseResponse<TopGameResponse>>,
+                response: Response<BaseResponse<TopGameResponse>>
+            ) {
+                if (response.isSuccessful) {
+                    val result = response.body()!!.result
+                    val topItems = result.likeTopGames
+                    binding.tvTop1Title.setText(topItems[0].gameName)
+                    binding.tvTop2Title.setText(topItems[1].gameName)
+                    binding.tvTop3Title.setText(topItems[2].gameName)
+
+                    binding.tvTop1Num.setText(topItems[0].likeCount.toString())
+                    binding.tvTop2Num.setText(topItems[1].likeCount.toString())
+                    binding.tvTop3Num.setText(topItems[2].likeCount.toString())
+
+
+
+                } else {
+                    Log.d("Retrofit", response.message())
+                }
+            }
+
+            override fun onFailure(call: Call<BaseResponse<TopGameResponse>>, t: Throwable) {
+                Log.d("Retrofit", t.message.toString())
+            }
+
+        })
 
 
 
