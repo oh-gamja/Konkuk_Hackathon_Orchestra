@@ -11,12 +11,12 @@
         android:id="@+id/home_title"
         android:layout_width="wrap_content"
         android:layout_height="26dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="18dp"
         android:fontFamily="@font/kcc_ganpan"
         android:text="술이슬쩍"
         android:textColor="@color/lavender_main"
-        android:textSize="20sp"
+        android:textSize="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

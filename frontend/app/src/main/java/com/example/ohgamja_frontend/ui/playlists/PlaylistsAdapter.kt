@@ -49,11 +49,12 @@ class PlaylistsAdapter(
             binding.root.setOnClickListener {
                 val intent = Intent(context, PlaylistInfoActivity::class.java)
                 intent.putExtra("playlistId", item.playlistId)
+                intent.putExtra("playlistName",item.listName)
                 context.startActivity(intent)
             }
 
             binding.rvListName.text = item.listName
-            binding.rvGameNum.text = item.gameNum.toString()
+            binding.rvGameNum.setText("${item.gameNum.toString()}개")
             binding.rvDelButton.setOnClickListener {
                 Toast.makeText(context, "delete!!", Toast.LENGTH_SHORT).show()
 
@@ -66,7 +67,7 @@ class PlaylistsAdapter(
             if (item.trashStatus) {
                 binding.rvDelButton.setImageResource(R.drawable.ic_trash_bin)
             } else {
-                binding.rvDelButton.setImageResource(R.drawable.ic_botnav_heart_empty)
+                binding.rvDelButton.setImageResource(R.drawable.ic_right_arrow)
             }
         }
     }

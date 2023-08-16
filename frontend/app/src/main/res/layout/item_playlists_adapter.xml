@@ -7,7 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rvContainer"
-        android:layout_width="316dp"
+        android:layout_width="match_parent"
         android:layout_height="58dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/border_playlist_item">
@@ -26,15 +26,26 @@
             app:layout_constraintTop_toTopOf="@+id/rvContainer" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:fontFamily="@font/lottemart_light"
+            android:text="게임 수"
+            android:textColor="@color/lavender_main"
+            android:textSize="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+        <TextView
             android:id="@+id/rvGameNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="54dp"
             android:layout_marginTop="32dp"
-            android:text="게임 수"
+            android:text="5개"
             android:textSize="12dp"
             android:fontFamily="@font/lottemart_light"
-            android:textColor="#7C91E5"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="@+id/rvContainer"
             app:layout_constraintTop_toTopOf="@+id/rvContainer" />
 
@@ -46,7 +57,7 @@
             android:layout_marginEnd="11dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_botnav_heart_empty" />
+            android:src="@drawable/ic_right_arrow"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
