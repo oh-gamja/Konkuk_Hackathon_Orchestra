@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ohgamja_frontend.databinding.ActivityMainBinding
+import com.example.ohgamja_frontend.ui.RandomFragment
 import com.example.ohgamja_frontend.ui.home.HomeFragment
 import com.example.ohgamja_frontend.ui.home.MypageFragment
 import com.example.ohgamja_frontend.ui.like.LikeFragment
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.navigation_random ->
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frame, LikeFragment()).commit()
+                        .replace(R.id.main_frame, RandomFragment()).commit()
                 //게임추천 api로 변경 예정
                 R.id.navigation_playlists ->
                     supportFragmentManager.beginTransaction()
