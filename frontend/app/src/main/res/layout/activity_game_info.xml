@@ -37,6 +37,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     android:src="@drawable/btn_prev"
+                    android:background="@drawable/border_1dp_lavender_main_btn_background"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
