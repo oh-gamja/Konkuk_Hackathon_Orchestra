@@ -90,7 +90,7 @@ data class resultResponse(
 )
 
 data class  SearchResponse(
-    @SerializedName("searchResponse") val searchResponse: List<Search>,
+    @SerializedName("gamePreviews") val gamePreviews: List<Search>,
 )
 
 data class  Search(

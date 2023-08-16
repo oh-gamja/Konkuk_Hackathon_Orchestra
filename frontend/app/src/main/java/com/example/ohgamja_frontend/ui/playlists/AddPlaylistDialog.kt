@@ -21,10 +21,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AddPlaylistDialog : DialogFragment() {
+class AddPlaylistDialog(val frag: PlaylistsFragment) : DialogFragment() {
 
     private lateinit var binding : DialogAddPlaylistBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,8 +57,9 @@ class AddPlaylistDialog : DialogFragment() {
                         response: Response<BaseResponse<String>>
                     ) {
                         if (response.isSuccessful) {
+                            dismiss()
+                            frag.getPlaylist()
                             Log.d("Retrofit",binding.addPlaylist.text.toString())
-
                         } else {
                             Log.d("Retrofit", response.message())
                         }
@@ -69,7 +69,7 @@ class AddPlaylistDialog : DialogFragment() {
                         Log.d("Retrofit", t.message.toString())
                     }
                 })
-            dismiss()
+
         }
 
         return binding.root
