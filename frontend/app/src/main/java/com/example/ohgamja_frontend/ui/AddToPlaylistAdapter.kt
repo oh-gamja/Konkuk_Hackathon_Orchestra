@@ -50,7 +50,8 @@ class AddToPlaylistAdapter(val items : ArrayList<AddToPlaylistViewModel>, val co
                     added = true
                 } else {
                     //아이콘(DrvButton) 바뀜
-                    binding.DrvButton.setImageResource(R.drawable.ic_playlist_add)
+                    binding.DrvButton.setImageResource(R.drawable.ic_add_to_playlist)
+                    binding.DrvButton.imageTintList = ColorStateList.valueOf(context.getColor(R.color.white))
                     binding.DrvListName.setTextColor(ColorStateList.valueOf(context.getColor(R.color.gray400)))
 
                     //플리(item)에 해당 게임 추가 -> 이것도 ㅎ

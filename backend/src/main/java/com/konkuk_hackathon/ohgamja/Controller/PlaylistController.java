@@ -34,19 +34,19 @@ public class PlaylistController {
     }
 
     @DeleteMapping("/remove")
-    public BaseResponse<String> deletePlaylist(@RequestBody @Valid PlaylistIdRequest playlistIdRequest) {
+    public BaseResponse<String> deletePlaylist(@ModelAttribute @Valid PlaylistIdRequest playlistIdRequest) {
         String response = playlistService.daletePlaylist(playlistIdRequest.getPlaylistId());
         return new BaseResponse<>(response);
     }
 
     @GetMapping("/detail")
-    public BaseResponse<GamesResponse> getPlaylistDetail(@RequestBody @Valid PlaylistIdRequest playlistIdRequest, @PreAuthorize Long memberId) {
+    public BaseResponse<GamesResponse> getPlaylistDetail(@ModelAttribute @Valid PlaylistIdRequest playlistIdRequest, @PreAuthorize Long memberId) {
         GamesResponse gamesResponse = playlistService.getPlaylistDetail(playlistIdRequest.getPlaylistId(), memberId);
         return new BaseResponse<>(gamesResponse);
     }
 
     @DeleteMapping("/detail/remove")
-    public BaseResponse<String> delteGameInPlaylist(@RequestBody @Valid GameInPlaylistRequest gameInPlaylistRequest) {
+    public BaseResponse<String> delteGameInPlaylist(@ModelAttribute @Valid GameInPlaylistRequest gameInPlaylistRequest) {
         String response = playlistService.delteGameInPlaylist(gameInPlaylistRequest.getPlaylistId(), gameInPlaylistRequest.getGameId());
         return new BaseResponse<>(response);
     }

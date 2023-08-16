@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.ohgamja_frontend.databinding.FragmentMypageBinding
 import com.example.ohgamja_frontend.ui.mypage.DeleteMemberDialog
 import com.example.ohgamja_frontend.ui.mypage.LogoutMemberDialog
+import com.example.ohgamja_frontend.ui.retrofit.getEmail
 
 class MypageFragment : Fragment() {
     lateinit var binding: FragmentMypageBinding
@@ -28,6 +29,8 @@ class MypageFragment : Fragment() {
 
         val delete_btn = binding.deleteBtn
         val logout_btn = binding.logoutBtn
+
+        binding.profileEmail.text=getEmail(requireContext())
 
         logout_btn.setOnClickListener {
             val dialogFragment = LogoutMemberDialog()

@@ -1,26 +1,15 @@
 package com.example.ohgamja_frontend.ui.home
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.example.ohgamja_frontend.MainActivity
 import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.ActivityGameInfoBinding
 import com.example.ohgamja_frontend.ui.AddToPlaylistDialog
 import com.example.ohgamja_frontend.ui.retrofit.BaseResponse
-import com.example.ohgamja_frontend.ui.retrofit.DetailRequest
 import com.example.ohgamja_frontend.ui.retrofit.DetailResponse
-import com.example.ohgamja_frontend.ui.retrofit.LoginRequest
-import com.example.ohgamja_frontend.ui.retrofit.LoginResponse
 import com.example.ohgamja_frontend.ui.retrofit.RetrofitUtil
-import com.example.ohgamja_frontend.ui.retrofit.saveAccessToken
-import com.example.ohgamja_frontend.ui.retrofit.saveEmail
-import com.kakao.sdk.auth.model.OAuthToken
-import okhttp3.Request
-import okio.Timeout
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -69,9 +58,9 @@ class GameInfoActivity : AppCompatActivity() {
     }
 
     private fun getGameInfo() {
-        val detailRequest = DetailRequest(intent.getIntExtra("gameId",-1))
+        val gameId = intent.getIntExtra("gameId",-1)
 
-        RetrofitUtil.getRetrofit().GetGameDetail(detailRequest).enqueue(object:
+        RetrofitUtil.getRetrofit().GetGameDetail(gameId).enqueue(object:
             Callback<BaseResponse<DetailResponse>> {
             override fun onResponse(
                 call: Call<BaseResponse<DetailResponse>>,
@@ -83,7 +72,7 @@ class GameInfoActivity : AppCompatActivity() {
 
                     binding.gameName.setText(result.gameName)
                     binding.tag.setText(result.category)
-                    binding.heartNum.setText(result.likeCount)
+                    binding.heartNum.setText(result.likeCount.toString())
                     binding.detailContent.setText(result.description)
 
                     Glide.with(this@GameInfoActivity)

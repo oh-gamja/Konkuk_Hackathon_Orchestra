@@ -8,6 +8,7 @@ import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
+import retrofit2.http.Query
 
 interface RetrofitInterface {
 
@@ -19,6 +20,11 @@ interface RetrofitInterface {
     fun GetTopGameList(
     ): Call<BaseResponse<TopGameResponse>>
 
+
+    @GET("/likes")
+    fun GetLikes(
+    ): Call<BaseResponse<GamesResponse>>
+
     @GET("/playlists")
     fun GetPlaylist(
     ): Call<BaseResponse<PlaylistResponse>>
@@ -27,11 +33,18 @@ interface RetrofitInterface {
     fun KaKaoSingout(
     ): Call<BaseResponse<SignoutResponse>>
 
-    @POST("/games/detail")
+    @GET("/games/detail")
     fun GetGameDetail(
-        @Body requestBody: DetailRequest
+        @Query("gameId") gameId: Int
     ): Call<BaseResponse<DetailResponse>>
+
+    @GET("/likes/add")
+    fun AddLike(
+        @Body requestBody: gameIdRequest
+    ): Call<BaseResponse<resultResponse>>
+
 }
+
 
 
 

@@ -34,14 +34,14 @@ public class LikeController {
     }
 
     @PostMapping("/add")
-    public BaseResponse<LikeResponse> addLike(@PreAuthorize Long memberId, @RequestBody @Valid GameIdRequest gameIdRequest){
+    public BaseResponse<LikeResponse> addLike(@PreAuthorize Long memberId, @ModelAttribute @Valid GameIdRequest gameIdRequest){
         log.info("[LikeController.addLike]");
         LikeResponse likeResponse = likeService.addLike(memberId,gameIdRequest.getGameId());
         return new BaseResponse<>(likeResponse);
     }
 
     @DeleteMapping("/remove")
-    public BaseResponse<LikeResponse> removeLike(@PreAuthorize Long memberId, @RequestBody @Valid GameIdRequest gameIdRequest){
+    public BaseResponse<LikeResponse> removeLike(@PreAuthorize Long memberId, @ModelAttribute @Valid GameIdRequest gameIdRequest){
         log.info("[LikeController.addLike]");
         LikeResponse likeResponse = likeService.deleteLike(memberId,gameIdRequest.getGameId());
         return new BaseResponse<>(likeResponse);
