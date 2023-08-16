@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:usesCleartextTraffic="true"
         android:name=".GlobalApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ohgamjafrontend"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.playlists.PlaylistInfoActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.home.SearchActivity"
             android:exported="false" />
@@ -33,7 +37,7 @@
 
                 <data
                     android:host="oauth"
-                    android:scheme="kakao56a8f3243380ef1399c99afc99f668ff" />
+                    android:scheme="${KAKAO_APP_KEY}" />
             </intent-filter>
         </activity>
         <activity

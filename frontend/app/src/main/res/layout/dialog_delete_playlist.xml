@@ -35,7 +35,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/cancelBtn"
             android:layout_width="135dp"
             android:layout_height="35dp"
             android:background="@drawable/border_1dp_gray500_btn_background"
@@ -61,7 +61,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/deleteListBtn"
             android:layout_width="135dp"
             android:layout_height="35dp"
             android:text="삭제"
