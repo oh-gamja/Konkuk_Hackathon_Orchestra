@@ -8,12 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
-import com.example.ohgamja_frontend.R
-import com.example.ohgamja_frontend.databinding.FragmentNewListDialogBinding
+import com.example.ohgamja_frontend.databinding.DialogAddPlaylistBinding
 
-class NewListDialogFragment : DialogFragment() {
+class AddPlaylistDialog : DialogFragment() {
 
-    private lateinit var binding : FragmentNewListDialogBinding
+    private lateinit var binding : DialogAddPlaylistBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +25,7 @@ class NewListDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentNewListDialogBinding.inflate(inflater)
+        binding = DialogAddPlaylistBinding.inflate(inflater)
 
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)

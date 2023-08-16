@@ -8,11 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
-import com.example.ohgamja_frontend.databinding.FragmentDelDialogBinding
+import com.example.ohgamja_frontend.databinding.DialogDeletePlaylistBinding
 
-class DelDialogFragment : DialogFragment() {
+class DeletePlaylistDialog : DialogFragment() {
 
-    private lateinit var binding : FragmentDelDialogBinding
+    private lateinit var binding : DialogDeletePlaylistBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,10 +25,11 @@ class DelDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentDelDialogBinding.inflate(inflater)
+        binding = DialogDeletePlaylistBinding.inflate(inflater)
 
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
+
 
         binding.button1.setOnClickListener {
             //취소

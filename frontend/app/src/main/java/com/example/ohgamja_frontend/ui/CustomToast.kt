@@ -9,7 +9,7 @@ import com.example.ohgamja_frontend.R
 class CustomToast(context: Context, message: String) : Toast(context) {
 
     init {
-        val view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null)
+        val view = LayoutInflater.from(context).inflate(R.layout.toast_custom, null)
         view.findViewById<TextView>(R.id.text_toast).apply {
             text = message
         }

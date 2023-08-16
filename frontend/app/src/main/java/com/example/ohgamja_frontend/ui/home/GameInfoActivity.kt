@@ -17,7 +17,7 @@ class GameInfoActivity : AppCompatActivity() {
 
         binding.addButton.setOnClickListener {
             //추가할 플레이리스트를 고르는 dialog
-            val dialog = AddListDialogFragment()
+            val dialog = AddToPlaylistDialog()
             dialog.show(supportFragmentManager,"DialogFragment")
         }
 
@@ -27,11 +27,17 @@ class GameInfoActivity : AppCompatActivity() {
             //좋아요 적용 및 취소
 
             if (joa == false){
+                var currentNum = binding.heartNum.text.toString().toInt()
+
                 binding.gameHeart.setImageResource(R.drawable.ic_like_heart_filled)
+                binding.heartNum.setText((currentNum+1).toString())
                 Toast.makeText(this, "좋아요 목록에 추가되었습니다", Toast.LENGTH_SHORT).show()
                 joa = true
             } else {
+                var currentNum = binding.heartNum.text.toString().toInt()
+
                 binding.gameHeart.setImageResource(R.drawable.ic_like_heart_empty)
+                binding.heartNum.setText((currentNum-1).toString())
                 Toast.makeText(this, "좋아요 목록에서 삭제되었습니다", Toast.LENGTH_SHORT).show()
 
                 joa = false

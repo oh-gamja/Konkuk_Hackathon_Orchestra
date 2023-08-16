@@ -67,37 +67,48 @@
         app:layout_constraintStart_toStartOf="@+id/et_search"
         app:layout_constraintTop_toTopOf="@+id/et_search" />
 
-    <ImageView
-        android:layout_width="15dp"
-        android:layout_height="22.5dp"
+    <TextView
+        android:layout_width="37dp"
+        android:layout_height="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="12dp"
-        android:src="@drawable/ic_logo"
+        android:text="찾기"
+        android:textAlignment="center"
+        android:background="@drawable/border_1dp_pink_main_btn_background"
+        android:textColor="@color/pink_main"
+        android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="@+id/et_search"
-        app:layout_constraintTop_toTopOf="@+id/et_search"></ImageView>
+        app:layout_constraintTop_toTopOf="@+id/et_search"></TextView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="18dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="13dp"
         android:fontFamily="@font/lottemart_medium"
-        android:gravity="center_vertical"
         android:text="필터 :"
         android:textColor="@color/white"
         android:textSize="14dp"
+        android:layout_marginLeft="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_search"></TextView>
+        app:layout_constraintTop_toTopOf="@+id/recyclerView"></TextView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="11dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_search"></androidx.recyclerview.widget.RecyclerView>
 
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="48dp"
         android:background="@color/background2"
         app:layout_constraintTop_toBottomOf="@+id/et_search"
-        tools:layout_editor_absoluteX="24dp"></View>
+        android:layout_marginTop="48dp"></View>
 
     <TextView
         android:id="@+id/category"
