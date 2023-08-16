@@ -44,6 +44,12 @@ interface RetrofitInterface {
         @Body requestBody: gameIdRequest
     ): Call<BaseResponse<resultResponse>>
 
+    @HTTP(method = "DELETE", path = "/likes/remove", hasBody = true)
+    @DELETE("/likes/remove")
+    fun DeleteLike(
+        @Body requestBody: gameIdRequest
+    ): Call<BaseResponse<resultResponse>>
+
     @POST("/playlists")
     fun AddList(
         @Body requestBody: PlaylistRequest
