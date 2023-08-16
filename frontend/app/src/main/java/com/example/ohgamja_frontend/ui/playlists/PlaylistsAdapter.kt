@@ -1,6 +1,7 @@
 package com.example.ohgamja_frontend.ui.playlists
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -15,6 +16,16 @@ class PlaylistsAdapter(
     val items: ArrayList<PlaylistViewModel>
 ) : RecyclerView.Adapter<PlaylistsAdapter.ViewHolder>() {
 
+    private lateinit var itemClickListener : OnItemClickListener
+
+    interface OnItemClickListener{
+        fun onItemClick()
+    }
+
+    fun setOnItemClickListener(onItemClickListener : OnItemClickListener) {
+        itemClickListener = onItemClickListener
+    }
+
     //playlist 불러오기
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlaylistsAdapter.ViewHolder {
         val binding =
@@ -26,10 +37,6 @@ class PlaylistsAdapter(
         holder.bind(items[position])
     }
 
-    interface OnItemClicked {
-        fun onItemClicked()
-    }
-
     //전체 recyclerview의 갯수
     override fun getItemCount(): Int {
         return items.size
@@ -39,6 +46,12 @@ class PlaylistsAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: PlaylistViewModel) {
+            binding.root.setOnClickListener {
+                val intent = Intent(context, PlaylistInfoActivity::class.java)
+                intent.putExtra("playlistId", item.playlistId)
+                context.startActivity(intent)
+            }
+
             binding.rvListName.text = item.listName
             binding.rvGameNum.text = item.gameNum.toString()
             binding.rvDelButton.setOnClickListener {

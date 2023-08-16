@@ -47,7 +47,10 @@ interface RetrofitInterface {
     @GET("/games/random")
     fun GetRandomGame(
     ): Call<BaseResponse<DetailResponse>>
-
+    @GET("/playlists/detail")
+    fun GetPlaylistDetail(
+        @Query("playlistId") playlistId: Int
+    ): Call<BaseResponse<GamesResponse>>
     @GET("/games")
     fun GetSearch(
         @Query("difficulty") difficulty: String,
@@ -71,6 +74,7 @@ interface RetrofitInterface {
     fun DeleteList(
         @Body requestBody: DeletePlaylistRequest
     ): Call<BaseResponse<String>>
+
 
 }
 

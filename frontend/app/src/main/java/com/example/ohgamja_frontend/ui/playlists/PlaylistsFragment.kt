@@ -58,11 +58,14 @@ class PlaylistsFragment : Fragment() {
                         val result = response.body()!!.result
                         val playItems = result.playlistList
                         items.clear()
-                        Log.e("asd", playItems.toString())
-                        playItems.forEach {
-                            items.add(
-                                PlaylistViewModel(false, it.playlistName, it.gameCount)
-                            )
+                        if(playItems != null){
+                            playItems.forEach {
+                                items.add(
+                                    PlaylistViewModel(it.playlistId,false,it.playlistName,it.gameCount)
+                                )
+                            }
+                            playlistsAdapter.notifyDataSetChanged()
+
                         }
                         playlistsAdapter.notifyDataSetChanged()
                     } else {
@@ -75,6 +78,11 @@ class PlaylistsFragment : Fragment() {
                 }
             })
 
+        playlistsAdapter.setOnItemClickListener(object : PlaylistsAdapter.OnItemClickListener{
+            override fun onItemClick() {
+
+            }
+        })
 
 
 
