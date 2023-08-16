@@ -52,8 +52,8 @@ class HomeFragment : Fragment() {
 
         //추가 버튼 클릭 시 AddToPlayListDialog() 띄우기
         rvAdapter.itemClick = object : RVAdapter.ItemClick {
-            override fun onClick() {
-                val dialog = AddToPlaylistDialog()
+            override fun onClick(gameId: Int) {
+                val dialog = AddToPlaylistDialog(gameId)
                 dialog.show(childFragmentManager, "DialogFragment")
             }
         }
@@ -72,7 +72,7 @@ class HomeFragment : Fragment() {
                         val items = result.gamePreviews
                         items.forEach {
                             rvAdapter.items.add(
-                                RVViewModel(it.gameId, it.gameImage, it.gameName, it.difficulty, it.category, it.headCount, it.likeCount)
+                                RVViewModel(it.gameId, it.gameImage, it.gameName, it.difficulty, it.category, it.headCount, it.likeCount, it.like)
                             )
                         }
                         rvAdapter.notifyDataSetChanged()

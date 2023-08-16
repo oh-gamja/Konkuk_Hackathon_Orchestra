@@ -3,10 +3,9 @@ package com.konkuk_hackathon.ohgamja.Controller;
 import com.fasterxml.jackson.databind.ser.Serializers;
 import com.konkuk_hackathon.ohgamja.Common.Argument_resolver.PreAuthorize;
 import com.konkuk_hackathon.ohgamja.Common.Response.BaseResponse;
-import com.konkuk_hackathon.ohgamja.Dto.Request.GameInPlaylistRequest;
-import com.konkuk_hackathon.ohgamja.Dto.Request.PlaylistIdRequest;
-import com.konkuk_hackathon.ohgamja.Dto.Request.PlaylistRequest;
+import com.konkuk_hackathon.ohgamja.Dto.Request.*;
 import com.konkuk_hackathon.ohgamja.Dto.Response.GamesResponse;
+import com.konkuk_hackathon.ohgamja.Dto.Response.PlaylistInfoResponse;
 import com.konkuk_hackathon.ohgamja.Dto.Response.PlaylistsResponse;
 import com.konkuk_hackathon.ohgamja.Service.PlaylistService;
 import jakarta.validation.Valid;
@@ -48,6 +47,18 @@ public class PlaylistController {
     @DeleteMapping("/detail/remove")
     public BaseResponse<String> delteGameInPlaylist(@ModelAttribute @Valid GameInPlaylistRequest gameInPlaylistRequest) {
         String response = playlistService.delteGameInPlaylist(gameInPlaylistRequest.getPlaylistId(), gameInPlaylistRequest.getGameId());
+        return new BaseResponse<>(response);
+    }
+
+    @GetMapping("/playlistInfo")
+    public BaseResponse<PlaylistInfoResponse> getPlaylistInfo(@ModelAttribute @Valid GameIdRequest gameIdRequest, @PreAuthorize Long memberId) {
+        PlaylistInfoResponse response = playlistService.getPlaylistInfo(gameIdRequest.getGameId(), memberId);
+        return new BaseResponse<>(response);
+    }
+
+    @PostMapping("/putInPlaylist")
+    public BaseResponse<String> putInPlaylist(@ModelAttribute @Valid PlaylistGameIdRequest playlistGameIdRequest) {
+        String response = playlistService.putInPlaylist(playlistGameIdRequest.getGameId(), playlistGameIdRequest.getPlaylistId());
         return new BaseResponse<>(response);
     }
 

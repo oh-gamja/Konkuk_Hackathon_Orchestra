@@ -30,84 +30,6 @@ class LikeFragment : Fragment() {
 
         var items = mutableListOf<RVViewModel>()
 
-        /*//카카오 로그인 버튼 누를시 동작 구현
-        val login_btn = binding.loginBtn
-        login_btn.setOnClickListener {
-
-        }*/
-
-//        items.add(
-//            RVViewModel(
-//                "젠가",
-//                3,
-//                "스릴러",
-//                "4",200
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "젠가",
-//                3,
-//                "스릴러",
-//                "4",300
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "젠가",
-//                3,
-//                "스릴러",
-//                "4",100
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "젠가",
-//                3,
-//                "스릴러",
-//                "4",200
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "젠가",
-//                3,
-//                "스릴러",
-//                "4",300
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "젠가",
-//                3,
-//                "스릴러",
-//                "4",200
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "젠가",
-//                3,
-//                "스릴러",
-//                "4",100
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "젠가",
-//                3,
-//                "스릴러",
-//                "4",100
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "젠가",
-//                3,
-//                "스릴러",
-//                "4",50
-//            )
-//        )
 
         val rv = binding.likerv
         val rvAdapter = RVAdapter(0, requireContext(), childFragmentManager, items)
@@ -126,7 +48,7 @@ class LikeFragment : Fragment() {
                         val items = result.gamePreviews
                         items.forEach {
                             rvAdapter.items.add(
-                                RVViewModel(it.gameId, it.gameImage, it.gameName, it.difficulty, it.category, it.headCount, it.likeCount)
+                                RVViewModel(it.gameId, it.gameImage, it.gameName, it.difficulty, it.category, it.headCount, it.likeCount, it.like)
                             )
                         }
                         rvAdapter.notifyDataSetChanged()

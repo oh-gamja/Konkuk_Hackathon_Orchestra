@@ -36,7 +36,8 @@
                     android:layout_height="35dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
-                    android:src="@drawable/ic_game_playlist_btn_background"
+                    android:src="@drawable/btn_prev"
+                    android:background="@drawable/border_1dp_lavender_main_btn_background"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,7 +65,7 @@
                     android:layout_height="38dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginBottom="24dp"
-                    android:src="@drawable/ic_botnav_heart_empty"
+                    android:src="@drawable/add_list"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
 
@@ -98,7 +99,7 @@
                     android:layout_height="14dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="80dp"
-                    android:src="@drawable/ic_botnav_heart_filled"
+                    android:src="@drawable/ic_people"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"/>
 

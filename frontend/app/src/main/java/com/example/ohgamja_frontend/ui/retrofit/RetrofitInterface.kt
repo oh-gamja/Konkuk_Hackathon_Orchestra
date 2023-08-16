@@ -39,9 +39,9 @@ interface RetrofitInterface {
         @Query("gameId") gameId: Int
     ): Call<BaseResponse<DetailResponse>>
 
-    @GET("/likes/add")
+    @POST("/likes/add")
     fun AddLike(
-        @Body requestBody: gameIdRequest
+        @Query("gameId") gameId: Int
     ): Call<BaseResponse<resultResponse>>
 
     @GET("/games/random")
@@ -61,22 +61,40 @@ interface RetrofitInterface {
         @Query("headCount") headCount : Int
     ) : Call<BaseResponse<SearchResponse>>
 
-    @HTTP(method = "DELETE", path = "/likes/remove", hasBody = true)
     @DELETE("/likes/remove")
     fun DeleteLike(
-        @Body requestBody: gameIdRequest
+        @Query("gameId") gameId: Int
     ): Call<BaseResponse<resultResponse>>
 
     @POST("/playlists")
     fun AddList(
         @Body requestBody: PlaylistRequest
     ) : Call<BaseResponse<String>>
+
     @HTTP(method = "DELETE", path = "/playlists/remove", hasBody = true)
-    @DELETE("/playlists/remove")
     fun DeleteList(
         @Body requestBody: DeletePlaylistRequest
     ): Call<BaseResponse<String>>
 
+
+    @POST("/playlists/putInPlaylist")
+    fun AddToList(
+        @Query("gameId") gameId: Int,
+        @Query("playlistId") playlistId: Int,
+    ) : Call<BaseResponse<String>>
+
+
+    @GET("/playlists/playlistInfo")
+    fun GetListInfo(
+        @Query("gameId") gameId: Int
+    ): Call<BaseResponse<playlistInfoList>>
+
+
+    @HTTP(method = "DELETE", path = "/playlists/detail/remove", hasBody = true)
+    fun DeleteFromList(
+        @Query("gameId") gameId: Int,
+        @Query("playlistId") playlistId: Int,
+    ): Call<BaseResponse<String>>
 
 }
 
