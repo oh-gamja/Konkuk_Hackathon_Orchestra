@@ -48,3 +48,13 @@ data class  LikeTopGame(
     @SerializedName("gameImage") val gameImage: String,
     @SerializedName("likeCount") val likeCount: Int,
 )
+
+data class  PlaylistResponse(
+    @SerializedName("playListResponse") val playListResponse: List<Playlist>,
+)
+
+data class  Playlist(
+    @SerializedName("playlistId") val playlistId: Int,
+    @SerializedName("playlistName") val playlistName: String,
+    @SerializedName("gameCount") val gameCount: Int,
+)

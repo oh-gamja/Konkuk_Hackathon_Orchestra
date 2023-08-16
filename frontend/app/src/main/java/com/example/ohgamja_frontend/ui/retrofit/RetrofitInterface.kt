@@ -19,6 +19,10 @@ interface RetrofitInterface {
     fun GetTopGameList(
     ): Call<BaseResponse<TopGameResponse>>
 
+    @GET("/playlists")
+    fun GetPlaylist(
+    ): Call<BaseResponse<PlaylistResponse>>
+
     @DELETE("/auth/signout")
     fun KaKaoSingout(
     ): Call<BaseResponse<SignoutResponse>>
