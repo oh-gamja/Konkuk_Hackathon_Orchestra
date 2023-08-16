@@ -12,6 +12,7 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.ItemRvadapterBinding
 import com.example.ohgamja_frontend.ui.home.GameInfoActivity
@@ -39,10 +40,41 @@ class RVAdapter(val type: Int, val context: Context, val fragmentManger: Fragmen
     inner class ViewHolder(val binding: ItemRvadapterBinding) : RecyclerView.ViewHolder(binding.root){
         fun bindItems(item : RVViewModel){
             val rv_container = binding.itemContainer
-            val rv_title = binding.itemTitle
             val rv_like = binding.likeBtn
             val rv_list = binding.listBtn
             val rv_likeCount = binding.likeCount
+
+            //게임 타이틀 설정
+            binding.itemTitle.text = item.itemTitle
+
+            //이미지 설정
+            Glide.with(context)
+                .load(item.itemImg)
+                .into(binding.rvImg)
+
+            //난이도 설정
+            if(item.itemDifficulty=="1"){
+                binding.difficulty1.setImageResource(R.drawable.ic_star_filled)
+                binding.difficulty2.setImageResource(R.drawable.ic_star_empty)
+                binding.difficulty3.setImageResource(R.drawable.ic_star_empty)
+            } else if(item.itemDifficulty=="2"){
+                binding.difficulty1.setImageResource(R.drawable.ic_star_filled)
+                binding.difficulty2.setImageResource(R.drawable.ic_star_filled)
+                binding.difficulty3.setImageResource(R.drawable.ic_star_empty)
+            } else if(item.itemDifficulty=="3"){
+                binding.difficulty1.setImageResource(R.drawable.ic_star_filled)
+                binding.difficulty2.setImageResource(R.drawable.ic_star_filled)
+                binding.difficulty3.setImageResource(R.drawable.ic_star_filled)
+            }
+
+            //인원 수 설정
+            binding.headCount.setText("${item.itemPersonnel}+")
+
+            //카테고리 설정
+            binding.itemTag.setText(item.itemCategory)
+
+            //좋아요 수 설정
+            binding.likeCount.setText(item.itemLikeCount.toString())
 
             //itemContainer 클릭 시 gameinfoactivity로 전환
             rv_container.setOnClickListener {
@@ -74,7 +106,6 @@ class RVAdapter(val type: Int, val context: Context, val fragmentManger: Fragmen
                 }
             }
 
-            rv_title.text = item.itemTitle
         }
     }
     private fun showToastMessage() {

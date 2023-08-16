@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemContainer"
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:layout_marginBottom="14dp"
-    app:cardCornerRadius="5dp"
-    android:id="@+id/itemContainer">
+    app:cardCornerRadius="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -22,8 +22,10 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/rvImg"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/ex_rabbit" />
         </com.google.android.material.card.MaterialCardView>
 
@@ -34,15 +36,16 @@
             android:layout_height="18dp"
             android:layout_marginLeft="80dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/lottemart_medium"
+            android:gravity="center_vertical"
             android:text="게임명입니다"
             android:textColor="@color/white"
             android:textSize="14dp"
-            android:fontFamily="@font/lottemart_medium"
-            android:gravity="center_vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
         <ImageView
+            android:id="@+id/difficulty1"
             android:layout_width="11.41dp"
             android:layout_height="10.9dp"
             android:layout_marginLeft="80dp"
@@ -52,6 +55,7 @@
             app:srcCompat="@drawable/ic_star_filled"></ImageView>
 
         <ImageView
+            android:id="@+id/difficulty2"
             android:layout_width="11.41dp"
             android:layout_height="10.9dp"
             android:layout_marginLeft="96dp"
@@ -61,6 +65,7 @@
             app:srcCompat="@drawable/ic_star_filled"></ImageView>
 
         <ImageView
+            android:id="@+id/difficulty3"
             android:layout_width="11.41dp"
             android:layout_height="10.9dp"
             android:layout_marginLeft="112dp"
@@ -76,10 +81,10 @@
             android:layout_marginTop="35dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_star_empty"></ImageView>
+            app:srcCompat="@drawable/ic_people"></ImageView>
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/headCount"
             android:layout_width="wrap_content"
             android:layout_height="12dp"
             android:layout_marginLeft="147dp"
@@ -106,9 +111,9 @@
                 android:background="@drawable/border_1dp_white_tag_background">
 
                 <TextView
+                    android:id="@+id/itemTag"
                     android:layout_width="wrap_content"
                     android:layout_height="12dp"
-                    android:layout_marginLeft="12.8dp"
                     android:layout_marginBottom="2.4dp"
                     android:fontFamily="@font/lottemart_light"
                     android:lineHeight="12dp"
@@ -116,6 +121,7 @@
                     android:textColor="@color/white"
                     android:textSize="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"></TextView>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -145,14 +151,14 @@
             android:id="@+id/likeCount"
             android:layout_width="wrap_content"
             android:layout_height="12dp"
-            android:layout_marginRight="14dp"
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/kcc_ganpan"
-            android:text="200"
+            android:text="0"
             android:textColor="@color/pink_sub2"
             android:textSize="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"></TextView>
+            app:layout_constraintEnd_toEndOf="@+id/likeBtn"
+            app:layout_constraintStart_toStartOf="@+id/likeBtn"></TextView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

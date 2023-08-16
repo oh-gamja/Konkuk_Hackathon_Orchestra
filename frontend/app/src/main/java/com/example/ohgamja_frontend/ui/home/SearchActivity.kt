@@ -53,7 +53,7 @@ class SearchActivity : AppCompatActivity() {
             } else if (check2) {
                 category = "두뇌"
             } else if (check3) {
-                category = "아이엠그라운드"
+                category = "운"
             } else if (check4) {
                 category = "기타"
             }
@@ -95,7 +95,7 @@ class SearchActivity : AppCompatActivity() {
                 check1 = true
                 if (check3 == true) {
                     check3 = false
-                    mAdapter.removeItem("아이엠그라운드")
+                    mAdapter.removeItem("운")
                 }
                 if (check2 == true) {
                     check2 = false
@@ -126,7 +126,7 @@ class SearchActivity : AppCompatActivity() {
                 check2 = true
                 if (check3 == true) {
                     check3 = false
-                    mAdapter.removeItem("아이엠그라운드")
+                    mAdapter.removeItem("운")
                 }
                 if (check4 == true) {
                     check4 = false
@@ -153,7 +153,7 @@ class SearchActivity : AppCompatActivity() {
                 binding.category2.setTextColor(ContextCompat.getColor(this, R.color.white))
                 binding.imgBtn1.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.category1.setTextColor(ContextCompat.getColor(this, R.color.white))
-                mAdapter.addItem("아이엠그라운드")
+                mAdapter.addItem("운")
                 check3 = true
                 if (check4 == true) {
                     check4 = false
@@ -171,7 +171,7 @@ class SearchActivity : AppCompatActivity() {
                 binding.imgBtn3.setImageResource(R.drawable.ic_radio_btn_unchecked)
                 binding.category3.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check3 = false
-                mAdapter.removeItem("아이엠그라운드")
+                mAdapter.removeItem("운")
             }
         }
         binding.imgBtn4.setOnClickListener {
@@ -188,7 +188,7 @@ class SearchActivity : AppCompatActivity() {
                 check4 = true
                 if (check3 == true) {
                     check3 = false
-                    mAdapter.removeItem("아이엠그라운드")
+                    mAdapter.removeItem("운")
                 }
                 if (check2 == true) {
                     check2 = false
