@@ -83,6 +83,7 @@ class SearchResultActivity : AppCompatActivity() {
                             rvItems.add(
                                 RVViewModel(
                                     it.gameId,
+                                    it.gameImage,
                                     it.gameName,
                                     it.difficulty,
                                     it.category,
