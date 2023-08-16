@@ -88,7 +88,8 @@ class SearchResultActivity : AppCompatActivity() {
                                     it.difficulty,
                                     it.category,
                                     it.headCount,
-                                    it.likeCount
+                                    it.likeCount,
+                                    it.like
                                 )
                             )
                         }

@@ -47,7 +47,7 @@ class PlaylistInfoActivity : AppCompatActivity() {
                         val items = result.gamePreviews
                         items.forEach {
                             rvAdapter.items.add(
-                                RVViewModel(it.gameId,it.gameImage, it.gameName, it.difficulty, it.category, it.headCount, it.likeCount)
+                                RVViewModel(it.gameId,it.gameImage, it.gameName, it.difficulty, it.category, it.headCount, it.likeCount, it.like)
                             )
                         }
                         rvAdapter.notifyDataSetChanged()
