@@ -16,6 +16,7 @@ import com.example.ohgamja_frontend.ui.retrofit.BaseResponse
 import com.example.ohgamja_frontend.ui.retrofit.GamesResponse
 import com.example.ohgamja_frontend.ui.retrofit.LoginResponse
 import com.example.ohgamja_frontend.ui.retrofit.RetrofitUtil
+import com.example.ohgamja_frontend.ui.retrofit.TopGameResponse
 import com.example.ohgamja_frontend.ui.retrofit.saveAccessToken
 import com.example.ohgamja_frontend.ui.retrofit.saveEmail
 import retrofit2.Call
@@ -124,6 +125,28 @@ class HomeFragment : Fragment() {
                     Log.d("Retrofit", t.message.toString())
                 }
             })
+
+        RetrofitUtil.getRetrofit().GetTopGameList().enqueue(object : Callback<BaseResponse<TopGameResponse>>{
+            override fun onResponse(
+                call: Call<BaseResponse<TopGameResponse>>,
+                response: Response<BaseResponse<TopGameResponse>>
+            ) {
+                if (response.isSuccessful) {
+                    val result = response.body()!!.result
+                    val items = result.likeTopGames
+                    items.forEach({
+
+                    })
+                } else {
+                    Log.d("Retrofit", response.message())
+                }
+            }
+
+            override fun onFailure(call: Call<BaseResponse<TopGameResponse>>, t: Throwable) {
+                Log.d("Retrofit", t.message.toString())
+            }
+
+        })
 
 
 

@@ -14,22 +14,10 @@ interface RetrofitInterface {
     fun GetAllGames(
     ): Call<BaseResponse<GamesResponse>>
 
+    @GET("/likes/top")
+    fun GetTopGameList(
+    ): Call<BaseResponse<TopGameResponse>>
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 interface RetrofitLoginInterface {
