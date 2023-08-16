@@ -8,7 +8,7 @@ class GlobalApplication: Application() {
     override fun onCreate() {
         super.onCreate()
 
-        // KaKao SDK  초기화
-        //KakaoSdk.init(this, BuildConfig.KAKAO_NATIVE_APP_KEY)
+//         KaKao SDK  초기화
+        KakaoSdk.init(this, BuildConfig.KAKAO_NATIVE_APP_KEY)
     }
 }

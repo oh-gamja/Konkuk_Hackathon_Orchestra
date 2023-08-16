@@ -1,8 +1,9 @@
 package com.example.ohgamja_frontend.ui
 
-data class RecyclerviewModel(
+data class RVViewModel(
     var itemTitle: String = "",
     var itemDifficulty: Int,
     var itemCategory: String = "",
-    var itemPersonnel: String = ""
+    var itemPersonnel: String = "",
+    var itemLikeCount : Int
 )
