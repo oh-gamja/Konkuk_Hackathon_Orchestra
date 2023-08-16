@@ -17,7 +17,8 @@ interface RetrofitInterface {
     @GET("/likes/top")
     fun GetTopGameList(
     ): Call<BaseResponse<TopGameResponse>>
-    @GET("/games/detail")
+
+    @POST("/games/detail")
     fun GetGameDetail(
         @Body requestBody: DetailRequest
     ): Call<BaseResponse<DetailResponse>>
