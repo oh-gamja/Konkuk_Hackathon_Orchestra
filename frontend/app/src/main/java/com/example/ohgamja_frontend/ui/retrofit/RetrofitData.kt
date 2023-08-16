@@ -50,7 +50,7 @@ data class  LikeTopGame(
 )
 
 data class  PlaylistResponse(
-    @SerializedName("playListResponse") val playListResponse: List<Playlist>,
+    @SerializedName("playlistList") val playlistList: List<Playlist>,
 )
 
 data class  Playlist(

@@ -1,7 +1,9 @@
 package com.example.ohgamja_frontend.ui.playlists
 
+import android.net.DnsResolver
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ohgamja_frontend.R
@@ -9,6 +11,13 @@ import com.example.ohgamja_frontend.databinding.ActivityPlaylistInfoBinding
 import com.example.ohgamja_frontend.databinding.ActivitySearchBinding
 import com.example.ohgamja_frontend.ui.RVAdapter
 import com.example.ohgamja_frontend.ui.RVViewModel
+import com.example.ohgamja_frontend.ui.retrofit.BaseResponse
+import com.example.ohgamja_frontend.ui.retrofit.GamesResponse
+import com.example.ohgamja_frontend.ui.retrofit.PlaylistResponse
+import com.example.ohgamja_frontend.ui.retrofit.RetrofitUtil
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class PlaylistInfoActivity : AppCompatActivity() {
 
@@ -20,55 +29,37 @@ class PlaylistInfoActivity : AppCompatActivity() {
 
         val items = mutableListOf<RVViewModel>()
 
-        /*items.add(
-            RVViewModel(
-                "젠가",
-                3,
-                "스릴러",
-                "4", 4
-            )
-        )
-        items.add(
-            RVViewModel(
-                "경도",
-                2,
-                "범죄",
-                "2", 4
-            )
-        )
-        items.add(
-            RVViewModel(
-                "바니바니",
-                2,
-                "농락",
-                "5", 4
-            )
-        )
-        items.add(
-            RVViewModel(
-                "출석부",
-                1,
-                "속도",
-                "6",
-                4
-            )
-        )
-        items.add(
-            RVViewModel(
-                "더 게임 오브 데스",
-                3,
-                "도박",
-                "8",
-                4
-            )
-        )*/
-
-        val rvAdapter = RVAdapter(0, this, supportFragmentManager, items)
+        val rvAdapter = RVAdapter(1, this, supportFragmentManager, items)
 
         binding.playlistRv.adapter = rvAdapter
         binding.playlistRv.layoutManager = LinearLayoutManager(this)
 
 
+        val playlistId = intent.getIntExtra("playlistId", -1)
+        RetrofitUtil.getRetrofit().GetPlaylistDetail(playlistId)
+            .enqueue(object : Callback<BaseResponse<GamesResponse>> {
+                override fun onResponse(
+                    call: Call<BaseResponse<GamesResponse>>,
+                    response: Response<BaseResponse<GamesResponse>>
+                ) {
+                    if (response.isSuccessful) {
+                        val result = response.body()!!.result
+                        val items = result.gamePreviews
+                        items.forEach {
+                            rvAdapter.items.add(
+                                RVViewModel(it.gameId, it.gameName, it.difficulty, it.category, it.headCount, it.likeCount)
+                            )
+                        }
+                        rvAdapter.notifyDataSetChanged()
+                    } else {
+                        Log.d("Retrofit", response.message())
+                    }
+                }
+
+                override fun onFailure(call: Call<BaseResponse<GamesResponse>>, t: Throwable) {
+                    Log.d("Retrofit", t.message.toString())
+                }
+            })
 
 
         setContentView(binding.root)

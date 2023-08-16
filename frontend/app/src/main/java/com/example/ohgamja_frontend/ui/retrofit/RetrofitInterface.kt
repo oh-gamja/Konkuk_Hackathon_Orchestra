@@ -47,6 +47,10 @@ interface RetrofitInterface {
     fun GetRandomGame(
     ): Call<BaseResponse<DetailResponse>>
 
+    @GET("/playlists/detail")
+    fun GetPlaylistDetail(
+        @Query("playlistId") playlistId: Int
+    ): Call<BaseResponse<GamesResponse>>
 
 }
 
