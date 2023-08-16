@@ -45,7 +45,7 @@ class AddListDialogFragment : DialogFragment() {
         items.add(PlaylistViewModel("플레이리스트9",11))
 
         val Drv = binding.dialogListRv
-        val DialogAdapter = DialogAdapter(items)
+        val DialogAdapter = DialogAdapter(items, requireContext())
 
         Drv.adapter = DialogAdapter
         Drv.layoutManager = LinearLayoutManager(context)
@@ -53,7 +53,9 @@ class AddListDialogFragment : DialogFragment() {
         binding.cancelButton.setOnClickListener {
             //취소
             this.dismiss()
+            Log.e("dialog","뒤로가기")
         }
+
 
         return binding.root
     }
