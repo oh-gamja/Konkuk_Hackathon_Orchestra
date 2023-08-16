@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.ohgamja_frontend.MainActivity
 import com.example.ohgamja_frontend.databinding.FragmentHomeBinding
+import com.example.ohgamja_frontend.ui.AddToPlaylistDialog
 import com.example.ohgamja_frontend.ui.RVAdapter
 import com.example.ohgamja_frontend.ui.RVViewModel
 import com.example.ohgamja_frontend.ui.retrofit.BaseResponse
@@ -48,12 +49,15 @@ class HomeFragment : Fragment() {
         rv.adapter = rvAdapter
         rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
+
+        //추가 버튼 클릭 시 AddToPlayListDialog() 띄우기
         rvAdapter.itemClick = object : RVAdapter.ItemClick {
-            override fun onClick(view: View, position: Int) {
-                val intent = Intent(requireContext(),GameInfoActivity::class.java)
-                startActivity(intent)
+            override fun onClick() {
+                val dialog = AddToPlaylistDialog()
+                dialog.show(childFragmentManager, "DialogFragment")
             }
         }
+
 
 
         Log.d("qwerty123", "getallgames")
@@ -90,9 +94,23 @@ class HomeFragment : Fragment() {
                 if (response.isSuccessful) {
                     val result = response.body()!!.result
                     val topItems = result.likeTopGames
+                    val info_intent = Intent(requireContext(),GameInfoActivity::class.java)
                     binding.tvTop1Title.setText(topItems[0].gameName)
                     binding.tvTop2Title.setText(topItems[1].gameName)
                     binding.tvTop3Title.setText(topItems[2].gameName)
+
+                    binding.topItem1.setOnClickListener {
+                        startActivity(info_intent)
+                        info_intent.putExtra("gameId",topItems[0].gameId)
+                    }
+                    binding.topItem2.setOnClickListener {
+                        startActivity(info_intent)
+                        info_intent.putExtra("gameId",topItems[1].gameId)
+                    }
+                    binding.topItem3.setOnClickListener {
+                        startActivity(info_intent)
+                        info_intent.putExtra("gameId",topItems[2].gameId)
+                    }
 
                     binding.tvTop1Num.setText(topItems[0].likeCount.toString())
                     binding.tvTop2Num.setText(topItems[1].likeCount.toString())

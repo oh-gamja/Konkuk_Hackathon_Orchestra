@@ -19,6 +19,10 @@ data class BaseResponse<T>(
     @SerializedName("result") val result: T,
 )
 
+data class SignoutResponse(
+    @SerializedName("memberId") val memberId: Int
+)
+
 data class GamesResponse(
     @SerializedName("gamePreviews") val gamePreviews: List<GamePreview>
 )
@@ -35,8 +39,8 @@ data class GamePreview(
 )
 
 data class  TopGameResponse(
-    @SerializedName("likeTopGames") val likeTopGames: List<LikeTopGame>,
-    )
+    @SerializedName("likeTopGames") val likeTopGames: List<LikeTopGame>
+)
 
 data class  LikeTopGame(
     @SerializedName("gameId") val gameId: Int,
@@ -44,3 +48,35 @@ data class  LikeTopGame(
     @SerializedName("gameImage") val gameImage: String,
     @SerializedName("likeCount") val likeCount: Int,
 )
+
+data class  PlaylistResponse(
+    @SerializedName("playListResponse") val playListResponse: List<Playlist>,
+)
+
+data class  Playlist(
+    @SerializedName("playlistId") val playlistId: Int,
+    @SerializedName("playlistName") val playlistName: String,
+    @SerializedName("gameCount") val gameCount: Int,
+)
+
+data class DetailResponse(
+    @SerializedName("gameId") val gameId: Int,
+    @SerializedName("gameName") val gameName: String,
+    @SerializedName("category") val category: String,
+    @SerializedName("difficulty") val difficulty: String,
+    @SerializedName("headCount") val headCount: Int,
+    @SerializedName("description") val description: String,
+    @SerializedName("gameImage") val gameImage: String,
+    @SerializedName("likeCount") val likeCount: Int,
+    @SerializedName("isLike") val isLike: Boolean
+)
+
+data class gameIdRequest(
+    @SerializedName("gameId") val gameId: Int
+)
+
+data class resultResponse(
+    @SerializedName("result") val result: String
+)
+
+

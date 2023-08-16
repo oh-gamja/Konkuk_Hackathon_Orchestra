@@ -4,9 +4,11 @@ import com.example.ohgamja_frontend.ui.retrofit.LoginRequest
 import com.example.ohgamja_frontend.ui.retrofit.LoginResponse
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
+import retrofit2.http.Query
 
 interface RetrofitInterface {
 
@@ -18,9 +20,29 @@ interface RetrofitInterface {
     fun GetTopGameList(
     ): Call<BaseResponse<TopGameResponse>>
 
+
     @GET("/likes")
     fun GetLikes(
     ): Call<BaseResponse<GamesResponse>>
+
+    @GET("/playlists")
+    fun GetPlaylist(
+    ): Call<BaseResponse<PlaylistResponse>>
+
+    @DELETE("/auth/signout")
+    fun KaKaoSingout(
+    ): Call<BaseResponse<SignoutResponse>>
+
+    @GET("/games/detail")
+    fun GetGameDetail(
+        @Query("gameId") gameId: Int
+    ): Call<BaseResponse<DetailResponse>>
+
+    @GET("/likes/add")
+    fun AddLike(
+        @Body requestBody: gameIdRequest
+    ): Call<BaseResponse<resultResponse>>
+
 }
 
 

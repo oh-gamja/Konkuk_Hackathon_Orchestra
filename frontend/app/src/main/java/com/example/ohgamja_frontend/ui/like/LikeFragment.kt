@@ -35,7 +35,7 @@ class LikeFragment : Fragment() {
         login_btn.setOnClickListener {
 
         }*/
-//
+
 //        items.add(
 //            RVViewModel(
 //                "젠가",

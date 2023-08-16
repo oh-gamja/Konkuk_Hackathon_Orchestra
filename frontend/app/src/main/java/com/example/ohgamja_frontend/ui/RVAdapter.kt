@@ -2,15 +2,19 @@ package com.example.ohgamja_frontend.ui
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.ItemRvadapterBinding
+import com.example.ohgamja_frontend.ui.home.GameInfoActivity
 import com.google.android.material.datepicker.MaterialDatePicker.Builder.datePicker
 
 
@@ -20,17 +24,11 @@ class RVAdapter(val type: Int, val context: Context, val fragmentManger: Fragmen
         return ViewHolder(binding)
     }
     interface ItemClick {
-        fun onClick(view : View, position: Int)
+        fun onClick()
     }
     var itemClick : ItemClick? = null
 
     override fun onBindViewHolder(holder: RVAdapter.ViewHolder, position: Int) {
-        if(itemClick != null){
-            holder.itemView.setOnClickListener { v->
-                itemClick?.onClick(v,position)
-            }
-
-        }
         holder.bindItems(items[position])
     }
 
@@ -40,16 +38,22 @@ class RVAdapter(val type: Int, val context: Context, val fragmentManger: Fragmen
 
     inner class ViewHolder(val binding: ItemRvadapterBinding) : RecyclerView.ViewHolder(binding.root){
         fun bindItems(item : RVViewModel){
+            val rv_container = binding.itemContainer
             val rv_title = binding.itemTitle
             val rv_like = binding.likeBtn
             val rv_list = binding.listBtn
             val rv_likeCount = binding.likeCount
 
-            rv_list.setOnClickListener {
-                val dialog = AddToPlaylistDialog()
-                dialog.show(fragmentManger, null)
+            //itemContainer 클릭 시 gameinfoactivity로 전환
+            rv_container.setOnClickListener {
+                val intent = Intent(context,GameInfoActivity::class.java)
+                intent.putExtra("gameId", item.itemId)
+                context.startActivity(intent)
             }
 
+            binding.listBtn.setOnClickListener {
+                itemClick?.onClick()
+            }
 
 
             var likeChance = false
