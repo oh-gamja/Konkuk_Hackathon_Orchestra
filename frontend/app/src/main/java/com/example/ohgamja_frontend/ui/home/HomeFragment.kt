@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.ohgamja_frontend.MainActivity
 import com.example.ohgamja_frontend.databinding.FragmentHomeBinding
 import com.example.ohgamja_frontend.ui.RVAdapter
@@ -96,7 +97,15 @@ class HomeFragment : Fragment() {
                     binding.tvTop2Num.setText(topItems[1].likeCount.toString())
                     binding.tvTop3Num.setText(topItems[2].likeCount.toString())
 
-
+                    Glide.with(requireContext())
+                        .load(topItems[0].gameImage)
+                        .into(binding.ivTop1)
+                    Glide.with(requireContext())
+                        .load(topItems[1].gameImage)
+                        .into(binding.ivTop2)
+                    Glide.with(requireContext())
+                        .load(topItems[2].gameImage)
+                        .into(binding.ivTop3)
 
                 } else {
                     Log.d("Retrofit", response.message())
