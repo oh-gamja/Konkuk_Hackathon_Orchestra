@@ -37,6 +37,13 @@ interface RetrofitInterface {
     fun AddLike(
         @Body requestBody: gameIdRequest
     ): Call<BaseResponse<resultResponse>>
+
+    @GET("/games")
+    fun GetSearch(
+        @Query("category") category : String,
+        @Query("name") name : String,
+        @Query("headCount") headCount : Int
+    ) : Call<BaseResponse<SearchResponse>>
 }
 
 
