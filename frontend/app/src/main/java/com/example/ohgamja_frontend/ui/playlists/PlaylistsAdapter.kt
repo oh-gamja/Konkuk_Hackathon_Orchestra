@@ -49,6 +49,7 @@ class PlaylistsAdapter(
             binding.root.setOnClickListener {
                 val intent = Intent(context, PlaylistInfoActivity::class.java)
                 intent.putExtra("playlistId", item.playlistId)
+                intent.putExtra("playlistName",item.listName)
                 context.startActivity(intent)
             }
 
