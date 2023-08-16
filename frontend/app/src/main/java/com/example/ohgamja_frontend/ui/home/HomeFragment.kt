@@ -101,15 +101,15 @@ class HomeFragment : Fragment() {
 
                     binding.topItem1.setOnClickListener {
                         startActivity(info_intent)
-                        info_intent.putExtra("GameIt",topItems[0].gameId)
+                        info_intent.putExtra("gameId",topItems[0].gameId)
                     }
                     binding.topItem2.setOnClickListener {
                         startActivity(info_intent)
-                        info_intent.putExtra("GameIt",topItems[1].gameId)
+                        info_intent.putExtra("gameId",topItems[1].gameId)
                     }
                     binding.topItem3.setOnClickListener {
                         startActivity(info_intent)
-                        info_intent.putExtra("GameIt",topItems[2].gameId)
+                        info_intent.putExtra("gameId",topItems[2].gameId)
                     }
 
                     binding.tvTop1Num.setText(topItems[0].likeCount.toString())
