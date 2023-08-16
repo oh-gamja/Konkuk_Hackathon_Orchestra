@@ -80,6 +80,7 @@ object RetrofitUtil {
 
     fun setAccessToken(str: String) {
         accessTokenString = str
+        instance=null
     }
 
     fun getAccessToken(): String {
