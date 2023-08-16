@@ -2,17 +2,19 @@
 ## [오감자] 술이 스리슬쩍, "술이슬쩍" 🍻
 ![Frame](https://github.com/oh-gamja/Konkuk_Hackathon_Orchestra/assets/89915076/c61f6641-8f98-46eb-8d7d-939612c32c72)
 
-[게임 간단소개]
+[MZ세대를 위한 술게임 추천 어플]
 
 
 ## 목차
 
-### 1. [Home](#1-Home)
-### 2. [Game Detail](#2-Game-Detail)
-### 3. [Like](#3-Like)
-### 4. [Game List](#4-Game-List)
-### 5. [My Page](#5-My-Page)
+### 1. [Home](#1-home)
+### 2. [Game Detail](#2-game-detail)
+### 3. [Like](#3-like)
+### 4. [Game List](#4-game-list)
+### 5. [My Page](#5-my-page)
 
+<br>
+<br>
 
 ## 기능 소개
 
@@ -35,7 +37,9 @@
 - 게임 block을 클릭하면 게임 상세 화면으로 이동합니다.
 <br>
 <br>
+
 ### 2. Game Detail
+
 ![Group 20 (1)](https://github.com/oh-gamja/Konkuk_Hackathon_Orchestra/assets/81912226/a7f52c06-efc9-42dd-bcde-444ade692613)
 
 
