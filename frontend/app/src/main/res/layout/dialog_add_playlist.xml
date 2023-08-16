@@ -61,6 +61,7 @@
                     app:counterTextAppearance="@style/CounterTextAppearance">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/addPlaylist"
                         android:layout_width="match_parent"
                         android:layout_height="35dp"
                         android:maxLength="15"

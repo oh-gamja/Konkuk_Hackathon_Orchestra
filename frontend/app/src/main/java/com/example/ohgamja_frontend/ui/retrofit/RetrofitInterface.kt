@@ -6,6 +6,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
+import retrofit2.http.HTTP
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Query
@@ -46,11 +47,34 @@ interface RetrofitInterface {
     @GET("/games/random")
     fun GetRandomGame(
     ): Call<BaseResponse<DetailResponse>>
-
     @GET("/playlists/detail")
     fun GetPlaylistDetail(
         @Query("playlistId") playlistId: Int
     ): Call<BaseResponse<GamesResponse>>
+    @GET("/games")
+    fun GetSearch(
+        @Query("difficulty") difficulty: String,
+        @Query("category") category : String,
+        @Query("name") name : String,
+        @Query("headCount") headCount : Int
+    ) : Call<BaseResponse<SearchResponse>>
+
+    @HTTP(method = "DELETE", path = "/likes/remove", hasBody = true)
+    @DELETE("/likes/remove")
+    fun DeleteLike(
+        @Body requestBody: gameIdRequest
+    ): Call<BaseResponse<resultResponse>>
+
+    @POST("/playlists")
+    fun AddList(
+        @Body requestBody: PlaylistRequest
+    ) : Call<BaseResponse<String>>
+    @HTTP(method = "DELETE", path = "/playlists/remove", hasBody = true)
+    @DELETE("/playlists/remove")
+    fun DeleteList(
+        @Body requestBody: DeletePlaylistRequest
+    ): Call<BaseResponse<String>>
+
 
 }
 

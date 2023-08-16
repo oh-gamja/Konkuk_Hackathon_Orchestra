@@ -20,12 +20,12 @@ import retrofit2.Response
 
 class PlaylistsFragment : Fragment() {
 
-    private lateinit var binding : FragmentPlaylistsBinding
+    private lateinit var binding: FragmentPlaylistsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentPlaylistsBinding.inflate(inflater)
 
@@ -43,7 +43,8 @@ class PlaylistsFragment : Fragment() {
 
 
         val rv = binding.playRv
-        val playlistsAdapter = PlaylistsAdapter(requireContext(), requireActivity().supportFragmentManager, items)
+        val playlistsAdapter =
+            PlaylistsAdapter(requireContext(), requireActivity().supportFragmentManager, items)
         rv.adapter = playlistsAdapter
         rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
@@ -64,7 +65,9 @@ class PlaylistsFragment : Fragment() {
                                 )
                             }
                             playlistsAdapter.notifyDataSetChanged()
+
                         }
+                        playlistsAdapter.notifyDataSetChanged()
                     } else {
                         Log.d("Retrofit", response.message())
                     }
@@ -85,7 +88,7 @@ class PlaylistsFragment : Fragment() {
 
         binding.playlistAddButton.setOnClickListener {
             val dialog = AddPlaylistDialog()
-            dialog.show(requireActivity().supportFragmentManager,"DialogFragment")
+            dialog.show(requireActivity().supportFragmentManager, "DialogFragment")
         }
 
         binding.deleteListIv.setOnClickListener {

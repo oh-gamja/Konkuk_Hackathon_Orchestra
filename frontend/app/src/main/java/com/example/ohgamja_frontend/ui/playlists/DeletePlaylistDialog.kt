@@ -3,6 +3,7 @@ package com.example.ohgamja_frontend.ui.playlists
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,12 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.DialogDeletePlaylistBinding
+import com.example.ohgamja_frontend.ui.retrofit.BaseResponse
+import com.example.ohgamja_frontend.ui.retrofit.DeletePlaylistRequest
+import com.example.ohgamja_frontend.ui.retrofit.RetrofitUtil
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class DeletePlaylistDialog(val items : ArrayList<PlaylistViewModel>, val adapterPosition: Int, private val adapter: PlaylistsAdapter) : DialogFragment() {
 

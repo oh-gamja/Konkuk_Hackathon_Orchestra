@@ -47,13 +47,38 @@ class SearchActivity : AppCompatActivity() {
             if (isInput) {
                 var intent = Intent(this, SearchResultActivity::class.java)
 
-                intent.putExtra("search", binding.etSearch.text.toString())
+                intent.putExtra("name", binding.etSearch.text.toString())
+                var category = ""
+                if(check1){
+                    category = "순발력"
+                }else if(check2){
+                    category = "두뇌"
+                }else if(check3){
+                    category = "아이엠그라운드"
+                }else if(check4){
+                    category = "기타"
+                }
 
-                for (i in 0 until items.size) intent.putExtra("$i", items[i])
+                var headCount = -1
+                if(check5){
+                    headCount = 3
+                }else if(check6){
+                    headCount = 4
+                }else if(check7){
+                    headCount = 5
+                }
 
-                var num = items.size
-                intent.putExtra("itemSize", num)
-
+                var difficulty = ""
+                if(check8){
+                    difficulty="별한개"
+                }else if(check9){
+                    difficulty="별두개"
+                }else if(check10) {
+                    difficulty="별세개"
+                }
+                intent.putExtra("category", category)
+                intent.putExtra("headCount", headCount)
+                intent.putExtra("difficulty", difficulty)
                 startActivity(intent)
             }
         }
