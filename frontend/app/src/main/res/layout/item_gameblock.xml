@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:background="@drawable/radius3"
-    android:layout_marginBottom="14dp">
+    android:layout_marginVertical="7dp"
+    android:layout_marginHorizontal="22dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_gameblock"
@@ -28,9 +29,9 @@
     <TextView
         android:id="@+id/tv_gameblock_name"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_height="18dp"
         android:text="게임명입니다"
-        android:textSize="16dp"
+        android:textSize="14dp"
         android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@id/cv_gameblock"
         app:layout_constraintTop_toTopOf="parent"
@@ -38,54 +39,157 @@
         android:layout_marginStart="12dp"/>
     
     <FrameLayout
-        android:layout_width="11.41dp"
-        android:layout_height="10.9dp"
+        android:id="@+id/fl_star1"
+        android:layout_width="12dp"
+        android:layout_height="11dp"
         app:layout_constraintStart_toEndOf="@id/cv_gameblock"
         app:layout_constraintTop_toBottomOf="@id/tv_gameblock_name"
-        android:layout_marginStart="12dp">
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="7dp">
 
         <ImageView
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:id="@+id/item_difficulty1"
+            android:id="@+id/tv_star1_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/ic_star_empty"/>
 
         <ImageView
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:id="@+id/item_difficulty2"
+            android:id="@+id/tv_star1_filled"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/ic_star_filled"/>
-
     </FrameLayout>
 
+    <FrameLayout
+        android:id="@+id/fl_star2"
+        android:layout_width="12dp"
+        android:layout_height="11dp"
+        app:layout_constraintStart_toEndOf="@id/fl_star1"
+        app:layout_constraintTop_toTopOf="@id/fl_star1"
+        app:layout_constraintBottom_toBottomOf="@id/fl_star1"
+        android:layout_marginStart="5dp">
+
+        <ImageView
+            android:id="@+id/tv_star2_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_star_empty"/>
+
+        <ImageView
+            android:id="@+id/tv_star2_filled"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_star_filled"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_star3"
+        android:layout_width="12dp"
+        android:layout_height="11dp"
+        app:layout_constraintStart_toEndOf="@id/fl_star2"
+        app:layout_constraintTop_toTopOf="@id/fl_star2"
+        app:layout_constraintBottom_toBottomOf="@id/fl_star2"
+        android:layout_marginStart="5dp">
+
+        <ImageView
+            android:id="@+id/tv_star3_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_star_empty"/>
+
+        <ImageView
+            android:id="@+id/tv_star3_filled"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_star_filled"
+            android:visibility="gone"/>
+    </FrameLayout>
+    
     <ImageView
-        android:id="@+id/listBtn"
+        android:id="@+id/iv_people"
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:src="@drawable/ic_people"
+        app:layout_constraintStart_toEndOf="@id/fl_star3"
+        app:layout_constraintTop_toTopOf="@id/fl_star3"
+        app:layout_constraintBottom_toBottomOf="@id/fl_star3"
+        android:layout_marginStart="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_people_num"
+        android:layout_width="wrap_content"
+        android:layout_height="12dp"
+        android:text="4+"
+        android:fontFamily="@font/lottemart_light"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/iv_people"
+        app:layout_constraintBottom_toBottomOf="@id/iv_people"
+        android:layout_marginStart="4dp"/>
+    
+    <TextView
+        android:id="@+id/tv_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="태그"
+        android:fontFamily="@font/lottemart_light"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        android:gravity="center"
+        android:background="@drawable/border_1dp_white_btn_background"
+        app:layout_constraintStart_toEndOf="@id/cv_gameblock"
+        app:layout_constraintTop_toBottomOf="@id/fl_star1"
+        android:paddingHorizontal="12dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="2dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="5dp"/>
+
+    <ImageView
+        android:id="@+id/iv_list"
         android:layout_width="20dp"
         android:layout_height="20dp"
         app:srcCompat="@drawable/ic_playlist_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_marginEnd="15dp"/>
 
-    <ImageView
-        android:id="@+id/likeBtn"
+    <FrameLayout
+        android:id="@+id/fl_like"
         android:layout_width="20dp"
         android:layout_height="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="40dp"
-        app:srcCompat="@drawable/ic_like_heart_empty"/>
+        android:layout_marginEnd="15dp">
+
+        <ImageView
+            android:id="@+id/iv_like_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_like_heart_empty"/>
+
+        <ImageView
+            android:id="@+id/iv_like_fill"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_like_heart_filled"
+            android:visibility="gone"/>
+    </FrameLayout>
 
     <TextView
+        android:id="@+id/tv_like_num"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
+        android:layout_height="14dp"
+        android:text="100"
+        android:fontFamily="@font/kcc_ganpan"
         android:textColor="@color/pink_main"
         android:textSize="12dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/fl_like"
+        app:layout_constraintEnd_toEndOf="@id/fl_like"
+        app:layout_constraintStart_toStartOf="@id/fl_like"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
