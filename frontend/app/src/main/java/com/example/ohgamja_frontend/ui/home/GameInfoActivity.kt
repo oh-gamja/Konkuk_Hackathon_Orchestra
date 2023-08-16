@@ -52,6 +52,10 @@ class GameInfoActivity : AppCompatActivity() {
             }
         }
 
+        binding.bacnBtn.setOnClickListener {
+            finish()
+        }
+
         getGameInfo()
 
         setContentView(binding.root)
