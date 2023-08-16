@@ -10,7 +10,7 @@
         android:layout_width="316dp"
         android:layout_height="58dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/background4">
+        android:background="@drawable/border_playlist_item">
 
         <TextView
             android:id="@+id/rvListName"
