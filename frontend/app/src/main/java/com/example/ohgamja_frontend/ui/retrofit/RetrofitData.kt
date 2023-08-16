@@ -41,6 +41,6 @@ data class  TopGameResponse(
 data class  LikeTopGame(
     @SerializedName("gameId") val gameId: Int,
     @SerializedName("name") val gameName: String,
-    @SerializedName("gameImage") val category: String,
-    @SerializedName("likeCount") val difficulty: Int,
+    @SerializedName("gameImage") val gameImage: String,
+    @SerializedName("likeCount") val likeCount: Int,
 )

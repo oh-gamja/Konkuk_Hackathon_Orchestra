@@ -138,6 +138,12 @@ class HomeFragment : Fragment() {
                     binding.tvTop2Title.setText(topItems[1].gameName)
                     binding.tvTop3Title.setText(topItems[2].gameName)
 
+                    binding.tvTop1Num.setText(topItems[0].likeCount.toString())
+                    binding.tvTop2Num.setText(topItems[1].likeCount.toString())
+                    binding.tvTop3Num.setText(topItems[2].likeCount.toString())
+
+
+
                 } else {
                     Log.d("Retrofit", response.message())
                 }
