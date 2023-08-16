@@ -43,6 +43,11 @@ interface RetrofitInterface {
         @Body requestBody: gameIdRequest
     ): Call<BaseResponse<resultResponse>>
 
+    @POST("/playlists")
+    fun AddList(
+        @Body requestBody: PlaylistRequest
+    ) : Call<BaseResponse<String>>
+
 }
 
 
@@ -56,3 +61,4 @@ interface RetrofitLoginInterface {
 
 
 }
+
