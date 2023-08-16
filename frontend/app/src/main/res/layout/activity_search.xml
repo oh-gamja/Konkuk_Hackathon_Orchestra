@@ -72,6 +72,7 @@
         app:layout_constraintTop_toTopOf="@+id/et_search"/>
 
     <TextView
+        android:id="@+id/tv_filter"
         android:layout_width="wrap_content"
         android:layout_height="18dp"
         android:fontFamily="@font/lottemart_medium"
@@ -82,6 +83,20 @@
         app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/recyclerView"/>
+
+    <TextView
+        android:id="@+id/tv_no_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:fontFamily="@font/lottemart_medium"
+        android:text="선택한 필터가 없습니다."
+        android:textColor="@color/gray400"
+        android:textSize="14dp"
+        android:layout_marginLeft="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView"
+        android:visibility="gone"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

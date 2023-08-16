@@ -1,20 +1,28 @@
 package com.example.ohgamja_frontend.ui.home
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.ActivitySearchBinding
+import com.kakao.sdk.common.KakaoSdk.init
 
 class SearchActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySearchBinding
+    lateinit var binding: ActivitySearchBinding
+    var items = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivitySearchBinding.inflate(layoutInflater)
+
+        var isInput = false
 
         var check1 = false
         var check2 = false
@@ -29,7 +37,6 @@ class SearchActivity : AppCompatActivity() {
         var check9 = false
         var check10 = false
 
-        var items = mutableListOf<String>()
         val rv = binding.recyclerView
         val mAdapter = SearchFilterAdapter(items)
 
@@ -37,20 +44,19 @@ class SearchActivity : AppCompatActivity() {
         rv.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
 
         binding.btnSearch.setOnClickListener {
-            Log.d("search", "찾기 버튼 클릭")
-            var intent = Intent(this, SearchResultActivity::class.java)
-            intent.putExtra("search", binding.etSearch.text.toString())
-            for (i in 0 until items.size){
-                intent.putExtra("$i", items[i])
-                Log.d("search", "item[$i]값 : ${items[i]}")
+            if (isInput) {
+                var intent = Intent(this, SearchResultActivity::class.java)
+
+                intent.putExtra("search", binding.etSearch.text.toString())
+
+                for (i in 0 until items.size) intent.putExtra("$i", items[i])
+
+                var num = items.size
+                intent.putExtra("itemSize", num)
+
+                startActivity(intent)
             }
-            var num = items.size
-            intent.putExtra("itemSize", num)
-            Log.d("search", "itemSize : $num")
-
-            startActivity(intent)
         }
-
 
         binding.imgBtn1.setOnClickListener {
             if(check1 == false){
@@ -78,7 +84,6 @@ class SearchActivity : AppCompatActivity() {
                 binding.category2.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check2 = false
                 mAdapter.removeItem("두뇌")
-
             }
         }
         binding.imgBtn3.setOnClickListener {
@@ -134,10 +139,8 @@ class SearchActivity : AppCompatActivity() {
                 binding.personnel1.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check5 = false
                 mAdapter.removeItem("3명이상")
-
             }
         }
-
         binding.imgBtn6.setOnClickListener {
             if(check6 == false){
                 binding.imgBtn6.setImageResource(R.drawable.ic_radio_btn_checked)
@@ -165,7 +168,6 @@ class SearchActivity : AppCompatActivity() {
                 mAdapter.removeItem("4명이상")
             }
         }
-
         binding.imgBtn7.setOnClickListener {
             if(check7 == false){
                 binding.imgBtn7.setImageResource(R.drawable.ic_radio_btn_checked)
@@ -205,7 +207,6 @@ class SearchActivity : AppCompatActivity() {
                 binding.difficulty1.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check8 = false
                 mAdapter.removeItem("별하나")
-
             }
         }
         binding.imgBtn9.setOnClickListener {
@@ -221,7 +222,6 @@ class SearchActivity : AppCompatActivity() {
                 binding.difficulty2.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check9 = false
                 mAdapter.removeItem("별두개")
-
             }
         }
         binding.imgBtn10.setOnClickListener {
@@ -237,12 +237,29 @@ class SearchActivity : AppCompatActivity() {
                 binding.difficulty3.setTextColor(ContextCompat.getColor(this, R.color.white))
                 check10 = false
                 mAdapter.removeItem("별세개")
-
             }
         }
 
+        binding.etSearch.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                Log.d("texting","입력전")
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                Log.d("texting","입력중")
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                Log.d("texting","입력끝")
+                isInput = p0!!.isNotEmpty()
+            }
+        })
 
         setContentView(binding.root)
 
+        binding.imageView.setOnClickListener { finish() }
+        binding.textView4.setOnClickListener { finish() }
+
     }
+
 }

@@ -40,6 +40,7 @@
         android:layout_marginTop="57dp"
         android:hint="검색"
         android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:fontFamily="@font/lottemart_light"
         android:background="@drawable/border_1dp_background4_edittext_background"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,6 +59,7 @@
         app:layout_constraintTop_toTopOf="@+id/et_search" />
 
     <TextView
+        android:id="@+id/btn_search"
         android:layout_width="37dp"
         android:layout_height="20dp"
         android:layout_marginTop="10dp"
