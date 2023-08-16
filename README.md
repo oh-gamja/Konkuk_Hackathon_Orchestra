@@ -7,11 +7,11 @@
 
 ## 목차
 
-### 1. [Home](#1.-Home)
-### 2. [Game Detail](#2.-Game-Detail)
-### 3. [Like](#3.-Like)
-### 4. [Game List](#4.-Game-List)
-### 5. [My Page](#5.-My-Page)
+### 1. [Home](#1-Home)
+### 2. [Game Detail](#2-Game-Detail)
+### 3. [Like](#3-Like)
+### 4. [Game List](#4-Game-List)
+### 5. [My Page](#5-My-Page)
 
 
 ## 기능 소개
@@ -36,7 +36,8 @@
 <br>
 <br>
 ### 2. Game Detail
-![Frame (9)](https://github.com/oh-gamja/Konkuk_Hackathon_Orchestra/assets/89915076/35c352b4-0c68-425b-883d-de12add5a7d8)
+![Group 20 (1)](https://github.com/oh-gamja/Konkuk_Hackathon_Orchestra/assets/81912226/a7f52c06-efc9-42dd-bcde-444ade692613)
+
 
 - 게임 block을 클릭하면 게임 상세 정보를 확인할 수 있습니다.
 
@@ -50,7 +51,7 @@
 <br>
 <br>
 ### 3. Like 💟
-![Group 20](https://github.com/oh-gamja/Konkuk_Hackathon_Orchestra/assets/81912226/a4d4ee7d-1d49-462c-838a-8c16d19dfb95)
+![Group 21](https://github.com/oh-gamja/Konkuk_Hackathon_Orchestra/assets/81912226/92f23006-9d46-4740-993b-9c57b7511cf7)
 
 
 #### 3.1 좋아요 게임 리스트 확인
