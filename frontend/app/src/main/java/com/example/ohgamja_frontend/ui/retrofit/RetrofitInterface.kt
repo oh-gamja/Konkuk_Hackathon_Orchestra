@@ -20,6 +20,11 @@ interface RetrofitInterface {
     fun GetTopGameList(
     ): Call<BaseResponse<TopGameResponse>>
 
+
+    @GET("/likes")
+    fun GetLikes(
+    ): Call<BaseResponse<GamesResponse>>
+
     @GET("/playlists")
     fun GetPlaylist(
     ): Call<BaseResponse<PlaylistResponse>>
@@ -38,6 +43,12 @@ interface RetrofitInterface {
         @Body requestBody: gameIdRequest
     ): Call<BaseResponse<resultResponse>>
 
+    @GET("/games/random")
+    fun GetRandomGame(
+    ): Call<BaseResponse<DetailResponse>>
+
+
+
     @GET("/games")
     fun GetSearch(
         @Query("category") category : String,
@@ -45,6 +56,7 @@ interface RetrofitInterface {
         @Query("headCount") headCount : Int
     ) : Call<BaseResponse<SearchResponse>>
 }
+
 
 
 

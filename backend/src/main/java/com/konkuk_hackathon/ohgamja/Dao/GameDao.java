@@ -20,9 +20,11 @@ import java.util.Objects;
 @Repository
 public class GameDao {
     private final NamedParameterJdbcTemplate jdbcTemplate;
+
     public GameDao(DataSource dataSource) {
         this.jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
     }
+
     public GameDetail getGame(Long gameId) {
         String sql = "select * from game where game_id=:game_id";
 
@@ -52,15 +54,31 @@ public class GameDao {
         return jdbcTemplate.queryForObject(sql, param, Integer.class);
     }
 
-    public List<GamePreview> getGamePreviews(String category, String name, int headCount) {
-        System.out.println("category : " + category + " name : " + name + " headCount : " + headCount);
+    public List<GamePreview> getGamePreviews(String difficulty, String category, String name, int headCount) {
+        System.out.println("difficulty" + difficulty + "category" + category + " name : " + name + " headCount : " + headCount);
 
         String sql = "select game_id, game_name, category, difficulty, head_count, game_image " +
-                "from game WHERE category=:category AND head_count<=:head_count AND game_name LIKE :game_name";
+                "from game WHERE true ";
 
-        Map<String, Object> param = Map.of("category", category,
+        if (!difficulty.isEmpty()) {
+            sql += "AND difficulty=:difficulty ";
+        }
+        if (!category.isEmpty()) {
+            sql += "AND category=:category ";
+        }
+        if (headCount != -1) {
+            sql += "AND head_count>=:head_count ";
+        }
+        if (!name.isEmpty()) {
+            sql += "AND game_name LIKE :game_name";
+        }
+
+        System.out.println(sql);
+
+        Map<String, Object> param = Map.of("difficulty", difficulty,
+                "category", category,
                 "head_count", headCount,
-                    "game_name", "%"+name+"%");
+                "game_name", "%" + name + "%");
 
 
         RowMapper<GamePreview> mapper = (rs, rowNum) -> {
