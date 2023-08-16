@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Ohgamjafrontend"
         tools:targetApi="31">
         <activity
+            android:name=".ui.playlists.PlaylistInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.home.SearchActivity"
             android:exported="false" />
         <activity

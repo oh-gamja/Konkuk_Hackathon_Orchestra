@@ -56,9 +56,6 @@ class HomeFragment : Fragment() {
 
         listview.adapter = listAdapter
 
-        val mBuilder = AlertDialog.Builder(requireContext())
-            .setView(listvw)
-
         items.add(
             RecyclerviewModel(
                 "젠가",
