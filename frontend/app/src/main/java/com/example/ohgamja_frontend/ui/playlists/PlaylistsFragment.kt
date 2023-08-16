@@ -48,6 +48,10 @@ class PlaylistsFragment : Fragment() {
         rv.adapter = playlistsAdapter
         rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
+        var click_chance  = false
+
+
+
         RetrofitUtil.getRetrofit().GetPlaylist()
             .enqueue(object : Callback<BaseResponse<PlaylistResponse>> {
                 override fun onResponse(
@@ -94,13 +98,29 @@ class PlaylistsFragment : Fragment() {
         binding.deleteListIv.setOnClickListener {
             playlistsAdapter.stateChange()
             binding.playRv.adapter?.notifyDataSetChanged()
+            binding.deleteListIv.visibility = View.GONE
+            binding.cancelBtn.visibility = View.VISIBLE
+            binding.deleteListTv.visibility = View.GONE
+            binding.playlistAddButton.visibility = View.GONE
         }
 
         binding.deleteListTv.setOnClickListener {
             playlistsAdapter.stateChange()
             binding.playRv.adapter?.notifyDataSetChanged()
+            binding.deleteListIv.visibility = View.GONE
+            binding.cancelBtn.visibility = View.VISIBLE
+            binding.deleteListTv.visibility = View.GONE
+            binding.playlistAddButton.visibility = View.GONE
         }
 
+        binding.cancelBtn.setOnClickListener {
+            playlistsAdapter.stateChange()
+            binding.playRv.adapter?.notifyDataSetChanged()
+            binding.deleteListTv.visibility = View.VISIBLE
+            binding.deleteListIv.visibility = View.VISIBLE
+            binding.cancelBtn.visibility = View.GONE
+            binding.playlistAddButton.visibility = View.VISIBLE
+        }
 
 
         return binding.root

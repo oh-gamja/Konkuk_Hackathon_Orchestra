@@ -36,6 +36,9 @@ class PlaylistInfoActivity : AppCompatActivity() {
 
 
         val playlistId = intent.getIntExtra("playlistId", -1)
+        var playlistName = intent.getStringExtra("playlistName")
+
+        binding.backBtnTv.setText(playlistName)
         RetrofitUtil.getRetrofit().GetPlaylistDetail(playlistId)
             .enqueue(object : Callback<BaseResponse<GamesResponse>> {
                 override fun onResponse(
