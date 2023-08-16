@@ -47,7 +47,7 @@ class RVAdapter(val type: Int, val context: Context, val fragmentManger: Fragmen
             //itemContainer 클릭 시 gameinfoactivity로 전환
             rv_container.setOnClickListener {
                 val intent = Intent(context,GameInfoActivity::class.java)
-                intent.putExtra("gameId", itemId.toInt())
+                intent.putExtra("gameId", item.itemId)
                 context.startActivity(intent)
             }
 
