@@ -26,8 +26,8 @@ public class GameService {
         return new GameResponse(gameDetail.getGameId(), gameDetail.getGameName(), gameDetail.getCategory(), gameDetail.getDifficulty(), gameDetail.getHeadCount(), gameDetail.getDescription(), gameDetail.getGameImage(), likeCount, isLike);
     }
 
-    public GamesResponse getGamePreviews(String category, String name, int headCount, Long memberId){
-        List<GamePreview> gamePreviews = gameDao.getGamePreviews(category, name, headCount);
+    public GamesResponse getGamePreviews(String difficulty, String category, String name, int headCount, Long memberId){
+        List<GamePreview> gamePreviews = gameDao.getGamePreviews(difficulty, category, name, headCount);
         for (GamePreview gamePreview : gamePreviews) {
             int likeCount = gameDao.getLikeCount(gamePreview.getGameId());
             gamePreview.setLikeCount(likeCount);

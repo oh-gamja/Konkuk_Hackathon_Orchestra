@@ -39,6 +39,9 @@ class DeletePlaylistDialog(val items : ArrayList<PlaylistViewModel>, val adapter
 
         binding = DialogDeletePlaylistBinding.inflate(inflater)
 
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
+
         val cancelBtn: Button = rootView.findViewById(R.id.cancelBtn)
         cancelBtn.setOnClickListener {
             Toast.makeText(context, "delete Cancel", Toast.LENGTH_SHORT).show()

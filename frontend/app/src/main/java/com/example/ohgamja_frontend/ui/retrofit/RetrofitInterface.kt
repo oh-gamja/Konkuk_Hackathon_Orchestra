@@ -44,6 +44,18 @@ interface RetrofitInterface {
         @Body requestBody: gameIdRequest
     ): Call<BaseResponse<resultResponse>>
 
+    @GET("/games/random")
+    fun GetRandomGame(
+    ): Call<BaseResponse<DetailResponse>>
+
+    @GET("/games")
+    fun GetSearch(
+        @Query("difficulty") difficulty: String,
+        @Query("category") category : String,
+        @Query("name") name : String,
+        @Query("headCount") headCount : Int
+    ) : Call<BaseResponse<SearchResponse>>
+
     @HTTP(method = "DELETE", path = "/likes/remove", hasBody = true)
     @DELETE("/likes/remove")
     fun DeleteLike(
@@ -64,6 +76,7 @@ interface RetrofitInterface {
 
 
 
+
 interface RetrofitLoginInterface {
 
     @POST("/auth/kakao")
@@ -73,4 +86,3 @@ interface RetrofitLoginInterface {
 
 
 }
-
