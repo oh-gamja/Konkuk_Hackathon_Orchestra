@@ -79,4 +79,19 @@ data class resultResponse(
     @SerializedName("result") val result: String
 )
 
+data class  SearchResponse(
+    @SerializedName("searchResponse") val searchResponse: List<Search>,
+)
+
+data class  Search(
+    @SerializedName("gameId") val gameId: Int,
+    @SerializedName("gameName") val gameName: String,
+    @SerializedName("category") val category: String,
+    @SerializedName("difficulty") val difficulty: String,
+    @SerializedName("headCount") val headCount: Int,
+    @SerializedName("gameImage") val gameImage: String,
+    @SerializedName("likeCount") val likeCount: Int,
+    @SerializedName("like") val like: Boolean
+)
+
 
