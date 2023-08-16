@@ -133,10 +133,11 @@ class HomeFragment : Fragment() {
             ) {
                 if (response.isSuccessful) {
                     val result = response.body()!!.result
-                    val items = result.likeTopGames
-                    items.forEach({
+                    val topItems = result.likeTopGames
+                    binding.tvTop1Title.setText(topItems[0].gameName)
+                    binding.tvTop2Title.setText(topItems[1].gameName)
+                    binding.tvTop3Title.setText(topItems[2].gameName)
 
-                    })
                 } else {
                     Log.d("Retrofit", response.message())
                 }
