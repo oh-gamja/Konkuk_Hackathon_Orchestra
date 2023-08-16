@@ -19,6 +19,10 @@ data class BaseResponse<T>(
     @SerializedName("result") val result: T,
 )
 
+data class SignoutResponse(
+    @SerializedName("memberId") val memberId: Int
+)
+
 data class GamesResponse(
     @SerializedName("gamePreviews") val gamePreviews: List<GamePreview>
 )
