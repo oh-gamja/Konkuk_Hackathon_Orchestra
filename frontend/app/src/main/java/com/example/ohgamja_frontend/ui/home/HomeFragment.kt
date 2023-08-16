@@ -40,53 +40,6 @@ class HomeFragment : Fragment() {
             startActivity(i)
         }
 
-
-
-//        items.add(
-//            RVViewModel(
-//                "젠가",
-//                3,
-//                "스릴러",
-//                "4"
-//                ,200
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "경도",
-//                2,
-//                "범죄",
-//                "2",
-//                100
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "바니바니",
-//                2,
-//                "농락",
-//                "5",
-//                300
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "출석부",
-//                1,
-//                "속도",
-//                "6",
-//                50
-//            )
-//        )
-//        items.add(
-//            RVViewModel(
-//                "더 게임 오브 데스",
-//                3,
-//                "도박",
-//                "8",
-//                60
-//            )
-//        )
         val rv = binding.rv
         val rvAdapter = RVAdapter(0, requireContext(), childFragmentManager , items)
 
@@ -115,6 +68,7 @@ class HomeFragment : Fragment() {
                                 RVViewModel(it.gameId, it.gameName, it.difficulty, it.category, it.headCount, it.likeCount)
                             )
                         }
+                        rvAdapter.notifyDataSetChanged()
                     } else {
                         Log.d("Retrofit", response.message())
                     }
@@ -124,8 +78,6 @@ class HomeFragment : Fragment() {
                     Log.d("Retrofit", t.message.toString())
                 }
             })
-
-
 
         return binding.root
     }
