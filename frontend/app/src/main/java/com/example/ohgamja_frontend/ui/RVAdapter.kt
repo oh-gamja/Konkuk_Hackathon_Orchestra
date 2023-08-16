@@ -32,7 +32,7 @@ class RVAdapter(val type: Int, val context: Context, val fragmentManger: Fragmen
         return ViewHolder(binding)
     }
     interface ItemClick {
-        fun onClick()
+        fun onClick(gameId: Int)
     }
     var itemClick : ItemClick? = null
 
@@ -95,7 +95,7 @@ class RVAdapter(val type: Int, val context: Context, val fragmentManger: Fragmen
             }
 
             binding.listBtn.setOnClickListener {
-                itemClick?.onClick()
+                itemClick?.onClick(item.itemId)
             }
 
             var likeChance = item.isLiked

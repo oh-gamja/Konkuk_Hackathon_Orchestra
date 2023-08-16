@@ -104,4 +104,22 @@ data class  Search(
     @SerializedName("like") val like: Boolean
 )
 
+data class playlistInfo(
+    @SerializedName("playlistId") val playlistId: Int,
+    @SerializedName("playlistName") val playlistName: String,
+    @SerializedName("gameCount") val gameCount: Int,
+    @SerializedName("isInPlaylist") val isInPlaylist: Boolean
+)
+
+data class playlistInfoList(
+    @SerializedName("playlistInfoList") val playlistInfoList: List<playlistInfo>
+)
+
+data class deleteListRequest(
+    @SerializedName("playlistId") val playlistId: Int,
+    @SerializedName("gameId") val gameId: Int
+)
+
+
+
 

@@ -26,11 +26,6 @@ class GameInfoActivity : AppCompatActivity() {
 
         binding = ActivityGameInfoBinding.inflate(layoutInflater)
 
-        binding.addButton.setOnClickListener {
-            //추가할 플레이리스트를 고르는 dialog
-            val dialog = AddToPlaylistDialog()
-            dialog.show(supportFragmentManager,"DialogFragment")
-        }
 
         var joa = false
 
@@ -81,6 +76,12 @@ class GameInfoActivity : AppCompatActivity() {
                     binding.tag.setText(result.category)
                     binding.heartNum.setText(result.likeCount.toString())
                     binding.detailContent.setText(result.description)
+
+                    binding.addButton.setOnClickListener {
+                        //추가할 플레이리스트를 고르는 dialog
+                        val dialog = AddToPlaylistDialog(result.gameId)
+                        dialog.show(supportFragmentManager,"DialogFragment")
+                    }
 
                     var isLiked = result.isLike
                     if(isLiked == false){

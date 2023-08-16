@@ -72,11 +72,29 @@ interface RetrofitInterface {
     ) : Call<BaseResponse<String>>
 
     @HTTP(method = "DELETE", path = "/playlists/remove", hasBody = true)
-    @DELETE("/playlists/remove")
     fun DeleteList(
         @Body requestBody: DeletePlaylistRequest
     ): Call<BaseResponse<String>>
 
+
+    @POST("/playlists/putInPlaylist")
+    fun AddToList(
+        @Query("gameId") gameId: Int,
+        @Query("playlistId") playlistId: Int,
+    ) : Call<BaseResponse<String>>
+
+
+    @GET("/playlists/playlistInfo")
+    fun GetListInfo(
+        @Query("gameId") gameId: Int
+    ): Call<BaseResponse<playlistInfoList>>
+
+
+    @HTTP(method = "DELETE", path = "/playlists/detail/remove", hasBody = true)
+    fun DeleteFromList(
+        @Query("gameId") gameId: Int,
+        @Query("playlistId") playlistId: Int,
+    ): Call<BaseResponse<String>>
 
 }
 
