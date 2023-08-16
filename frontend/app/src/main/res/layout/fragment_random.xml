@@ -52,6 +52,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/game_iv"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@drawable/ex_rabbit" />
@@ -109,7 +110,7 @@
             app:srcCompat="@drawable/ic_star_empty"></ImageView>
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/headCount_tv"
             android:layout_width="wrap_content"
             android:layout_height="12dp"
             android:layout_marginLeft="147dp"
@@ -136,6 +137,7 @@
                 android:background="@drawable/border_1dp_white_tag_background">
 
                 <TextView
+                    android:id="@+id/category_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="12dp"
                     android:layout_marginLeft="12.8dp"
