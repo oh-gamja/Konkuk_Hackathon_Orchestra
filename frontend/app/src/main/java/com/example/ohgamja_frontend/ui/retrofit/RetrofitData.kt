@@ -19,6 +19,10 @@ data class BaseResponse<T>(
     @SerializedName("result") val result: T,
 )
 
+data class SignoutResponse(
+    @SerializedName("memberId") val memberId: Int
+)
+
 data class GamesResponse(
     @SerializedName("gamePreviews") val gamePreviews: List<GamePreview>
 )
@@ -43,6 +47,16 @@ data class  LikeTopGame(
     @SerializedName("name") val gameName: String,
     @SerializedName("gameImage") val gameImage: String,
     @SerializedName("likeCount") val likeCount: Int,
+)
+
+data class  PlaylistResponse(
+    @SerializedName("playListResponse") val playListResponse: List<Playlist>,
+)
+
+data class  Playlist(
+    @SerializedName("playlistId") val playlistId: Int,
+    @SerializedName("playlistName") val playlistName: String,
+    @SerializedName("gameCount") val gameCount: Int,
 )
 
 data class DetailRequest(

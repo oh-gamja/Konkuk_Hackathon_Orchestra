@@ -4,6 +4,7 @@ import com.example.ohgamja_frontend.ui.retrofit.LoginRequest
 import com.example.ohgamja_frontend.ui.retrofit.LoginResponse
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
@@ -17,6 +18,14 @@ interface RetrofitInterface {
     @GET("/likes/top")
     fun GetTopGameList(
     ): Call<BaseResponse<TopGameResponse>>
+
+    @GET("/playlists")
+    fun GetPlaylist(
+    ): Call<BaseResponse<PlaylistResponse>>
+
+    @DELETE("/auth/signout")
+    fun KaKaoSingout(
+    ): Call<BaseResponse<SignoutResponse>>
 
     @POST("/games/detail")
     fun GetGameDetail(
