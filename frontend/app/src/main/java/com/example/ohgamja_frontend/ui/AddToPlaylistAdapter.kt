@@ -1,4 +1,4 @@
-package com.example.ohgamja_frontend.ui.home
+package com.example.ohgamja_frontend.ui
 
 import android.content.Context
 import android.content.res.ColorStateList
@@ -6,13 +6,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ohgamja_frontend.R
-import com.example.ohgamja_frontend.databinding.DialogAddToPlaylistBinding
 import com.example.ohgamja_frontend.databinding.ItemDialogAddToPlaylistAdapterBinding
 
 class AddToPlaylistAdapter(val items : ArrayList<AddToPlaylistViewModel>, val context: Context) : RecyclerView.Adapter<AddToPlaylistAdapter.ViewHolder>() {
 
     //playlist 불러오기
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddToPlaylistAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemDialogAddToPlaylistAdapterBinding.inflate(LayoutInflater.from(parent.context))
         return ViewHolder(binding)
     }

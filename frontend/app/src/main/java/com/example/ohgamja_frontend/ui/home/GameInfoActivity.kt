@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.ActivityGameInfoBinding
+import com.example.ohgamja_frontend.ui.AddToPlaylistDialog
 
 class GameInfoActivity : AppCompatActivity() {
 

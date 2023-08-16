@@ -1,4 +1,4 @@
-package com.example.ohgamja_frontend.ui.home
+package com.example.ohgamja_frontend.ui
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
