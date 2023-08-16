@@ -101,7 +101,7 @@ class LikeFragment : Fragment() {
         )
 
         val rv = binding.likerv
-        val rvAdapter = RVAdapter(0, requireContext(), items)
+        val rvAdapter = RVAdapter(0, requireContext(), childFragmentManager, items)
 
         rv.adapter = rvAdapter
         rv.layoutManager = LinearLayoutManager(context)

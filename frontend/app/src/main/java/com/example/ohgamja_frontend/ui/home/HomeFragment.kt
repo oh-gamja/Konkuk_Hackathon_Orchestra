@@ -77,10 +77,10 @@ class HomeFragment : Fragment() {
             )
         )
         val rv = binding.rv
-        val rvAdapter = RVAdapter(0, requireContext(), items)
+        val rvAdapter = RVAdapter(0, requireContext(), childFragmentManager ,items)
 
         rv.adapter = rvAdapter
-        rv.layoutManager = LinearLayoutManager(context)
+        rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         rvAdapter.itemClick = object : RVAdapter.ItemClick {
             override fun onClick(view: View, position: Int) {

@@ -7,17 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ohgamja_frontend.R
 import com.example.ohgamja_frontend.databinding.ItemRvadapterBinding
 import com.google.android.material.datepicker.MaterialDatePicker.Builder.datePicker
 
 
-
-
-class RVAdapter(val type: Int, val context: Context, val items : MutableList<RVViewModel>) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
+class RVAdapter(val type: Int, val context: Context, val fragmentManger: FragmentManager, val items : MutableList<RVViewModel>) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVAdapter.ViewHolder {
-        val binding = ItemRvadapterBinding.inflate(LayoutInflater.from(parent.context))
+        val binding = ItemRvadapterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
     interface ItemClick {
@@ -46,14 +45,9 @@ class RVAdapter(val type: Int, val context: Context, val items : MutableList<RVV
             val rv_list = binding.listBtn
             val rv_likeCount = binding.likeCount
 
-            val mDialogView = LayoutInflater.from(context).inflate(R.layout.dialog_add_to_playlist,null)
-            val mBuilder = AlertDialog.Builder(context)
             rv_list.setOnClickListener {
-                if(mDialogView.parent != null){
-                    ((mDialogView.parent) as ViewGroup).removeView(mDialogView)
-                }
-                mBuilder.setView(mDialogView)
-                mBuilder.show()
+                val dialog = AddToPlaylistDialog()
+                dialog.show(fragmentManger, null)
             }
 
 
