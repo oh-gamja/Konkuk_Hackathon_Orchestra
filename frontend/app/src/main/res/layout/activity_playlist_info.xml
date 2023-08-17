@@ -44,6 +44,7 @@
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <ImageView
+        android:id="@+id/trashimg"
         android:layout_width="15dp"
         android:layout_height="18.75dp"
         app:layout_constraintEnd_toEndOf="parent"

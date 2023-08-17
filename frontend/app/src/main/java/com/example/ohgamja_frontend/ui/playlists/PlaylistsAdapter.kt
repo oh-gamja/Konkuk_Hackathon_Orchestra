@@ -56,12 +56,15 @@ class PlaylistsAdapter(
             binding.rvListName.text = item.listName
             binding.rvGameNum.setText("${item.gameNum.toString()}개")
             binding.rvDelButton.setOnClickListener {
-                Toast.makeText(context, "delete!!", Toast.LENGTH_SHORT).show()
-
                 if (item.trashStatus) {
                     val dialog =
                         DeletePlaylistDialog(items, adapterPosition, this@PlaylistsAdapter)
                     dialog.show(fragmentManager, "DialogFragment")
+                } else {
+                    val intent = Intent(context, PlaylistInfoActivity::class.java)
+                    intent.putExtra("playlistId", item.playlistId)
+                    intent.putExtra("playlistName",item.listName)
+                    context.startActivity(intent)
                 }
             }
             if (item.trashStatus) {

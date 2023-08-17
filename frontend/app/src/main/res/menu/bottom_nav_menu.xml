@@ -17,7 +17,7 @@
     <item
         android:id="@+id/navigation_random"
         android:icon="@drawable/logo"
-        android:title=""
+        android:title="레쭈고"
         app:showAsAction="always"/>
 
     <item

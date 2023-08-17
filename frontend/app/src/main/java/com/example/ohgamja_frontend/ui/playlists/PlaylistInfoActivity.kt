@@ -19,7 +19,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PlaylistInfoActivity : AppCompatActivity() {
+class PlaylistInfoActivity() : AppCompatActivity() {
 
     private lateinit var binding: ActivityPlaylistInfoBinding
 
@@ -31,12 +31,68 @@ class PlaylistInfoActivity : AppCompatActivity() {
 
         val rvAdapter = RVAdapter(1, this, supportFragmentManager, items)
 
+
+
         binding.playlistRv.adapter = rvAdapter
         binding.playlistRv.layoutManager = LinearLayoutManager(this)
 
 
         val playlistId = intent.getIntExtra("playlistId", -1)
         var playlistName = intent.getStringExtra("playlistName")
+
+
+        rvAdapter.itemClick = object: RVAdapter.ItemClick {
+            override fun onClick(gameId: Int) {
+                RetrofitUtil.getRetrofit().DeleteFromList(gameId, playlistId).enqueue(object: Callback<BaseResponse<String>>{
+                    override fun onResponse(
+                        call: Call<BaseResponse<String>>,
+                        response: Response<BaseResponse<String>>
+                    ) {
+                        if(response.isSuccessful){
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<BaseResponse<String>>, t: Throwable) {
+                    }
+
+                })
+            }
+        }
+
+        binding.textView5.setOnClickListener {
+
+//            RetrofitUtil.getRetrofit().DeleteList(playlistId).enqueue(object : Callback<BaseResponse<String>>{
+//                override fun onResponse(
+//                    call: Call<BaseResponse<String>>,
+//                    response: Response<BaseResponse<String>>
+//                ) {
+//                    if(response.isSuccessful){
+//
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<BaseResponse<String>>, t: Throwable) {
+//                }
+//
+//            })
+        }
+        binding.trashimg.setOnClickListener {
+//            RetrofitUtil.getRetrofit().DeleteList(playlistId).enqueue(object : Callback<BaseResponse<String>>{
+//                override fun onResponse(
+//                    call: Call<BaseResponse<String>>,
+//                    response: Response<BaseResponse<String>>
+//                ) {
+//                    if(response.isSuccessful){
+//                        finish()
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<BaseResponse<String>>, t: Throwable) {
+//                }
+//
+//            })
+        }
 
         binding.backBtnTv.setText(playlistName)
         RetrofitUtil.getRetrofit().GetPlaylistDetail(playlistId)

@@ -96,6 +96,12 @@ interface RetrofitInterface {
         @Query("playlistId") playlistId: Int,
     ): Call<BaseResponse<String>>
 
+
+    @HTTP(method = "DELETE", path = "/playlists/remove", hasBody = true)
+    fun DeleteList(
+        @Query("playlistId") playlistId: Int,
+    ): Call<BaseResponse<String>>
+
 }
 
 
