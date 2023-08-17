@@ -20,7 +20,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DeletePlaylistDialog(val items : ArrayList<PlaylistViewModel>, val adapterPosition: Int, private val adapter: PlaylistsAdapter) : DialogFragment() {
+class DeletePlaylistDialog(val playlistId: Int) : DialogFragment() {
 
     private lateinit var binding : DialogDeletePlaylistBinding
 
@@ -52,9 +52,21 @@ class DeletePlaylistDialog(val items : ArrayList<PlaylistViewModel>, val adapter
         deleteListBtn.setOnClickListener {
             Toast.makeText(context, "deleteList", Toast.LENGTH_SHORT).show()
             //플리 삭제됨
-            items.removeAt(adapterPosition)
-            adapter.notifyItemRemoved(adapterPosition)
-            dismiss()
+            RetrofitUtil.getRetrofit().DeleteList(playlistId)
+                .enqueue(object : Callback<BaseResponse<String>> {
+                    override fun onResponse(
+                        call: Call<BaseResponse<String>>,
+                        response: Response<BaseResponse<String>>
+                    ) {
+                        if (response.isSuccessful) {
+                            dismiss()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<BaseResponse<String>>, t: Throwable) {
+                    }
+
+                })
         }
 
         return rootView

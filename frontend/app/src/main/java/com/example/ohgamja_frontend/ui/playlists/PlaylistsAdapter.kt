@@ -58,7 +58,7 @@ class PlaylistsAdapter(
             binding.rvDelButton.setOnClickListener {
                 if (item.trashStatus) {
                     val dialog =
-                        DeletePlaylistDialog(items, adapterPosition, this@PlaylistsAdapter)
+                        DeletePlaylistDialog(item.playlistId)
                     dialog.show(fragmentManager, "DialogFragment")
                 } else {
                     val intent = Intent(context, PlaylistInfoActivity::class.java)

@@ -41,57 +41,33 @@ class PlaylistInfoActivity() : AppCompatActivity() {
         var playlistName = intent.getStringExtra("playlistName")
 
 
-        rvAdapter.itemClick = object: RVAdapter.ItemClick {
+        rvAdapter.itemClick = object : RVAdapter.ItemClick {
             override fun onClick(gameId: Int) {
-                RetrofitUtil.getRetrofit().DeleteFromList(gameId, playlistId).enqueue(object: Callback<BaseResponse<String>>{
-                    override fun onResponse(
-                        call: Call<BaseResponse<String>>,
-                        response: Response<BaseResponse<String>>
-                    ) {
-                        if(response.isSuccessful){
+                RetrofitUtil.getRetrofit().DeleteFromList(gameId, playlistId)
+                    .enqueue(object : Callback<BaseResponse<String>> {
+                        override fun onResponse(
+                            call: Call<BaseResponse<String>>,
+                            response: Response<BaseResponse<String>>
+                        ) {
+                            if (response.isSuccessful) {
 
+                            }
                         }
-                    }
 
-                    override fun onFailure(call: Call<BaseResponse<String>>, t: Throwable) {
-                    }
+                        override fun onFailure(call: Call<BaseResponse<String>>, t: Throwable) {
+                        }
 
-                })
+                    })
             }
         }
 
         binding.textView5.setOnClickListener {
-
-//            RetrofitUtil.getRetrofit().DeleteList(playlistId).enqueue(object : Callback<BaseResponse<String>>{
-//                override fun onResponse(
-//                    call: Call<BaseResponse<String>>,
-//                    response: Response<BaseResponse<String>>
-//                ) {
-//                    if(response.isSuccessful){
-//
-//                    }
-//                }
-//
-//                override fun onFailure(call: Call<BaseResponse<String>>, t: Throwable) {
-//                }
-//
-//            })
+            val dialog = DeletePlaylistDialog(playlistId)
+            dialog.show(supportFragmentManager, null)
         }
         binding.trashimg.setOnClickListener {
-//            RetrofitUtil.getRetrofit().DeleteList(playlistId).enqueue(object : Callback<BaseResponse<String>>{
-//                override fun onResponse(
-//                    call: Call<BaseResponse<String>>,
-//                    response: Response<BaseResponse<String>>
-//                ) {
-//                    if(response.isSuccessful){
-//                        finish()
-//                    }
-//                }
-//
-//                override fun onFailure(call: Call<BaseResponse<String>>, t: Throwable) {
-//                }
-//
-//            })
+            val dialog = DeletePlaylistDialog(playlistId)
+            dialog.show(supportFragmentManager, null)
         }
 
         binding.backBtnTv.setText(playlistName)
@@ -106,7 +82,16 @@ class PlaylistInfoActivity() : AppCompatActivity() {
                         val items = result.gamePreviews
                         items.forEach {
                             rvAdapter.items.add(
-                                RVViewModel(it.gameId,it.gameImage, it.gameName, it.difficulty, it.category, it.headCount, it.likeCount, it.like)
+                                RVViewModel(
+                                    it.gameId,
+                                    it.gameImage,
+                                    it.gameName,
+                                    it.difficulty,
+                                    it.category,
+                                    it.headCount,
+                                    it.likeCount,
+                                    it.like
+                                )
                             )
                         }
                         rvAdapter.notifyDataSetChanged()
